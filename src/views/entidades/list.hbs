@@ -1,0 +1,47 @@
+<div class="container">
+    <table class="table table-sm">
+        {{#if entidades}}
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">NIT</th>
+                <th scope="col">Razon</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">dirección</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">editar</th>
+            </tr>
+            <a href="/entidades/add" class="btn btn-success">
+                <i class='fas fa-plus-square'></i>
+            </a>
+        </thead>
+        {{/if}}
+        <tbody>
+            {{#each entidades}}
+            <tr>
+                <td scope="row" class="small">{{id}}</th>
+                <td class="small">{{nit}}</td>
+                <td class="small">{{razon_social}}</td>
+                <td class="small">{{direccion}}</td>
+                <td class="small">{{telefono}}</td>
+                <td class="small">{{email}}</td>
+                <td><a href="/entidades/edit/{{id}}" class="btn btn-success"><i class='fas fa-edit flex-shrink-1 bd-highlight'></i></a></td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="6" class="text-center">
+                    <p>hay ninguna entidad guardada</p><br>
+                    <a href="/entidades/add" class="btn btn-success">Agregar entidad</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{#if entidades}}
+            <tr>
+                <td colspan="6" class="text-center">
+                    <a href="/entidades/add" class="btn btn-success">Agregar entidad</a>
+                </td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/pacientes/add" method="POST">
+                        <div class="form-group"></div>
+                        <p>Tipo de Documento:
+                            <select name="t_docu">
+                                <option selected="true" value="cedula">C.C.</option>
+                                <option value="tarjeta">T.I.</option>
+                                <option value="registro">R.C.</option>
+                                <option value="extranjeria">C.E.</option>
+                                <option value="pasaporte">Pasaporte</option>
+                            </select>
+                        </p>
+                        <input type="text" name="num_docu" class="form-control" placeholder="Numero de Documento" required>
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre Completo" required>
+                        <input type="text" name="direccion" class="form-control" placeholder="Direccoión" required>
+                        <input type="text" name="telefono" class="form-control" placeholder="telefono" required>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
+                            <input type="date" name="fecha_nacimiento" value="2000-01-01" min="1920-01-01" max="2040-12-31">
+                        </p>
+                        <textarea type="description" rows="2" class="form-control" name="description" placeholder="Description"></textarea>
+                        <button class="btn btn-success btn-block">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

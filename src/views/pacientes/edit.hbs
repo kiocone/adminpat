@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/pacientes/edit/{{paciente.id}}" method="POST">
+                        <div class="form-group"></div>
+                        <p>Tipo de Documento:
+                            <select name="t_docu" selected="{{paciente.t_docu}}">
+                                <!-- Rellenar con las opciones de tipo documento-->
+                                <option value="cedula">C.C.</option>
+                                <option value="tarjeta">T.I.</option>
+                                <option value="registro">R.C.</option>
+                                <option value="extranjeria">C.E.</option>
+                                <option value="pasaporte">Pasaporte</option>
+                            </select>
+                        </p>
+                        <input value="{{paciente.num_docu}}" type="text" name="num_docu" class="form-control"
+                            placeholder="Numero de Documento" required>
+                        <input value="{{paciente.nombre}}" type="text" name="nombre" class="form-control"
+                            placeholder="Nombre Completo" required>
+                        <input value="{{paciente.direccion}}" type="text" name="direccion" class="form-control"
+                            placeholder="Direccoión" required>
+                        <input value="{{paciente.telefono}}" type="text" name="telefono" class="form-control"
+                            placeholder="telefono" required>
+                        <input value="{{paciente.email}}" type="email" name="email" class="form-control"
+                            placeholder="Email" required>
+                        <p>Fecha de nacimiento (<i class="tenue">Año-Mes-Dia</i>):
+                            <input value="{{paciente.f_nac}}" type="text" name="fecha_nacimiento" class="form-control"
+                                placeholder="Fecha de nacimiento" required>
+                        </p>
+                        <textarea rows="2" class="form-control" name="description">{{paciente.description}}</textarea>
+                        <button class="btn btn-success btn-block">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

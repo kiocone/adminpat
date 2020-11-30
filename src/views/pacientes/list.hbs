@@ -1,0 +1,57 @@
+<div class="container">
+    <table class="table table-sm">
+        {{#if paciente}}
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Tipo</th>
+                <th scope="col"># Doc</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">dirección</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Comentario</th>
+            </tr>
+            <a href="/pacientes/add" class="btn btn-success">
+                <i class='fas fa-plus-square'></i>
+            </a>
+        </thead>
+        {{/if}}
+        <tbody>
+            {{#each paciente}}
+            <tr>
+                <td scope="row" class="small">{{id}}</th>
+                <td class="small">{{t_docu}}</td>
+                <td class="small">{{num_docu}}</td>
+                <td class="small">{{nombre}}</td>
+                <td class="small">{{direccion}}</td>
+                <td class="small">{{telefono}}</td>
+                <td class="small">{{email}}</td>
+                <td class="small"><time>{{f_nac}}</time></td>
+                <td class="small">
+                    <span class="tooltip-multiline tooltip-bottom-left" data-tooltip="{{description}}">
+                        Ver
+                    </span>
+                    <a href="/pacientes/edit/{{id}}" class="btn btn-success">
+                        <i class='fas fa-edit'></i>
+                    </a>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="8" class="text-center">
+                    <p>hay ningun entidad guardado</p><br>
+                    <a href="/pacientes/add" class="btn btn-success">Agregar Paciente</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{#if paciente}}
+            <tr>
+                <td colspan="8" class="text-center">
+                    <a href="/pacientes/add" class="btn btn-success">Agregar Paciente</a>
+                </td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>
