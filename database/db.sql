@@ -79,12 +79,6 @@ CREATE TABLE informe (
 	micro TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
-ALTER TABLE informe ADD CONSTRAINT informe_fk0 FOREIGN KEY (id_paciente) REFERENCES paciente(id);
-ALTER TABLE informe ADD CONSTRAINT informe_fk1 FOREIGN KEY (id_entidad) REFERENCES entidad(id);
-ALTER TABLE informe ADD CONSTRAINT informe_fk2 FOREIGN KEY (id_convenio) REFERENCES convenio(id);
-ALTER TABLE informe ADD CONSTRAINT informe_fk3 FOREIGN KEY (id_medRemitente) REFERENCES medRemitente(id);
-ALTER TABLE informe ADD CONSTRAINT informe_fk4 FOREIGN KEY (id_patologo) REFERENCES patologo(id);
-ALTER TABLE informe ADD CONSTRAINT informe_fk5 FOREIGN KEY (id_estudio) REFERENCES estudios(id);
 
 CREATE TABLE medRemitente (
 	id INT(11) NOT NULL AUTO_INCREMENT,
@@ -113,6 +107,12 @@ CREATE TABLE factura (
 	PRIMARY KEY (id)
 );
 
+ALTER TABLE informe ADD CONSTRAINT informe_fk0 FOREIGN KEY (id_paciente) REFERENCES paciente(id);
+ALTER TABLE informe ADD CONSTRAINT informe_fk1 FOREIGN KEY (id_entidad) REFERENCES entidad(id);
+ALTER TABLE informe ADD CONSTRAINT informe_fk2 FOREIGN KEY (id_convenio) REFERENCES convenio(id);
+ALTER TABLE informe ADD CONSTRAINT informe_fk3 FOREIGN KEY (id_medRemitente) REFERENCES medRemitente(id);
+ALTER TABLE informe ADD CONSTRAINT informe_fk4 FOREIGN KEY (id_patologo) REFERENCES patologo(id);
+ALTER TABLE informe ADD CONSTRAINT informe_fk5 FOREIGN KEY (id_estudio) REFERENCES estudios(id);
 
 
 
