@@ -1,0 +1,27 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/patologos/edit/{{patologos.id}}" method="POST">
+                        <div class="form-group"></div>
+                        <h3>Editar Patólogo</h3>
+                        <input value="{{patologos.patologo}}" type="text" name="patologo" class="form-control"
+                            placeholder="Nombre" required autofocus>
+                        <input value="{{patologos.num_doc}}" type="text" name="num_doc" class="form-control"
+                            placeholder="Numero de Documento" required>
+                        <input value="{{patologos.direccion}}" type="text" name="direccion" class="form-control"
+                            placeholder="Direccoión" required>
+                        <input value="{{patologos.telefono}}" type="text" name="telefono" class="form-control"
+                            placeholder="Teléfono" required>
+                        <input value="{{patologos.email}}" type="email" name="email" class="form-control"
+                            placeholder="E-Mail" required>
+                        <button class="btn btn-success btn-block">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

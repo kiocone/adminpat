@@ -1,0 +1,22 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/patologos/add" method="POST">
+                        <div class="form-group"></div>
+                        <h3>Nuevo Patólogo</h3>
+                        <input type="text" name="patologo" class="form-control" placeholder="Nombre del Patólogo" required autofocus>
+                        <input type="text" name="num_doc" class="form-control" placeholder="Numero de documento" required>
+                        <input type="text" name="direccion" class="form-control" placeholder="Dirección" required>
+                        <input type="text" name="telefono" class="form-control" placeholder="telefono" required>
+                        <input type="email" name="email" class="form-control" placeholder="E-Mail" required>
+                        <button class="btn btn-success btn-block">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

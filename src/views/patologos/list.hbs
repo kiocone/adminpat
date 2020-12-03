@@ -1,0 +1,51 @@
+<div class="container">
+    <table class="table table-sm">
+        {{#if patologos}}
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Patologo</th>
+                <th scope="col">N. Documento</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Editar</th>
+            </tr>
+            <a href="/patologos/add" class="btn btn-success">
+                <i class='fas fa-plus-square'></i>
+            </a>
+        </thead>
+        {{/if}}
+        <tbody>
+            {{#each patologos}}
+            <tr>
+                <td scope="row" class="small">{{id}}</th>
+                <td scope="row" class="small">{{patologo}}</td>
+                <td scope="row" class="small">{{num_doc}}</th>
+                <td scope="row" class="small">{{direccion}}</th>
+                <td scope="row" class="small">{{telefono}}</th>
+                <td scope="row" class="small">{{email}}</th>
+                <td scope="row">
+                    <a href="/patologos/edit/{{id}}" class="btn btn-success">
+                        <i class='fas fa-edit flex-shrink-1 bd-highlight'></i>
+                    </a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="3" class="text-center">
+                    <p>hay ningun patologo en la lista</p><br>
+                    <a href="/patologos/add" class="btn btn-success">Agregar patologo</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{#if patologos}}
+            <tr>
+                <td colspan="6" class="text-center">
+                    <a href="/patologos/add" class="btn btn-success">Agregar patologo</a>
+                </td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>

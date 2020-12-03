@@ -95,6 +95,10 @@ CREATE TABLE medRemitente (
 CREATE TABLE patologo (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	patologo varchar(100) NOT NULL,
+	num_doc varchar(11) NOT NULL,            
+	direccion varchar(150) NOT NULL,
+	telefono varchar(150) NOT NULL,
+	email varchar(50) NOT NULL,
 	PRIMARY KEY (id)
 );
 
