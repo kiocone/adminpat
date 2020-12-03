@@ -18,13 +18,12 @@ router.post('/add', isLoggedIn, async (req, res) => {
         telefono,
         email
     };
-    console.log(newPatologo);
     await pool.query('INSERT INTO patologo set ?', [newPatologo]);
     req.flash('success', 'Patologo Guardada!');
     res.redirect('/patologos');
 });
 
-router.get('/', isLoggedIn, async (req , res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     const patologos = await pool.query('SELECT * FROM patologo');
     res.render('patologos/list', { patologos });
 });
@@ -39,17 +38,17 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_patologos = await pool.query('SELECT id, patologo, num_doc, direccion, telefono, email FROM patologo WHERE id = ?', [id]);
-    res.render('patologos/edit', {patologos: res_patologos[0]});
+    res.render('patologos/edit', { patologos: res_patologos[0] });
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
     const { patologo, num_doc, direccion, telefono, email } = req.body;
     const { id } = req.params;
     const editPatologo = {
-        patologo, 
-        num_doc, 
-        direccion, 
-        telefono, 
+        patologo,
+        num_doc,
+        direccion,
+        telefono,
         email
     };
     await pool.query('UPDATE patologo set ? WHERE id = ?', [editPatologo, id]);
