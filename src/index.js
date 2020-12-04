@@ -33,7 +33,7 @@ app.use(session({
     saveUninitialized: false,
     store: new MySQLStore(database)
 }));
-app.use(flash()); 
+app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -54,6 +54,7 @@ app.use(require('./routes/authentication'));
 app.use('/pacientes',require('./routes/pacientes'));
 app.use('/entidades',require('./routes/entidades'));
 app.use('/patologos',require('./routes/patologos'));
+app.use('/informes',require('./routes/informes'));
 
 // Publics
 app.use(express.static(path.join(__dirname, 'public')));

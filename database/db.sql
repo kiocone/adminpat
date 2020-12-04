@@ -69,6 +69,8 @@ ALTER TABLE estudios ADD CONSTRAINT estudios_fk0 FOREIGN KEY (t_precio) REFERENC
 
 CREATE TABLE informe (
 	id INT(11) NOT NULL AUTO_INCREMENT,
+	informeCodTipo varchar(1) NOT NULL,
+	informeCodNum INT(5) NOT NULL,
 	id_paciente INT(11) NOT NULL,
 	id_entidad INT(11) NOT NULL,
 	id_convenio INT(11) NOT NULL,
@@ -79,6 +81,9 @@ CREATE TABLE informe (
 	micro TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
+
+ALTER TABLE informe ADD COLUMN informeCodTipo varchar(1) NOT NULL AFTER id;
+ALTER TABLE informe ADD COLUMN informeCodNum INT(5) NOT NULL AFTER informeCodTipo;
 
 CREATE TABLE medRemitente (
 	id INT(11) NOT NULL AUTO_INCREMENT,
