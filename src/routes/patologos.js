@@ -10,10 +10,12 @@ router.get('/add', isLoggedIn, (req, res) => {
 });
 
 router.post('/add', isLoggedIn, async (req, res) => {
-    const { patologo, num_doc, direccion, telefono, email } = req.body;
+    const { patologo, num_doc, reg_med, reg_med_ciudad, direccion, telefono, email } = req.body;
     const newPatologo = {
         patologo,
         num_doc,
+        reg_med, 
+        reg_med_ciudad,
         direccion,
         telefono,
         email
@@ -37,16 +39,18 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_patologos = await pool.query('SELECT id, patologo, num_doc, direccion, telefono, email FROM patologo WHERE id = ?', [id]);
+    const res_patologos = await pool.query('SELECT id, patologo, num_doc, reg_med, reg_med_ciudad, direccion, telefono, email FROM patologo WHERE id = ?', [id]);
     res.render('patologos/edit', { patologos: res_patologos[0] });
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
-    const { patologo, num_doc, direccion, telefono, email } = req.body;
+    const { patologo, num_doc, reg_med, reg_med_ciudad, direccion, telefono, email } = req.body;
     const { id } = req.params;
     const editPatologo = {
         patologo,
         num_doc,
+        reg_med, 
+        reg_med_ciudad,
         direccion,
         telefono,
         email
