@@ -28,7 +28,7 @@ CREATE TABLE paciente (
 	PRIMARY KEY (id)
 );
 ALTER TABLE paciente ADD CONSTRAINT paciente_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
---ALTER TABLE paciente ADD COLUMN sexo varchar(1) NOT NULL AFTER informeCodTipo;
+--ALTER TABLE paciente ADD COLUMN sexo varchar(1) NOT NULL AFTER nombre;
 
 CREATE TABLE entidad (
 	id INT(11) NOT NULL AUTO_INCREMENT,

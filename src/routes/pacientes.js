@@ -11,11 +11,12 @@ router.get('/add', isLoggedIn, (req, res) => {
 });
 
 router.post('/add', isLoggedIn, async (req, res) => {
-    const { t_docu, num_docu, nombre,direccion, telefono, email, fecha_nacimiento, description } = req.body;
+    const { t_docu, num_docu, nombre, sexo, direccion, telefono, email, fecha_nacimiento, description } = req.body;
     const newPaciente = {
         t_docu, 
         num_docu, 
         nombre,
+        sexo,
         direccion, 
         telefono, 
         email,
@@ -30,7 +31,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 });
 
 router.get('/', isLoggedIn, async (req , res) => {
-    const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente');
+    const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente');
     res.render('pacientes/list', { paciente });
 });// Ajustar resderizacion de lista de pacientes
 
@@ -43,17 +44,18 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
+    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
     res.render('pacientes/edit', {paciente: res_pacientes[0]});
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
-    const { t_docu, num_docu, nombre,direccion, telefono, email, fecha_nacimiento, description } = req.body;
+    const { t_docu, num_docu, nombre, sexo, direccion, telefono, email, fecha_nacimiento, description } = req.body;
     const { id } = req.params;
     const editPaciente = {
         t_docu, 
         num_docu, 
         nombre,
+        sexo,
         direccion, 
         telefono, 
         email,
