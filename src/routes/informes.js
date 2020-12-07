@@ -5,11 +5,11 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
-router.get('/add', isLoggedIn, (req, res) => {
-    res.render('informes/add');
+router.get('/nuevo', isLoggedIn, (req, res) => {
+    res.render('informes/nuevo');
 });
 
-router.post('/add', isLoggedIn, async (req, res) => {
+router.post('/nuevo', isLoggedIn, async (req, res) => {
     const { patologo, num_doc, direccion, telefono, email } = req.body;
     const newPatologo = {
         patologo,
@@ -24,8 +24,8 @@ router.post('/add', isLoggedIn, async (req, res) => {
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const listaPatologos = await pool.query('SELECT * FROM patologo');
-    res.render('informes/list', { listaPatologos });
+    const listaInformes = await pool.query('SELECT * FROM informes');
+    res.render('informes/list', { listaInformes });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
