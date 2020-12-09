@@ -5,27 +5,37 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
+router.get('/', isLoggedIn, (req, res) => {
+    res.render('informes/ult_informes');
+});
+
+router.get('/tipo_informe', isLoggedIn, (req, res) => {
+    res.render('informes/tipo_informe');
+});
+
 router.get('/nuevo', isLoggedIn, (req, res) => {
     res.render('informes/nuevo');
 });
 
 router.post('/nuevo', isLoggedIn, async (req, res) => {
-    const { patologo, num_doc, direccion, telefono, email } = req.body;
-    const newPatologo = {
-        patologo,
-        num_doc,
-        direccion,
-        telefono,
-        email
-    };
-    await pool.query('INSERT INTO patologo set ?', [newPatologo]);
-    req.flash('success', 'Patologo Guardada!');
-    res.redirect('/patologos');
+    //const { patologo, num_doc, direccion, telefono, email } = req.body;
+    //const newPatologo = {
+    //    patologo,
+    //    num_doc,
+    //    direccion,
+    //    telefono,
+    //    email
+    //};
+    //await pool.query('INSERT INTO patologo set ?', [newPatologo]);
+    //req.flash('success', 'Patologo Guardada!');
+    const { t_informe } = req.body;
+    console.log(t_informe);
+    res.redirect('/informes/nuevo');
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const listaInformes = await pool.query('SELECT * FROM informes');
-    res.render('informes/list', { listaInformes });
+    //const listaInformes = await pool.query('SELECT * FROM informes');
+    res.render('informes/tipo_informe', { listaInformes });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
