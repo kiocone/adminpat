@@ -1,39 +1,58 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
 <div class="container">
-    <table class="table table-sm">
+    <table class="table table-sm" border="1">
         <thead>
-            <th colspan="6">Infome de
+            <th colspan="5">Infome de
                 <select name="t_informe" value="L">Líquido
                     <option selected="true" value="Q">Quirúrgico</option>
                     <option value="L">Líquido</option>
                     <option value="C">Citología</option>
                 </select>
-                Numero consecutivo segun t_informe
+                .# 20126133
             </th>
         </thead>
         <tbody>
             <tr>
-                <td scope="col">Id <u>text</u>
+                <td scope="col">Id <input name="num_doc" type="number">
                 <td scope="col">Paciente <u>text</u></th>
                 <td scope="col">telefono <u>text</u></th>
                 <td scope="col">sexo <u>text</u></th>
                 <td scope="col">edad <u>text</u></th>
             </tr>
             <tr>
-                <td scope="col" colspan="2">entidad <u>text</u></th>
+                <td scope="col">entidad <u>text</u></th>
                 <td scope="col">medico remite <u>text</u></th>
                 <td scope="col">ingreso <u>text</u>
                 <td scope="col">informe <u>text</u>
                 <td scope="col">muestra <u>text</u>
             </tr>
             <tr>
-                <td scope="row"><strong>Datos</strong></th>
-                <td scope="row"><strong>datos</strong></td>
-                <td scope="row"><strong>DATOS</strong></th>
-                <td scope="row"><strong>datos</strong></th>
-                <td scope="row"><strong>datos</strong></th>
-                <td scope="row"><strong>datos</strong></th>
-
+                <td scope="row" colspan="5">
+                    <p>MACRO</p>
+                    <textarea name="macro" rows="5" cols="100"></textarea>
+                </td>
+                </th>
             </tr>
+            <tr>
+                <td scope="row" colspan="5">
+                    <p>MICRO</p>
+                    <textarea name="micro" rows="5" cols="100"></textarea>
+                </td>
+                </th>
+            </tr>
+            <tr>
+                <td scope="row" colspan="5">
+                    <p>DIAGNOSTICO</p>
+                    <textarea name="diagnotico" rows="5" cols="100"></textarea>
+                </td>
+                </th>
+            </tr>
+
         </tbody>
     </table>
 </div>
