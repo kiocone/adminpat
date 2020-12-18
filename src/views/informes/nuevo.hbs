@@ -1,28 +1,31 @@
 <style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
+    table,
+    thead,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
 </style>
 <div class="container">
     <table class="table table-sm" border="1">
-        <thead>
-            <th colspan="5">Infome de
-                <select name="t_informe" value="L">Líquido
-                    <option selected="true" value="Q">Quirúrgico</option>
-                    <option value="L">Líquido</option>
-                    <option value="C">Citología</option>
-                </select>
-                .# 20126133
-            </th>
-        </thead>
         <tbody>
             <tr>
+                <td colspan="5">Infome de
+                    <select id="t_informe" name="t_informe" value="L">Líquido
+                        <option selected="true" value="Q">Quirúrgico</option>
+                        <option value="L">Líquido</option>
+                        <option value="C">Citología</option>
+                    </select>
+                    .# 20126133 {{t_informe}}
+                </td>
+            </tr>
+            <tr>
                 <td scope="col">Id <input name="num_doc" type="number">
-                <td scope="col">Paciente <u>text</u></th>
-                <td scope="col">telefono <u>text</u></th>
-                <td scope="col">sexo <u>text</u></th>
-                <td scope="col">edad <u>text</u></th>
+                <td scope="col">Paciente <u>text</u></td>
+                <td scope="col">telefono <u>text</u></td>
+                <td scope="col">sexo <u>text</u></td>
+                <td scope="col">edad <u>text</u></td>
             </tr>
             <tr>
                 <td scope="col">entidad <u>text</u></th>
@@ -36,7 +39,6 @@ table, th, td {
                     <p>MACRO</p>
                     <textarea name="macro" rows="5" cols="100"></textarea>
                 </td>
-                </th>
             </tr>
             <tr>
                 <td scope="row" colspan="5">
@@ -56,3 +58,38 @@ table, th, td {
         </tbody>
     </table>
 </div>
+
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+var t_informe = getUrlParameter('t');
+switch (t_informe) {
+  case 'Q':
+    console.log('Quirurgico.');
+    document.getElementById("t_informe").selectedIndex = 0;
+    break;
+  case 'L':
+    console.log('Liquido.');
+    document.getElementById("t_informe").selectedIndex = 1;
+    break;
+  case 'C':
+    console.log('Citologia');
+    document.getElementById("t_informe").selectedIndex = 2;
+    break;
+  default:
+    console.log('error en  tipo de informe.');
+}
+console.log(t_informe);
+</script>

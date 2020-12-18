@@ -17,7 +17,7 @@ router.get('/nuevo', isLoggedIn, (req, res) => {
     res.render('informes/nuevo');
 });
 
-router.post('/nuevo', isLoggedIn, async (req, res) => {
+router.post('/nuevo/', isLoggedIn, async (req, res) => {
     //const { patologo, num_doc, direccion, telefono, email } = req.body;
     //const newPatologo = {
     //    patologo,
@@ -30,7 +30,7 @@ router.post('/nuevo', isLoggedIn, async (req, res) => {
     //req.flash('success', 'Patologo Guardada!');
     const { t_informe } = req.body;
     console.log(t_informe);
-    res.redirect('/informes/nuevo');
+    res.redirect('/informes/nuevo?t=' + t_informe);
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
