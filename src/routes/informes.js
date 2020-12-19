@@ -29,8 +29,22 @@ router.post('/nuevo/', isLoggedIn, async (req, res) => {
     //await pool.query('INSERT INTO patologo set ?', [newPatologo]);
     //req.flash('success', 'Patologo Guardada!');
     const { t_informe } = req.body;
-    console.log(t_informe);
-    res.redirect('/informes/nuevo?t=' + t_informe);
+    ultInformes = await pool.query('SELECT * FROM secuenciaInforme WHERE id = 1');
+    const { ultQ, ultC, ultL } = ultInformes[0];
+    console.log(ultQ, ultC, ultL);
+    var ultInf = 0;
+if( t_informe === 'Q'){
+    ultInf = ultQ;
+    console.log('Ultimo Q');
+}else if( ultInformes === 'C' ) {
+    ultInf = ultC;
+    console.log('Ultimo C');
+} else {
+    ultInf = ultL;
+    console.log('Ultimo L');
+}
+
+    res.redirect('/informes/nuevo?t=' + t_informe + '&ultCod=' + ultInf);
 });
 
 router.get('/', isLoggedIn, async (req, res) => {

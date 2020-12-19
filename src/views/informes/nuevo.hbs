@@ -16,8 +16,7 @@
                         <option selected="true" value="Q">Quirúrgico</option>
                         <option value="L">Líquido</option>
                         <option value="C">Citología</option>
-                    </select>
-                    .# 20126133 {{t_informe}}
+                    </select> <p id="tagNumInf"></p>
                 </td>
             </tr>
             <tr>
@@ -75,6 +74,7 @@
     }
 };
 var t_informe = getUrlParameter('t');
+var numInf = getUrlParameter('ultCod');
 switch (t_informe) {
   case 'Q':
     console.log('Quirurgico.');
@@ -91,5 +91,7 @@ switch (t_informe) {
   default:
     console.log('error en  tipo de informe.');
 }
+cod_informe = t_informe + numInf
 console.log(t_informe);
+document.getElementById("tagNumInf").innerHTML = cod_informe;
 </script>
