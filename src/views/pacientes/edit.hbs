@@ -6,14 +6,14 @@
                     <form action="/pacientes/edit/{{paciente.id}}" method="POST">
                         <div class="form-group"></div>
                         <p>Tipo de Documento:
-                            <select name="t_docu" selected="{{paciente.t_docu}}">
+                            <select id="tipo_docu" name="t_docu" selected="{{paciente.t_docu}}">
                                 <!-- Rellenar con las opciones de tipo documento-->
                                 <option value="cedula">C.C.</option>
                                 <option value="tarjeta">T.I.</option>
                                 <option value="registro">R.C.</option>
                                 <option value="extranjeria">C.E.</option>
                                 <option value="pasaporte">Pasaporte</option>
-                            </select>
+                            </select><p id="prueba"></p>
                         </p>
                         <input value="{{paciente.num_docu}}" type="text" name="num_docu" class="form-control"
                             placeholder="Numero de Documento" required>
@@ -41,3 +41,9 @@
         </div>
     </div>
 </div>
+<script type="text/javasctipt">
+    //document.getElementById("prueba").value = "2014-02-09";
+    var name = {{ paciente.t_docu }};
+    console.log(name);
+    document.getElementById("prueba").innerHTML = "Etiqueta de prueba!";
+</script>

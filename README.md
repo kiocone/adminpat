@@ -1,5 +1,7 @@
 # Adminpat dev 0.1
 <hr>
+nuevo informe desde lista pacientes
+<br>
 vista nuevo informe, colocar digito año y mes en cod informe
 <br>
 <h1>actualizar en las vistas</h1>
