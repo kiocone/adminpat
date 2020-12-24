@@ -6,53 +6,43 @@ const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/', isLoggedIn, (req, res) => {
-    const indice = {valor: 'x'};
-    const { valor } = indice;
-    console.log(indice, valor);
-    res.render('informes/ult_informes', indice );
+    res.render('informes/ult_informes');
 });
 
 router.get('/tipo_informe', isLoggedIn, (req, res) => {
     res.render('informes/tipo_informe');
 });
 
+router.get('/nuevo', isLoggedIn, (req, res) => {
+    res.render('informes/nuevo');
+});
 
-router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
-    const { id } = req.params;
-    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
-    const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
-    console.log(num_docu, nombre, telefono, sexo, f_nac);
-    const ultInformes = await pool.query('SELECT * FROM secuenciaInforme WHERE id = 1');
+router.post('/nuevo/', isLoggedIn, async (req, res) => {
+    const { t_informe, num_docu, nombre, telefono, sexo, f_nac } = req.body;
+    console.log(t_informe, num_docu, nombre, telefono, sexo, f_nac);
+    ultInformes = await pool.query('SELECT * FROM secuenciaInforme WHERE id = 1');
     const { ultQ, ultC, ultL } = ultInformes[0];
-    var ultInf = 9999;
-    var t_informe = req.params.t_informe;
-    console.log(t_informe);
-
-    switch (t_informe) {
-        case "Q":
-            ultInf = ultQ;
-            break;
-        case "L":
-            ultInf = ultL;
-            break;
-        case "C":
-            ultInf = ultC;
-            break;
-        default:
-            ultInf = "Unknown";
+    console.log(ultQ, ultC, ultL);
+    var ultInf = 0;
+    if (t_informe === 'Q') {
+        ultInf = ultQ;
+        console.log('Ultimo Q');
+    } else if (ultInformes === 'C') {
+        ultInf = ultC;
+        console.log('Ultimo C');
+    } else if (ultInformes === 'L') {
+        ultInf = ultL;
+        console.log('Ultimo L');
     }
 
-    const paciente = {
-        t_informe,
-        num_docu,
-        nombre,
-        telefono,
-        sexo,
-        f_nac,
-        ultInf
-    };
-    console.log(paciente);
-    res.render('informes/nuevo', paciente );
+    res.redirect('/informes/nuevo?t=' + t_informe + '&ultCod=' + ultInf + 
+    '&num_docu=' + num_docu + '&nombre=' + nombre + '&telefono=' + telefono + 
+    '&sexo=' + sexo + '&f_nac=' + f_nac);
+});
+
+router.get('/', isLoggedIn, async (req, res) => {
+    //const listaInformes = await pool.query('SELECT * FROM informes');
+    res.render('informes/tipo_informe', { listaInformes });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {

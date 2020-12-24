@@ -13,6 +13,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Comentario</th>
+                <th scope="col" colspan="3">Nuevo</th>
             </tr>
             <a href="/pacientes/add" class="btn btn-success">
                 <i class='fas fa-plus-square'></i>
@@ -22,7 +23,7 @@
         <tbody>
             {{#each paciente}}
             <tr>
-                <td scope="row" class="small">{{id}}</th>
+                <td scope="row" class="small">{{id}}</td>
                 <td class="small">{{t_docu}}</td>
                 <td class="small">{{num_docu}}</td>
                 <td class="small">{{nombre}}</td>
@@ -38,6 +39,29 @@
                     <a href="/pacientes/edit/{{id}}" class="btn btn-success">
                         <i class='fas fa-edit'></i>
                     </a>
+                </td>
+                <td>
+                    <form method="GET" action="/informes/nuevo/{{id}}Q">
+
+                        <a onclick="this.parentNode.submit();">Q</a>
+                    </form>
+                </td>
+                <td>
+                    <form method="GET" action="/informes/nuevo/{{id}}L">
+
+                        <a onclick="this.parentNode.submit();">L</a>
+                    </form>
+                </td>
+                <td>
+                    <form method="GET" action="/informes/nuevo/{{id}}C">
+
+                        <a onclick="this.parentNode.submit();">C</a>
+                    </form>
+                    <!--
+                    <a href="/informes/nuevo?t=Q" class="btn btn-success">Q</a>
+                    <a href="/informes/nuevo?t=L" class="btn btn-success">L</a>
+                    <a href="/informes/nuevo?t=C" class="btn btn-success">C</a>-->
+                </td>
             </tr>
             {{else}}
             <tr>
@@ -49,7 +73,7 @@
             {{/each}}
             {{#if paciente}}
             <tr>
-                <td colspan="8" class="text-center">
+                <td colspan="13" class="text-center">
                     <a href="/pacientes/add" class="btn btn-success">Agregar Paciente</a>
                 </td>
             </tr>

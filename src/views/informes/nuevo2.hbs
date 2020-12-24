@@ -3,7 +3,6 @@
         <tbody>
             <tr>
                 <td colspan="4">Infome: <input type="text" id="infCod" name="infCod" />
-                {{paciente.nombre}}
                 </td>
                 <td>
                     <select id="t_informe" name="t_informe" value="L">
@@ -54,3 +53,61 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get('telefono');
+    console.log(telefono);
+    
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    var t_informe = getUrlParameter('t');
+    var numInf = getUrlParameter('ultCod');
+    var year = new Date().getFullYear().toString().substr(-2);
+    var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
+    var cod_informe = t_informe + year + mes + numInf;
+    document.getElementById("infCod").value = cod_informe;
+    num_docu = getUrlParameter('num_docu');
+    document.getElementById("num_docu").value = num_docu;
+    var nombre = getUrlParameter('nombre');
+    document.getElementById("nombre").value = nombre;
+    var telefono = getUrlParameter('telefono');
+    document.getElementById("telefono").value = telefono;
+    var sexo = getUrlParameter('sexo');
+    document.getElementById("sexo").value = sexo;
+    var f_nac = getUrlParameter('f_nac');
+    document.getElementById("f_nac").value = f_nac;
+
+    console.log(cod_informe, num_docu, nombre, telefono, sexo, f_nac);
+    document.getElementById("infCod").value = cod_informe;
+    switch (t_informe) {
+        case 'Q':
+            console.log('Quirurgico.');
+            document.getElementById("t_informe").selectedIndex = 0;
+            break;
+        case 'L':
+            console.log('Liquido.');
+            document.getElementById("t_informe").selectedIndex = 1;
+            break;
+        case 'C':
+            console.log('Citologia');
+            document.getElementById("t_informe").selectedIndex = 2;
+            break;
+        default:
+            console.log('error en  tipo de informe.');
+    }
+
+</script>
