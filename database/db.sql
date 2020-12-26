@@ -79,9 +79,9 @@ CREATE TABLE informe (
 	id_medRemitente INT(11) NOT NULL,
 	id_patologo INT(11) NOT NULL,
 	id_estudio INT(11) NOT NULL,
-	macro TEXT NOT NULL,
-	micro TEXT NOT NULL,
-	diagnostico TEXT NOT NULL,
+	macro TEXT,
+	micro TEXT,
+	diagnostico TEXT,
 	PRIMARY KEY (id)
 );
 

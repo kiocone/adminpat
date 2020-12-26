@@ -1,7 +1,14 @@
 # Adminpat dev 0.1
-<hr>
+<br>
+Pendiente: organizar matriz de datos e inyectar a db,
+Vista de editar informe
+Vista para Previzualizar informe
+Imprimir Informe
+<br>
+Se envia los datos del inofrme nuevo a POST
+<br>
 pacientes.datos en informe nuevo
-<hr>
+<br>
 nuevo informe desde lista pacientes
 <br>
 vista nuevo informe, colocar digito año y mes en cod informe
@@ -14,7 +21,7 @@ Done! --ALTER TABLE informe ADD COLUMN diagnostico TEXT NOT NULL AFTER micro;<br
 Done! --ALTER TABLE paciente ADD COLUMN sexo varchar(1) NOT NULL AFTER informeCodTipo;</br>
 Done! --ALTER TABLE patologo ADD COLUMN reg_med varchar(5) NOT NULL AFTER num_doc;</br>
 Done! --ALTER TABLE patologo ADD COLUMN reg_med_ciudad varchar(15) NOT NULL AFTER reg_med;</br>
-<hr>
+<br>
 0.1 organizacion de Readme<br/>
 0.1 optimizacion de DB<br/>
 primer comentario desde portatil

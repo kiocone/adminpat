@@ -6,10 +6,8 @@ const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/', isLoggedIn, (req, res) => {
-    const indice = {valor: 'x'};
-    const { valor } = indice;
-    console.log(indice, valor);
-    res.render('informes/ult_informes', indice );
+    
+    res.render('informes/ult_informes' );
 });
 
 router.get('/tipo_informe', isLoggedIn, (req, res) => {
@@ -21,12 +19,14 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
     const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
-    console.log(num_docu, nombre, telefono, sexo, f_nac);
+    //console.log(num_docu, nombre, telefono, sexo, f_nac);
     const ultInformes = await pool.query('SELECT * FROM secuenciaInforme WHERE id = 1');
     const { ultQ, ultC, ultL } = ultInformes[0];
     var ultInf = 9999;
     var t_informe = req.params.t_informe;
-    console.log(t_informe);
+    const entidades = await pool.query('SELECT id, razon_social FROM entidad');
+    //console.log(entidades);
+    const patologos = await pool.query('SELECT id, patologo FROM patologo');
 
     switch (t_informe) {
         case "Q":
@@ -51,8 +51,18 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         f_nac,
         ultInf
     };
-    console.log(paciente);
-    res.render('informes/nuevo', paciente );
+
+    const informe = {
+        paciente
+    };
+
+    res.render('informes/nuevo', { informe, entidades, patologos } );
+});
+
+router.post('/nuevo/:id:t_informe', isLoggedIn, async (req,res) => {
+    const variables = req.body;
+    console.log(variables);
+    res.redirect('/informes')
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {

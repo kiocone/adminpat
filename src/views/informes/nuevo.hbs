@@ -1,56 +1,88 @@
 <div class="container">
-    <table class="table table-sm" border="0">
+    <table class="table table-sm" border="5">
         <tbody>
-            <tr>
-                <td colspan="4">Infome: <input type="text" id="infCod" name="infCod" />
-                {{paciente.nombre}}
-                </td>
-                <td>
-                    <select id="t_informe" name="t_informe" value="L">
-                        <option value="Q">Quirúrgico</option>
-                        <option value="L">Líquido</option>
-                        <option value="C">Citología</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td id="num_doc" scope="col">Id <input name="num_doc" type="number">
-                <td id="nombre" scope="col">Paciente <input name="nombre" type="text"></td>
-                <td id="telefono" scope="col">Telefono <input name="telefono" type="text"></td>
-                <td id="sexo" scope="col">Sexo <input name="sexo" type="text"></td>
-                <td id="edad" scope="col">Edad <input name="edad" type="text"></td>
-            </tr>
-            <tr>
-                <td scope="col">Entidad <input name="entidad_nombre" type="text"></th>
-                <td scope="col">Medico remitente <input name="med_remite" type="text"></th>
-                <td scope="col">Muestra <input name="fec_muestra" type="text">
-                <td scope="col">Informe <input name="fec_inf" type="text">
-                <td scope="col">Ingreso <input name="fec_ingreso" type="text">
-            </tr>
-            <tr>
-                <td scope="row" colspan="5">
-                    <p>MACRO</p>
-                    <textarea name="macro" rows="5" cols="100"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row" colspan="5">
-                    <p>MICRO</p>
-                    <textarea name="micro" rows="5" cols="100"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row" colspan="5">
-                    <p>DIAGNOSTICO</p>
-                    <textarea name="diagnotico" rows="5" cols="100"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row" colspan="5">
-                    <p>OBSERVACIONES</p>
-                    <textarea name="observaciones" rows="5" cols="100"></textarea>
-                </td>
-            </tr>
+            <form action="" method="post">
+                <tr>
+                    <td colspan="2">Infome:
+                        <input type="text" id="infCod" name="infCod" value="" />
+                    </td>
+                    <td colspan="3">
+                        <i>Patologo</i>
+                        <select name="patologo">
+                            <option selected="true" value="0"></option>
+                            {{#each patologos}}
+                            <option value="{{id}}">{{patologo}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="num_doc" scope="col">Id <input name="num_doc" type="number"
+                            value="{{informe.paciente.num_docu}}"></td>
+                    <td id="nombre" scope="col">Paciente <input name="nombre" type="text"
+                            value="{{informe.paciente.nombre}}"></td>
+                    <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
+                            value="{{informe.paciente.telefono}}"></td>
+                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" value="{{informe.paciente.sexo}}">
+                    </td>
+                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.paciente.f_nac}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="col"> <br>
+                        <select name="entidad_nombre">
+                            <option selected="true" value="0">Entidad</option>
+                            {{#each entidades}}
+                            <option value="{{id}}">{{razon_social}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td scope="col">Medico remitente <input name="med_remite" type="text"></td>
+                    <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="2021-01-01"
+                            min="1920-01-01" max="2040-12-31"></td>
+                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
+                            max="2040-12-31"></td>
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="2021-01-01"
+                            min="1920-01-01" max="2040-12-31"></td>
+                </tr>
+                <tr>
+                    <td scope="row" colspan="5">
+                        <p>MACRO</p>
+                        <textarea name="macro" rows="5" cols="100"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row" colspan="5">
+                        <p>MICRO</p>
+                        <textarea name="micro" rows="5" cols="100"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row" colspan="5">
+                        <p>DIAGNOSTICO</p>
+                        <textarea name="diagnotico" rows="5" cols="100"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row" colspan="5">
+                        <p>OBSERVACIONES</p>
+                        <textarea name="observaciones" rows="5" cols="100"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <button class="btn btn-success mx-auto">
+                            Guardar Informe
+                        </button>
+                    </td>
+                </tr>
+            </form>
         </tbody>
     </table>
 </div>
+<script>
+    var year = new Date().getFullYear().toString().substr(-2);
+    var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
+    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "{{informe.paciente.ultInf}}";
+    //document.getElementById("fecInforme").value = new Date().toDateInputValue();
+</script>
