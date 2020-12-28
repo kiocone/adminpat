@@ -5,23 +5,29 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="col"># Informe</th>
-                <td scope="col">Paciente</th>
-                <td scope="col">Documento</th>
-                <td scope="col">Entidad</th>
-                <td scope="col">Remite</th>
-                <td scope="col">Telefono</th>
-                <td scope="col">Fecha de Informe</th>
+                <td scope="col"># Informe</td>
+                <td scope="col">Paciente</td>
+                <td scope="col">Documento</td>
+                <td scope="col">Entidad</td>
+                <td scope="col">Remite</td>
+                <td scope="col">Telefono</td>
+                <td scope="col">Fecha de Informe</td>
+                <td scope="col">Opciones</td>
             </tr>
             <tr>
                 {{#each informes}}
-                <td scope="row"><strong>{{informe_cod}}</strong></th>
+                <td scope="row"><strong>{{informe_cod}}</strong></td>
                 <td scope="row"><strong>{{paciente}}</strong></td>
-                <td scope="row"><strong>{{numdoc}}</strong></th>
-                <td scope="row"><strong>{{entidad}}</strong></th>
-                <td scope="row"><strong>{{medRemitente}}</strong></th>
-                <td scope="row"><strong>{{telefono}}</strong></th>
-                <td scope="row"><strong>{{fec_inf}}</strong></th>
+                <td scope="row"><strong>{{numdoc}}</strong></td>
+                <td scope="row"><strong>{{entidad}}</strong></td>
+                <td scope="row"><strong>{{medRemitente}}</strong></td>
+                <td scope="row"><strong>{{telefono}}</strong></td>
+                <td scope="row"><strong>{{fec_inf}}</strong></td>
+                <td scope="col">Telefono
+                    <a href="/informes/edit/{{id}}" class="btn btn-success">
+                        <i class='fas fa-edit'></i>
+                    </a>
+                </td>
                 {{/each}}
             </tr>
             <tr>

@@ -1,8 +1,7 @@
 # Adminpat dev 0.1
 <br>
-Vista de editar informe
-Vista para Previzualizar informe
-Imprimir Informe
+<p>Vista para Previzualizar informe, Imprimir Informe,Ajustar conte de numero de ultimo informe</p>
+Hecho Vista de editar informe
 <br>
 Hecho: organizar matriz de datos e inyectar a db,
 <br>

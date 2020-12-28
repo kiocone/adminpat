@@ -1,15 +1,15 @@
 <div class="container">
     <table class="table table-sm" border="5">
         <tbody>
-            <form action="" method="post">
+            <form action="/informes/edit/{{informe.id}}" method="POST">
                 <tr>
-                    <td colspan="2">Infome:
-                        <input type="text" id="infCod" name="informe_cod" value="" />
+                    <td colspan="2">Informe:{{id}}
+                        <input type="text" name="informe_cod" value="{{informe.informe_cod}}" />
                     </td>
                     <td colspan="3">
                         <i>Patologo</i>
                         <select name="patologo">
-                            <option selected="true" value="{{informe.patologo}}"></option>
+                            <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
                             {{#each patologos}}
                             <option value="{{patologo}}">{{patologo}}</option>
                             {{/each}}
@@ -18,55 +18,55 @@
                 </tr>
                 <tr>
                     <td id="num_doc" scope="col">Id <input name="numdoc" type="number"
-                            value="{{informe.paciente.num_docu}}"></td>
+                            value="{{informe.numdoc}}"></td>
                     <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
-                            value="{{informe.paciente.nombre}}"></td>
+                            value="{{informe.paciente}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
-                            value="{{informe.paciente.telefono}}"></td>
-                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" value="{{informe.paciente.sexo}}">
+                            value="{{informe.telefono}}"></td>
+                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" value="{{informe.sexo}}">
                     </td>
-                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.paciente.f_nac}}">
+                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.edad}}">
                     </td>
                 </tr>
                 <tr>
                     <td scope="col"> <br>
                         <select name="entidad">
-                            <option selected="true" value="0">Entidad</option>
+                            <option selected="true" value="{{informe.entidad}}">{{informe.entidad}}</option>
                             {{#each entidades}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
                         </select>
                     </td>
-                    <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
-                    <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="2021-01-01"
+                    <td scope="col">Medico remitente <input name="medRemitente" type="text" value="{{informe.medRemitente}}"></td>
+                    <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="{{informe.fec_muestra}}"
                             min="1920-01-01" max="2040-12-31"></td>
-                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
+                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="{{informe.fec_inf}}" min="1920-01-01"
                             max="2040-12-31"></td>
-                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="2021-01-01"
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
                             min="1920-01-01" max="2040-12-31"></td>
                 </tr>
                 <tr>
                     <td scope="row" colspan="5">
                         <p>MACRO</p>
-                        <textarea name="macro" rows="5" cols="100"></textarea>
+                        <textarea name="macro" rows="5" cols="100">{{informe.macro}}</textarea>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row" colspan="5">
                         <p>MICRO</p>
-                        <textarea name="micro" rows="5" cols="100"></textarea>
+                        <textarea name="micro" rows="5" cols="100">{{informe.micro}}</textarea>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row" colspan="5">
                         <p>DIAGNOSTICO</p>
-                        <textarea name="diagnostico" rows="5" cols="100"></textarea>
+                        <textarea name="diagnostico" rows="5" cols="100">{{informe.diagnostico}}</textarea>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row" colspan="5">
                         <p>OBSERVACIONES</p>
-                        <textarea name="observaciones" rows="5" cols="100"></textarea>
+                        <textarea name="observaciones" rows="5" cols="100">{{informe.observaciones}}</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -83,6 +83,6 @@
 <script>
     var year = new Date().getFullYear().toString().substr(-2);
     var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
-    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "{{informe.paciente.ultInf}}";
+    //document.getElementById("infCod").value = "{{informe.t_informe}}" + year + mes + "{{informe.ultInf}}";
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
 </script>
