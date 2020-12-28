@@ -5,13 +5,14 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
-router.get('/', isLoggedIn, (req, res) => {
-    
-    res.render('informes/ult_informes' );
+router.get('/', isLoggedIn, async (req, res) => {
+    const informes = await pool.query('SELECT * FROM informe')
+    res.render('informes/ult_informes', { informes } );
 });
 
-router.get('/tipo_informe', isLoggedIn, (req, res) => {
-    res.render('informes/tipo_informe');
+router.get('/tipo_informe', isLoggedIn, async (req, res) => {
+    const pacientes = await pool.query('SELECT id, nombre FROM paciente');
+    res.render('informes/tipo_informe', { pacientes });
 });
 
 
@@ -60,9 +61,32 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 });
 
 router.post('/nuevo/:id:t_informe', isLoggedIn, async (req,res) => {
-    const variables = req.body;
-    console.log(variables);
+    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones } = req.body;
+    nuevoInforme = {
+        informe_cod, 
+        numdoc, 
+        paciente, 
+        telefono, 
+        sexo, 
+        edad, 
+        entidad, 
+        medRemitente, 
+        fec_muestra, 
+        fec_inf, 
+        fec_ingreso, 
+        patologo, 
+        macro, 
+        micro, 
+        diagnostico, 
+        observaciones
+    };
+    await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
+    req.flash('success', 'Informe Guardado!');
     res.redirect('/informes')
+});
+
+router.get('/imprimir', isLoggedIn, async (req, res) => {
+    res.render('informes/imprimir');
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {

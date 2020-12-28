@@ -3,9 +3,15 @@
         <div class="col-md-4 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/informes/nuevo" method="POST">
+                    <form action="/informes/nuevo:{{id}}:t_informe" method="GET">
                         <div class="form-group"></div>
                         <h3>Tipo de Informe</h3>
+                        <select name="id">
+                            <option value="0">Paciente</option>
+                            {{#each pacientes}}
+                            <option value="{{id}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
                         <select name="t_informe">
                             <option selected="true" value="Q">Quirúrgico</option>
                             <option value="L">Líquido</option>

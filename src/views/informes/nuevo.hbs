@@ -4,7 +4,7 @@
             <form action="" method="post">
                 <tr>
                     <td colspan="2">Infome:
-                        <input type="text" id="infCod" name="infCod" value="" />
+                        <input type="text" id="infCod" name="informe_cod" value="" />
                     </td>
                     <td colspan="3">
                         <i>Patologo</i>
@@ -17,9 +17,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">Id <input name="num_doc" type="number"
+                    <td id="num_doc" scope="col">Id <input name="numdoc" type="number"
                             value="{{informe.paciente.num_docu}}"></td>
-                    <td id="nombre" scope="col">Paciente <input name="nombre" type="text"
+                    <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
                             value="{{informe.paciente.nombre}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
                             value="{{informe.paciente.telefono}}"></td>
@@ -30,14 +30,14 @@
                 </tr>
                 <tr>
                     <td scope="col"> <br>
-                        <select name="entidad_nombre">
+                        <select name="entidad">
                             <option selected="true" value="0">Entidad</option>
                             {{#each entidades}}
-                            <option value="{{id}}">{{razon_social}}</option>
+                            <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
                         </select>
                     </td>
-                    <td scope="col">Medico remitente <input name="med_remite" type="text"></td>
+                    <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
                     <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="2021-01-01"
                             min="1920-01-01" max="2040-12-31"></td>
                     <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
@@ -60,7 +60,7 @@
                 <tr>
                     <td scope="row" colspan="5">
                         <p>DIAGNOSTICO</p>
-                        <textarea name="diagnotico" rows="5" cols="100"></textarea>
+                        <textarea name="diagnostico" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>

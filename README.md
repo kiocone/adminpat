@@ -1,9 +1,10 @@
 # Adminpat dev 0.1
 <br>
-Pendiente: organizar matriz de datos e inyectar a db,
 Vista de editar informe
 Vista para Previzualizar informe
 Imprimir Informe
+<br>
+Hecho: organizar matriz de datos e inyectar a db,
 <br>
 Se envia los datos del inofrme nuevo a POST
 <br>
