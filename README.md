@@ -1,7 +1,8 @@
 # Adminpat dev 0.1
 <br>
-<p>Vista para Previzualizar informe, Imprimir Informe,Ajustar conte de numero de ultimo informe</p>
-Hecho Vista de editar informe
+<p>Vista para Previzualizar informe, Imprimir Informe</p>
+<p>Hecho, Ajustar conte de numero de ultimo informe</p>
+<p>Hecho, Vista de editar informe</p>
 <br>
 Hecho: organizar matriz de datos e inyectar a db,
 <br>
@@ -14,7 +15,7 @@ nuevo informe desde lista pacientes
 vista nuevo informe, colocar digito año y mes en cod informe
 <br>
 <h1>actualizar en las vistas</h1>
---ALTER TABLE informe ADD COLUMN informeCodTipo varchar(1) NOT NULL AFTER id;<br/>
+Done! --ALTER TABLE informe ADD COLUMN informeCodTipo varchar(1) NOT NULL AFTER id;<br/>
 Done! --ALTER TABLE informe ADD COLUMN informeCodNum INT(5) NOT NULL AFTER informeCodTipo;<br/>
 Done! --ALTER TABLE informe CHANGE informeCodNum informe_cod_num varchar(5);<br/>
 Done! --ALTER TABLE informe ADD COLUMN diagnostico TEXT NOT NULL AFTER micro;<br/>

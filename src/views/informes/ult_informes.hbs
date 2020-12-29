@@ -14,8 +14,8 @@
                 <td scope="col">Fecha de Informe</td>
                 <td scope="col">Opciones</td>
             </tr>
+            {{#each informes}}
             <tr>
-                {{#each informes}}
                 <td scope="row"><strong>{{informe_cod}}</strong></td>
                 <td scope="row"><strong>{{paciente}}</strong></td>
                 <td scope="row"><strong>{{numdoc}}</strong></td>
@@ -28,8 +28,8 @@
                         <i class='fas fa-edit'></i>
                     </a>
                 </td>
-                {{/each}}
             </tr>
+            {{/each}}
             <tr>
                 <td colspan="7" class="text-center">
                     <a href="/informes/tipo_informe" class="btn btn-success">Nuevo Informe</a>

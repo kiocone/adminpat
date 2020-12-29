@@ -45,6 +45,9 @@ app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
     app.locals.user = req.user;
+    app.locals.ultInfQ = req.ultInfQ;
+    app.locals.ultInfL = req.ultInfL;
+    app.locals.ultInfC = req.ultInfC;
     next();
 });
 

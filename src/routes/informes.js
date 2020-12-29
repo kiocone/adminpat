@@ -42,6 +42,7 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         default:
             ultInf = "Unknown";
     }
+console.log(ultQ, ultL, ultC);
 
     const paciente = {
         t_informe,
@@ -61,7 +62,7 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 });
 
 router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
-    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones } = req.body;
+    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones, t_informe, ultInf } = req.body;
     nuevoInforme = {
         informe_cod,
         numdoc,
@@ -80,7 +81,23 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         diagnostico,
         observaciones
     };
+
     await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
+
+    switch (t_informe) {
+        case "Q":
+            await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
+            break;
+        case "L":
+            await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
+            break;
+        case "C":
+            await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
+            break;
+        default:
+            ultInf = "Unknown";
+    };
+
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes')
 });
