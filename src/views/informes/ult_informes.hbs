@@ -5,27 +5,30 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="col"># Informe</td>
-                <td scope="col">Paciente</td>
-                <td scope="col">Documento</td>
-                <td scope="col">Entidad</td>
-                <td scope="col">Remite</td>
-                <td scope="col">Telefono</td>
-                <td scope="col">Fecha de Informe</td>
-                <td scope="col">Opciones</td>
+                <td scope="col"><strong># Informe</strong></td>
+                <td scope="col"><strong>Paciente</strong></td>
+                <td scope="col"><strong>Documento</strong></td>
+                <td scope="col"><strong>Entidad</strong></td>
+                <td scope="col"><strong>Remite</strong></td>
+                <td scope="col"><strong>Telefono</strong></td>
+                <td scope="col"><strong>Fecha de Informe</strong></td>
+                <td scope="col"><strong>Opciones</strong></td>
             </tr>
             {{#each informes}}
             <tr>
-                <td scope="row"><strong>{{informe_cod}}</strong></td>
-                <td scope="row"><strong>{{paciente}}</strong></td>
-                <td scope="row"><strong>{{numdoc}}</strong></td>
-                <td scope="row"><strong>{{entidad}}</strong></td>
-                <td scope="row"><strong>{{medRemitente}}</strong></td>
-                <td scope="row"><strong>{{telefono}}</strong></td>
-                <td scope="row"><strong>{{fec_inf}}</strong></td>
-                <td scope="col">Telefono
+                <td class="small" scope="row">{{informe_cod}}</td>
+                <td class="small" scope="row">{{paciente}}</td>
+                <td class="small" scope="row">{{numdoc}}</td>
+                <td class="small" scope="row">{{entidad}}</td>
+                <td class="small" scope="row">{{medRemitente}}</td>
+                <td class="small" scope="row">{{telefono}}</td>
+                <td class="small" scope="row">{{fec_inf}}</td>
+                <td class="small" scope="col">
                     <a href="/informes/edit/{{id}}" class="btn btn-success">
                         <i class='fas fa-edit'></i>
+                    </a>
+                    <a href="/informes/imprimir/{{id}}" class="btn btn-success">
+                        <i class="fas fa-print"></i>
                     </a>
                 </td>
             </tr>
