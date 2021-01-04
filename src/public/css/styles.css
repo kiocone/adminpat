@@ -67,3 +67,12 @@ font-size: 14px;
 input.mayus {
   text-transform: uppercase;
 }
+
+@font-face {
+  font-family: "worksans";
+  src: url("/fonts/WorkSans-Regular.ttf");
+}
+
+div {
+  font-family: "worksans";
+}

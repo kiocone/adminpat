@@ -21,7 +21,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
     console.log(newEntidad);
     await pool.query('INSERT INTO entidad set ?', [newEntidad]);
     req.flash('success', 'Entidad Guardada!');
-    req.Swal('Exito', 'Entidad guardada con exito!');
     res.redirect('/entidades');
 });
 
