@@ -1,5 +1,6 @@
 <div class="container">
     <table class="table table-sm">
+        {{#if informes}}
         <thead>
             <th>Ultimos 10 informes</th>
         </thead>
@@ -39,6 +40,16 @@
                 </td>
             </tr>
         </tbody>
+        {{else}}
+        <tr>
+            <td class="text-center">No se encontraton registros</td>
+        </tr>
+        <tr>
+                <td class="text-center">
+                    <a href="/informes/tipo_informe" class="btn btn-success">Nuevo Informe</a>
+                </td>
+            </tr>
+        {{/if}}
     </table>
 </div>
 <!--
