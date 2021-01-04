@@ -14,6 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE paciente (
 	id INT(11) NOT NULL AUTO_INCREMENT,
+	--id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, --en windows xammp
 	t_docu varchar(11) NOT NULL,
 	num_docu INT(11) NOT NULL,
 	nombre varchar(150) NOT NULL,
@@ -25,6 +26,7 @@ CREATE TABLE paciente (
 	description TEXT,
 	user_id INT(11) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT 'current_timestamp',
+	--created_at TIMESTAMP NOT NULL, --en windows xampp
 	PRIMARY KEY (id)
 );
 ALTER TABLE paciente ADD CONSTRAINT paciente_fk0 FOREIGN KEY (user_id) REFERENCES users(id);
