@@ -19,10 +19,10 @@ CREATE TABLE paciente (
 	nombre varchar(150) NOT NULL,
 	sexo varchar(1) NOT NULL,
 	direccion varchar(255) NOT NULL,
-	telefono varchar(30) NOT NULL,
+	telefono varchar(35),
 	email varchar(50) NOT NULL,
-	fecha_nacimiento DATE NOT NULL,
-	description TEXT NOT NULL,
+	fecha_nacimiento varchar(13) NOT NULL,
+	description TEXT,
 	user_id INT(11) NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT 'current_timestamp',
 	PRIMARY KEY (id)
@@ -48,7 +48,7 @@ CREATE TABLE origen_factura (
 
 CREATE TABLE convenio (
 	id INT(11) NOT NULL AUTO_INCREMENT,
-	nit varchar(12) NOT NULL,
+	nit varchar(15) NOT NULL,
 	razon_social varchar(100) NOT NULL,
 	direccion varchar(100) NOT NULL,
 	telefono varchar(30) NOT NULL,
@@ -57,8 +57,8 @@ CREATE TABLE convenio (
 	id_origen INT NOT NULL,
 	PRIMARY KEY (id)
 );
-ALTER TABLE convenio ADD CONSTRAINT convenio_fk0 FOREIGN KEY (id_entidad) REFERENCES entidad(id);
-ALTER TABLE convenio ADD CONSTRAINT convenio_fk1 FOREIGN KEY (id_origen) REFERENCES origen_factura(id);
+--ALTER TABLE convenio ADD CONSTRAINT convenio_fk0 FOREIGN KEY (id_entidad) REFERENCES entidad(id);
+--ALTER TABLE convenio ADD CONSTRAINT convenio_fk1 FOREIGN KEY (id_origen) REFERENCES origen_factura(id);
 
 CREATE TABLE estudios (
 	id INT(11) NOT NULL AUTO_INCREMENT,
@@ -71,17 +71,22 @@ ALTER TABLE estudios ADD CONSTRAINT estudios_fk0 FOREIGN KEY (t_precio) REFERENC
 
 CREATE TABLE informe (
 	id INT(11) NOT NULL AUTO_INCREMENT,
-	informe_cod_tipo varchar(1) NOT NULL,
-	informe_cod_num INT(5) NOT NULL,
-	id_paciente INT(11) NOT NULL,
-	id_entidad INT(11) NOT NULL,
-	id_convenio INT(11) NOT NULL,
-	id_medRemitente INT(11) NOT NULL,
-	id_patologo INT(11) NOT NULL,
-	id_estudio INT(11) NOT NULL,
+	informe_cod varchar(11),
+	numdoc varchar(13),
+	paciente varchar(100),
+	telefono varchar(50),
+	sexo varchar(1),
+	edad varchar(10),
+	entidad varchar(100),
+	medRemitente varchar(100),
+	fec_muestra varchar(10),
+	fec_inf varchar(10),
+	fec_ingreso varchar(10),
+	patologo varchar(100),
 	macro TEXT,
 	micro TEXT,
 	diagnostico TEXT,
+	observaciones text,
 	PRIMARY KEY (id)
 );
 
