@@ -15,7 +15,6 @@ router.get('/tipo_informe', isLoggedIn, async (req, res) => {
     res.render('informes/tipo_informe', { pacientes });
 });
 
-
 router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
@@ -42,7 +41,7 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         default:
             ultInf = "Unknown";
     }
-console.log(ultQ, ultL, ultC);
+//console.log(ultQ, ultL, ultC);
 
     const paciente = {
         t_informe,
