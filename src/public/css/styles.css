@@ -1,6 +1,6 @@
 body{
     background: #f5f6f5;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'worksans', 'Oswald', sans-serif;
     overflow: auto;
 }
 
@@ -64,7 +64,7 @@ td.small {
 font-size: 14px;
 }
 
-input.mayus {
+input.mayus, .mayus {
   text-transform: uppercase;
 }
 
@@ -76,3 +76,4 @@ input.mayus {
 div {
   font-family: "worksans";
 }
+

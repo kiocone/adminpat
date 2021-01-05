@@ -114,7 +114,7 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
         console.log('Vacio');
     }
     
-    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0] });
+    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {

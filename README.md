@@ -1,8 +1,8 @@
 # Adminpat dev 0.1
-<p>Incluir salto de linea en campos text</p>
+<p>hecho. <code><pre></code>" tag Incluir salto de linea en campos text</p>
 <p>Propuesta: separar codigo inf con "-"</p>
 <br>
-<p>Vista para Previzualizar informe, Imprimir Informe</p>
+<p>Hecho. Vista para Previzualizar informe, Imprimir Informe</p>
 <p>Hecho, Ajustar conte de numero de ultimo informe</p>
 <p>Hecho, Vista de editar informe</p>
 <br>

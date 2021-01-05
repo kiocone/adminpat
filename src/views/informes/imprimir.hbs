@@ -1,37 +1,40 @@
 <div class="container left">
     <table border="0">
-        <thead class="header-space">
-            <tr>
-                <td colspan="2">&nbsp;</td>
-                <td align="right">
-                    <p>Informe: {{informe.informe_cod}}</p>
+        <thead>
+            <tr class="header-space xheaderf1">
+                <td colspan="3">
+                    <div>
+                        &nbsp;
+                    </div>
                 </td>
             </tr>
         </thead>
-        <tbody class="xborde">
-            <tr>
-                <td style="width:320px" id="num_doc" scope="row">
-                    <p>Id: {{paciente.t_docu}}. {{informe.numdoc}}</p>
+        <tbody>
+            <tr class="xheaderf2">
+                <td colspan="3" style="text-align: center">
+                        <p style="text-align: center">INFORME DE ESTUDIO ANOTOMOPATOLÓGICO No: {{informe.informe_cod}}</p>
                 </td>
-                <td style="width:320px" id="nombre" scope="row">
+            </tr>
+            <tr class="xheaderf3">
+                <td style="width:320px" id="num_doc" scope="row">
+                    <p class="mayus">{{paciente.t_docu}}. {{informe.numdoc}}</p>
+                </td>
+                <td colspan="2" id="nombre" scope="row">
                     <p>Paciente: {{informe.paciente}}</p>
                 </td>
+            </tr>
+            <tr class="xheaderf4">
                 <td style="width:320px" id="telefono" scope="row">
                     <p>Telefono: {{informe.telefono}}</p>
                 </td>
-            </tr>
-            <tr>
+                <td style="width:420px">
+                    <p>Edad: <strong id="edad"></strong> ({{informe.edad}})</p>
+                </td>
                 <td id="sexo">
                     <p>Sexo: {{informe.sexo}}</p>
                 </td>
-                <td>
-                    <p>Edad: <strong id="edad"></strong> ({{informe.edad}})</p>
-                </td>
-                <td>
-                    <p>Entidad: {{informe.entidad}}</p>
-                </td>
             </tr>
-            <tr>
+            <tr class="xheaderf5">
                 <td scope="row">
                     <p>Muestra: {{informe.fec_muestra}}</p>
                 </td>
@@ -42,9 +45,12 @@
                     <p>Ingreso: {{informe.fec_ingreso}}</p>
                 </td>
             </tr>
-            <tr>
-                <td scope="row" colspan="3">
+            <tr class="xheaderf6">
+                <td>
                     <p>Medico remitente: {{informe.medRemitente}}</p>
+                </td>
+                <td colspan="2">
+                    <p>Entidad: {{informe.entidad}}</p>
                 </td>
             </tr>
             <tr>
@@ -62,15 +68,17 @@
             <tr>
                 <td scope="row" colspan="3">
                     <p>DIAGNOSTICO:</p>
-                    <p>{{informe.diagnostico}}</p>
+                    <pre>{{informe.diagnostico}}</pre>
                 </td>
             </tr>
+            {{#if observacion}}
             <tr>
                 <td scope="row" colspan="3">
                     <p>OBSERVACIONES:</p>
                     <p>{{informe.observaciones}}</p>
                 </td>
             </tr>
+            {{/if}}
             <tr>
                 <td style="vertical-align: bottom;">-Fin del Informe-</td>
                 <td>&nbsp;</td>
@@ -90,9 +98,12 @@
         </tfoot>
     </table>
 </div>
-<div class="header"><img height="100" src="/img/logo.png" alt="Logo"></div>
-<div class="footer">
-    <p>
+
+<div class="header">
+    <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
+</div>
+<div style="width: 960px;" class="footer">
+    <p style="text-align: center;">
         Medicos Patólogos S.A.S, NIT:900.195.584-0, Calle Velez Danies #4-11<br>
         Telefono: 660.13.51 &#9679; 315.322.09.66 &#9679; Email: administracion@medipat.com.co
     </p>
@@ -104,15 +115,48 @@
         display: none;
     }
 
-    .header-space,
-    .footer,
-    .footer-space {
+    .header-space {
         height: 100px;
     }
-
+    
+    .footer,
+    .footer-space {
+        height: 80px;
+    }
+    
     .header {
         position: fixed;
         top: 0;
+    }
+    
+    .headerf1 {
+        position: fixed;
+        top: 0;
+    }
+    
+    .headerf2 {
+        position: fixed;
+        top: 100px;
+    }
+    
+    .headerf3 {
+        position: fixed;
+        top: 130px;
+    }
+
+    .headerf4 {
+        position: fixed;
+        top: 160px;
+    }
+
+    .headerf5 {
+        position: fixed;
+        top: 190px;
+    }
+
+    .headerf6 {
+        position: fixed;
+        top: 220px;
     }
 
     .footer {
@@ -141,6 +185,13 @@
     }
     p {
         font-size: 22px;
+    }
+    
+    pre {
+    font-family: "worksans";
+    font-size: 22px;
+    word-break: break-word;
+    width: 960px; 
     }
 </style>
 <script>

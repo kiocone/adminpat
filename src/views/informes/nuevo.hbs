@@ -85,6 +85,6 @@
 <script>
     var year = new Date().getFullYear().toString().substr(-2);
     var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
-    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "{{informe.paciente.ultInf}}";
+    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
 </script>
