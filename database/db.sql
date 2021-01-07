@@ -92,6 +92,28 @@ CREATE TABLE informe (
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE informec (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	informe_cod varchar(11),
+	numdoc varchar(13),
+	paciente varchar(100),
+	telefono varchar(50),
+	sexo varchar(1),
+	edad varchar(10),
+	entidad varchar(100),
+	medRemitente varchar(100),
+	fec_muestra varchar(10),
+	fec_inf varchar(10),
+	fec_ingreso varchar(10),
+	patologo varchar(100),
+	cal_muestra INT(1),
+	ins_por varchar(50),
+	cat_gen INT(1),
+	
+	observaciones text,
+	PRIMARY KEY (id)
+);
+
 --ALTER TABLE informe ADD COLUMN informeCodTipo varchar(1) NOT NULL AFTER id;
 --ALTER TABLE informe ADD COLUMN informeCodNum INT(5) NOT NULL AFTER informeCodTipo;
 --ALTER TABLE informe CHANGE informeCodNum informe_cod_num varchar(5);

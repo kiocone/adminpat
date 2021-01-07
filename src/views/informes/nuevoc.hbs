@@ -1,0 +1,164 @@
+<div class="container">
+    <table class="table table-sm" border="0">
+        <tbody>
+            <form action="" method="post">
+                <!--Encabezado Inf Citologias -->
+                <tr>
+                    <td colspan="4">
+                        <strong>
+                            <p align="center">DATOS DEL PACIENTE</p>
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Infome:
+                        <input type="text" id="infCod" name="informe_cod" value="" />
+                        <input type="hidden" name="ultInf" value="{{informe.paciente.ultInf}}">
+                        <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
+                    </td>
+                    <td colspan="2">
+                        <i>Patologo</i>
+                        <select name="patologo">
+                            <option selected="true" value="{{informe.patologo}}"></option>
+                            {{#each patologos}}
+                            <option value="{{patologo}}">{{patologo}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="num_doc" scope="col">Id <input name="numdoc" type="number"
+                            value="{{informe.paciente.num_docu}}"></td>
+                    <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
+                            value="{{informe.paciente.nombre}}"></td>
+                    <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
+                            value="{{informe.paciente.telefono}}"></td>
+                    <!--<td id="sexo" scope="col">-->
+                    <input name="sexo" type="hidden" value="{{informe.paciente.sexo}}">
+                    <!--</td>-->
+                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.paciente.f_nac}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="col"> <br>
+                        <select name="entidad">
+                            <option selected="true" value="0">Entidad</option>
+                            {{#each entidades}}
+                            <option value="{{razon_social}}">{{razon_social}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
+                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
+                            max="2040-12-31"></td>
+                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden" value="2021-01-01"
+                        min="1920-01-01" max="2040-12-31"><!-- </td>-->
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="2021-01-01"
+                            min="1920-01-01" max="2040-12-31"></td>
+                </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table table-sm" border="0">
+        <tbody>
+            <!--Cuerpo Inf Citologias 
+                    Calidad de muestra-->
+            <tr>
+                <td scope="row" colspan="3">
+                    <p align="center"><strong>CALIDAD DE MUESTRA</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <td>
+                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="checkedValue"> Satisfactoria <br>(Con celulas endocervicales / Z. T.)
+                        </td>
+                        <td>
+                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="checkedValue"> Satisfactoria <br>
+                            (Sin celulas endocervicales / Z. T.)
+                        </td>
+                        <td colspan="2">
+                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="checkedValue">
+                            <div> Insatisfactoria por: <input type="text" name="ins_por" placeholder="Motivo"></div>
+                        </td>
+                    </label>
+                </div>
+            </tr>
+
+            <!--Categoria General-->
+            <tr>
+                <td colspan="3">
+                    <p align="center"><strong>CATEGORIZACION GENERAL</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <td scope="row">
+                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="0"> Negativa
+                            para lesión intraepitelial o malignidad
+                        </td>
+                        <td>
+                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="1">
+                            Anormalidad en células epiteliales
+                        </td>
+                        <td colspan="2">
+                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="2"> Otros
+                        </td>
+                    </label>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table table-sm" border="0">
+        <tbody>
+            <tr>
+                <!--microorganizmos -izq-->
+                <td scope="row">
+                    <p align="center"><strong>MICROORGANISMOS</strong></p>
+                    <input type="checkbox" name="trico_vag" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox2" value="true"> <label for="cbox2">Este es mi segundo checkbox</label>
+                </td>
+                <!--Otros Hallazgos-->
+                <td scope="row">
+                    <p align="center"><strong>OTROS HALLAZGOS NO NEOPLASTICOS</strong></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table table-sm" border="0">
+        <tbody>
+            <tr>
+                <td colspan="4">
+                    <p align="center"><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" colspan="4">
+                    <p>OBSERVACIONES</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button class="btn btn-success mx-auto">
+                        Guardar Informe
+                    </button>
+                </td>
+            </tr>
+            </form>
+        </tbody>
+    </table>
+</div>
+<script>
+    var year = new Date().getFullYear().toString().substr(-2);
+    var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
+    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
+    //document.getElementById("fecInforme").value = new Date().toDateInputValue();
+</script>

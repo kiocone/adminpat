@@ -60,6 +60,51 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     res.render('informes/nuevo', { informe, entidades, patologos });
 });
 
+router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
+    const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
+    //console.log(num_docu, nombre, telefono, sexo, f_nac);
+    const ultInformes = await pool.query('SELECT * FROM secuenciaInforme WHERE id = 1');
+    const { ultQ, ultC, ultL } = ultInformes[0];
+    var ultInf = 9999;
+    var t_informe = req.params.t_informe;
+    const entidades = await pool.query('SELECT id, razon_social FROM entidad');
+    //console.log(entidades);
+    const patologos = await pool.query('SELECT id, patologo FROM patologo');
+
+    switch (t_informe) {
+        case "Q":
+            ultInf = ultQ + 1;
+            break;
+        case "L":
+            ultInf = ultL + 1;
+            break;
+        case "C":
+            ultInf = ultC + 1;
+            break;
+        default:
+            ultInf = "Unknown";
+    }
+//console.log(ultQ, ultL, ultC);
+
+    const paciente = {
+        t_informe,
+        num_docu,
+        nombre,
+        telefono,
+        sexo,
+        f_nac,
+        ultInf
+    };
+
+    const informe = {
+        paciente
+    };
+
+    res.render('informes/nuevoc', { informe, entidades, patologos });
+});
+
 router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones, t_informe, ultInf } = req.body;
     nuevoInforme = {
