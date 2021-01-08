@@ -17,17 +17,22 @@
             </tr>
             <tr class="xheaderf3">
                 <td colspan="2" id="nombre" scope="row">
-                    <p><strong>Paciente:</strong> {{informe.paciente}} <strong>Edad: </strong><i id="edad"></i> <strong>Sexo:</strong> {{informe.sexo}}</p>
+                    <p><strong>Paciente:</strong> {{informe.paciente}}</p>
                 </td>
+            </tr>
+            <tr>
                 <td style="width:320px" id="num_doc" scope="row">
                     <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
+                </td>
+                <td>
+                    <p><strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
                 </td>
             </tr>
             <tr class="xheaderf5">
                 <td scope="row">
                     <p><strong>Ingreso:</strong> {{informe.fec_ingreso}}</p>
                 </td>
-                <td scope="row">
+                <td scope="row" colspan="2">
                     <p><strong>Informe:</strong> {{informe.fec_inf}}</p>
                 </td>
                 <td scope="row">
