@@ -1,6 +1,9 @@
 # Adminpat dev 0.1
+<p>db.Tabla y vistas de EPS</p>
+<p>informe de citologias</p>
+<p>campos de eps en vistas de informe</p>
 <p>hecho. <code><pre></code>" tag Incluir salto de linea en campos text</p>
-<p>Propuesta: separar codigo inf con "-"</p>
+<p>hecho. separar codigo inf con "-"</p>
 <br>
 <p>Hecho. Vista para Previzualizar informe, Imprimir Informe</p>
 <p>Hecho, Ajustar conte de numero de ultimo informe</p>

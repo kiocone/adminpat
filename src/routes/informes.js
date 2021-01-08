@@ -60,6 +60,7 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     res.render('informes/nuevo', { informe, entidades, patologos });
 });
 
+//nuevo informe de citologia
 router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
@@ -106,7 +107,7 @@ router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
 });
 
 router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
-    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones, t_informe, ultInf } = req.body;
+    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
     nuevoInforme = {
         informe_cod,
         numdoc,
@@ -123,6 +124,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         macro,
         micro,
         diagnostico,
+        inmuno,
         observaciones
     };
 
@@ -148,7 +150,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
+    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc );
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo );
 
@@ -166,7 +168,7 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
         console.log('Inmuno Vacio');
     }
     
-    const eps = "NuevaEPS";
+    const eps = "";
 
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps });
 });

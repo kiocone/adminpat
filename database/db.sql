@@ -88,7 +88,8 @@ CREATE TABLE informe (
 	macro TEXT,
 	micro TEXT,
 	diagnostico TEXT,
-	observaciones text,
+	observaciones TEXT,
+	inmuno TEXT
 	PRIMARY KEY (id)
 );
 
