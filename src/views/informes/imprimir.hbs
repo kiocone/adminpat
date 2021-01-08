@@ -16,52 +16,48 @@
                 </td>
             </tr>
             <tr class="xheaderf3">
-                <td style="width:320px" id="num_doc" scope="row">
-                    <p class="mayus">{{paciente.t_docu}}. {{informe.numdoc}}</p>
-                </td>
                 <td colspan="2" id="nombre" scope="row">
-                    <p>Paciente: {{informe.paciente}}</p>
+                    <p><strong>Paciente:</strong> {{informe.paciente}} <strong>Edad: </strong><i id="edad"></i> <strong>Sexo:</strong> {{informe.sexo}}</p>
                 </td>
-            </tr>
-            <tr class="xheaderf4">
-                <td style="width:330px" id="telefono" scope="row">
-                    <p>Telefono: {{informe.telefono}}</p>
-                </td>
-                <td style="width:420px">
-                    <p>Edad: <strong id="edad"></strong> ({{informe.edad}})</p>
-                </td>
-                <td id="sexo">
-                    <p>Sexo: {{informe.sexo}}</p>
+                <td style="width:320px" id="num_doc" scope="row">
+                    <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
                 </td>
             </tr>
             <tr class="xheaderf5">
                 <td scope="row">
-                    <p>Muestra: {{informe.fec_muestra}}</p>
+                    <p><strong>Ingreso:</strong> {{informe.fec_ingreso}}</p>
                 </td>
                 <td scope="row">
-                    <p>Informe: {{informe.fec_inf}}</p>
+                    <p><strong>Informe:</strong> {{informe.fec_inf}}</p>
                 </td>
                 <td scope="row">
-                    <p>Ingreso: {{informe.fec_ingreso}}</p>
+                    &nbsp;
                 </td>
             </tr>
             <tr class="xheaderf6">
                 <td style="width:380px">
-                    <p>Rem.: {{informe.medRemitente}}</p>
+                    <p><strong>IPS:</strong> {{informe.entidad}}</p>
                 </td>
-                <td colspan="2">
-                    <p>Entidad: {{informe.entidad}}</p>
+                <td>
+                    {{#if eps}}
+                    <p><strong>EPS:</strong> {{eps}}</p>
+                    {{else}}
+                    &nbsp;
+                    {{/if}}
+                </td>
+                <td>
+                    <p><strong>Med. Solicitante:</strong> {{informe.medRemitente}}</p>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="3">
-                    <p>MACRO</p>
+                    <p>DESCRIPCIÓN MACROSCÓPICA</p>
                     <p>{{informe.macro}}</p>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="3">
-                    <p>MICRO</p>
+                    <p>DESCRIPCIÓN MICROSCÓPICA</p>
                     <p>{{informe.micro}}</p>
                 </td>
             </tr>
@@ -79,8 +75,16 @@
                 </td>
             </tr>
             {{/if}}
+            {{#if inmuno}}
             <tr>
-                <td style="vertical-align: bottom;">-Fin del Informe-</td>
+                <td scope="row" colspan="3">
+                    <p>INMUNOHISTOQUÍMICA:</p>
+                    <p>{{informe.inmuno}}</p>
+                </td>
+            </tr>
+            {{/if}}
+            <tr>
+                <td style="vertical-align: bottom;">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td style="text-align: center;">
                     <p>&nbsp;<br>
@@ -102,12 +106,11 @@
 <div class="header">
     <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
 </div>
-<div style="width: 960px;" class="footer">
+<div style="width: 980px;" class="footer">
     <p style="text-align: center;">
-        Medicos Patólogos S.A.S, NIT:900.195.584-0, Calle Velez Danies #4-11<br>
+        Medicos Patólogos-MediPat S.A.S,  Calle Velez Danies #4-11 Piso 2<br>
         Telefono: 660.13.51 &#9679; 315.322.09.66 &#9679; Email: administracion@medipat.com.co
     </p>
-    <p></p>
 </div>
 
 <style>
@@ -121,7 +124,7 @@
     
     .footer,
     .footer-space {
-        height: 80px;
+        height: 120px;
     }
     
     .header {

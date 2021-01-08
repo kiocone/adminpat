@@ -159,7 +159,16 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
         console.log('Vacio');
     }
     
-    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones });
+    if (res_informe[0].inmuno) {
+        console.log('inmuno');
+    }
+    else {
+        console.log('Inmuno Vacio');
+    }
+    
+    const eps = "NuevaEPS";
+
+    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
