@@ -11,7 +11,7 @@
 <br>
 Hecho: organizar matriz de datos e inyectar a db,
 <br>
-Se envia los datos del inofrme nuevo a POST
+Se envia los datos del informe nuevo a POST
 <br>
 pacientes.datos en informe nuevo
 <br>
