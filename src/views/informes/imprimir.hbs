@@ -12,20 +12,23 @@
         <tbody>
             <tr class="xheaderf2">
                 <td colspan="3" style="text-align: center">
-                        <p style="text-align: center">INFORME DE ESTUDIO ANOTOMOPATOLÓGICO No: {{informe.informe_cod}}</p>
+                        <p style="text-align: center">INFORME DE ESTUDIO ANOTOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
                 </td>
             </tr>
             <tr class="xheaderf3">
                 <td colspan="2" id="nombre" scope="row">
                     <p><strong>Paciente:</strong> {{informe.paciente}}</p>
                 </td>
-            </tr>
-            <tr>
                 <td style="width:320px" id="num_doc" scope="row">
                     <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <p><strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
+                </td>
+                <td colspan="2">
+                    <p><strong>Med. Solicitante:</strong> {{informe.medRemitente}}</p>
                 </td>
             </tr>
             <tr class="xheaderf5">
@@ -49,9 +52,6 @@
                     {{else}}
                     &nbsp;
                     {{/if}}
-                </td>
-                <td>
-                    <p><strong>Med. Solicitante:</strong> {{informe.medRemitente}}</p>
                 </td>
             </tr>
             <tr>

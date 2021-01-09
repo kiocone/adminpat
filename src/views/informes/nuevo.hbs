@@ -2,6 +2,7 @@
     <table class="table table-sm" border="5">
         <tbody>
             <form action="" method="post">
+                <!--Cabecera-->
                 <tr>
                     <td colspan="2">Infome:
                         <input type="text" id="infCod" name="informe_cod" value="" />
@@ -19,15 +20,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">Id <input name="numdoc" type="number"
+                    <td id="num_doc" scope="col">Documentro <input name="numdoc" type="number"
                             value="{{informe.paciente.num_docu}}"></td>
                     <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
                             value="{{informe.paciente.nombre}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
                             value="{{informe.paciente.telefono}}"></td>
-                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" value="{{informe.paciente.sexo}}">
+                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="10" value="{{informe.paciente.sexo}}">
                     </td>
-                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.paciente.f_nac}}">
+                    <td id="edad" scope="col">Edad <input name="edad" type="text" size="10" value="{{informe.paciente.f_nac}}">
                     </td>
                 </tr>
                 <tr>
@@ -39,9 +40,15 @@
                             {{/each}}
                         </select>
                     </td>
+                    <td scope="col"> <br>
+                        <select name="eps">
+                            <option selected="true" value="0">EPS</option>
+                            {{#each epss}}
+                            <option value="{{razon_social}}">{{razon_social}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
                     <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
-                    <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="2021-01-01"
-                            min="1920-01-01" max="2040-12-31"></td>
                     <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
                             max="2040-12-31"></td>
                     <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="2021-01-01"

@@ -23,9 +23,9 @@
                             value="{{informe.paciente}}"></td>
                     <td id="telefono" scope="col"  width="20px">Telefono <input name="telefono" type="text"
                             value="{{informe.telefono}}" size="15"></td>
-                    <td id="sexo" scope="col">Sexo <input size="9" name="sexo" type="text" value="{{informe.sexo}}">
+                    <td id="sexo" scope="col">Sexo <input size="10" name="sexo" type="text" value="{{informe.sexo}}">
                     </td>
-                    <td id="edad" scope="col">Edad <input size="15" name="edad" type="text" value="{{informe.edad}}">
+                    <td id="edad" scope="col">Edad <input size="10" name="edad" type="text" value="{{informe.edad}}">
                     </td>
                 </tr>
                 <tr>
@@ -37,9 +37,15 @@
                             {{/each}}
                         </select>
                     </td>
+                    <td scope="col"> <br>
+                        <select name="eps">
+                            <option selected="true" value="{{informe.eps}}">{{informe.eps}}</option>
+                            {{#each epss}}
+                            <option value="{{razon_social}}">{{razon_social}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
                     <td scope="col">Medico remitente <input name="medRemitente" type="text" value="{{informe.medRemitente}}"></td>
-                    <td scope="col">Muestra <br> <input name="fec_muestra" type="date" value="{{informe.fec_muestra}}"
-                            min="1920-01-01" max="2040-12-31"></td>
                     <td scope="col">Informe <br> <input name="fec_inf" type="date" value="{{informe.fec_inf}}" min="1920-01-01"
                             max="2040-12-31"></td>
                     <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
