@@ -56,6 +56,7 @@ app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use('/pacientes',require('./routes/pacientes'));
 app.use('/entidades',require('./routes/entidades'));
+app.use('/eps',require('./routes/eps'));
 app.use('/patologos',require('./routes/patologos'));
 app.use('/informes',require('./routes/informes'));
 
