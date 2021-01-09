@@ -42,6 +42,17 @@ CREATE TABLE entidad (
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE eps (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	nit varchar(12) NOT NULL,
+	razon_social varchar(100) NOT NULL,
+	direccion varchar(100) NOT NULL,
+	telefono varchar(30) NOT NULL,
+	email varchar(50) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
 CREATE TABLE origen_factura (
 	id INT NOT NULL AUTO_INCREMENT,
 	origen varchar(30) NOT NULL,
