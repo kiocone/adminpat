@@ -139,7 +139,7 @@ CREATE TABLE patologo (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	patologo varchar(100) NOT NULL,
 	num_doc varchar(11) NOT NULL,
-	reg_med varchar(5) NOT NULL;
+	reg_med varchar(5) NOT NULL,
 	reg_med_ciudad varchar(15) NOT NULL,
 	direccion varchar(150) NOT NULL,
 	telefono varchar(150) NOT NULL,
