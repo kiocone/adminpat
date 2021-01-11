@@ -129,7 +129,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-
+    console.log(nuevoInforme);
     await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
 
     switch (t_informe) {
@@ -169,10 +169,10 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     else {
         console.log('Inmuno Vacio');
     }
-    
-    const eps = "";
 
-    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps });
+    console.log(res_informe[0]);
+
+    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
@@ -184,7 +184,7 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
+    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     const epss = await pool.query('SELECT id, razon_social FROM eps');
@@ -213,6 +213,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         diagnostico,
         observaciones
     };
+    console.log(editInforme);
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes');

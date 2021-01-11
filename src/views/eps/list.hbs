@@ -1,6 +1,6 @@
 <div class="container">
     <table class="table table-sm">
-        {{#if eps}}
+        {{#if epss}}
         <thead>
             <tr>
                 <th scope="col">id</th>
@@ -17,7 +17,7 @@
         </thead>
         {{/if}}
         <tbody>
-            {{#each eps}}
+            {{#each epss}}
             <tr>
                 <td scope="row" class="small">{{id}}</th>
                 <td class="small">{{nit}}</td>
@@ -35,7 +35,7 @@
                 </td>
             </tr>
             {{/each}}
-            {{#if eps}}
+            {{#if epss}}
             <tr>
                 <td colspan="6" class="text-center">
                     <a href="/eps/add" class="btn btn-success">Agregar EPS</a>

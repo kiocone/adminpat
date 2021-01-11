@@ -25,6 +25,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 
 router.get('/', isLoggedIn, async (req , res) => {
     const epss = await pool.query('SELECT * FROM eps');
+    console.log(epss);
     res.render('eps/list', { epss });
 });
 
