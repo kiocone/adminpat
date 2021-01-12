@@ -153,7 +153,32 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 
 //NuevoCitologia Post
 router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
-    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, observaciones, t_informe, ultInf } = req.body;
+    const { 
+        informe_cod, 
+        numdoc, 
+        paciente, 
+        telefono, 
+        sexo, 
+        edad, 
+        entidad, 
+        eps, 
+        medRemitente, 
+        fec_muestra, 
+        fec_inf, 
+        fec_ingreso, 
+        patologo, 
+        cal_muestra, 
+        ins_motivo, 
+        cat_gen,
+        cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10, 
+        cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, 
+        cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, 
+        cbox31, cbox32, cbox33,
+        observaciones, 
+        t_informe, 
+        ultInf 
+    } = req.body;
+
     nuevoInformeC = {
         informe_cod,
         numdoc,
@@ -170,6 +195,11 @@ router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
         patologo,
         cal_muestra,
         ins_motivo,
+        cat_gen,
+        cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10, 
+        cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, 
+        cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, 
+        cbox31, cbox32, cbox33,
         observaciones
     };
     console.log(nuevoInformeC);
