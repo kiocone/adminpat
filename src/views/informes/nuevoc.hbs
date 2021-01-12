@@ -1,5 +1,5 @@
 <div class="container">
-    <table class="table table-sm" border="0">
+    <table class="table" border="0">
         <tbody>
             <form action="" method="post">
                 <!--Encabezado Inf Citologias -->
@@ -24,6 +24,7 @@
                             <option value="{{patologo}}">{{patologo}}</option>
                             {{/each}}
                         </select>
+                        
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +37,8 @@
                     <!--<td id="sexo" scope="col">-->
                     <input name="sexo" type="hidden" value="{{informe.paciente.sexo}}">
                     <!--</td>-->
-                    <td id="edad" scope="col">Edad <input name="edad" type="text" value="{{informe.paciente.f_nac}}">
+                    <td scope="col">Edad: <p id="edad"></p>
+                    <input name="edad" type="hidden" value="{{informe.paciente.f_nac}}">
                     </td>
                 </tr>
                 <tr>
@@ -44,6 +46,12 @@
                         <select name="entidad">
                             <option selected="true" value="0">Entidad</option>
                             {{#each entidades}}
+                            <option value="{{razon_social}}">{{razon_social}}</option>
+                            {{/each}}
+                        </select><br>
+                        <select name="eps">
+                            <option selected="true" value="0">EPS</option>
+                            {{#each epss}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
                         </select>
@@ -59,7 +67,7 @@
         </tbody>
     </table>
     <hr>
-    <table class="table table-sm" border="0">
+    <table class="table" border="0">
         <tbody>
             <!--Cuerpo Inf Citologias 
                     Calidad de muestra-->
@@ -72,18 +80,17 @@
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <td>
-                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
-                                value="checkedValue"> Satisfactoria <br>(Con celulas endocervicales / Z. T.)
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
                         </td>
                         <td>
-                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
-                                value="checkedValue"> Satisfactoria <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="1"> Satisfactoria <br>
                             (Sin celulas endocervicales / Z. T.)
                         </td>
-                        <td colspan="2">
-                            <input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
-                                value="checkedValue">
-                            <div> Insatisfactoria por: <input type="text" name="ins_por" placeholder="Motivo"></div>
+                        <td style="width: 400" colspan="2">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input widht="20"class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra" value="2"><div>Insatisfactoria por:<input type="text" name="ins_motivo" placeholder="Motivo">
+                            </div>
                         </td>
                     </label>
                 </div>
@@ -99,15 +106,15 @@
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <td scope="row">
-                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="0"> Negativa
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="0"> Negativa
                             para lesión intraepitelial o malignidad
                         </td>
                         <td>
-                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="1">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="1">
                             Anormalidad en células epiteliales
                         </td>
                         <td colspan="2">
-                            <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="2"> Otros
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="2"> Otros
                         </td>
                     </label>
                 </div>
@@ -115,38 +122,74 @@
         </tbody>
     </table>
     <hr>
-    <table class="table table-sm" border="0">
+    <table class="table" border="0">
         <tbody>
             <tr>
                 <!--microorganizmos -izq-->
                 <td scope="row">
                     <p align="center"><strong>MICROORGANISMOS</strong></p>
-                    <input type="checkbox" name="trico_vag" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
-                    <input type="checkbox" name="hon_cons" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
-                    <input type="checkbox" name="sug_les" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
-                    <input type="checkbox" name="trico_vag" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
-                    <input type="checkbox" name="trico_vag" id="cbox1" value="true"> <label for="cbox1">Este es mi primer checkbox</label><br>
-                    <input type="checkbox" name="trico_vag" id="cbox2" value="true"> <label for="cbox2">Este es mi segundo checkbox</label>
+                    <input type="checkbox" name="trico_vag" id="cbox1" value="true"> <label for="cbox1">Tricoma vaginalis</label><br>
+                    <input type="checkbox" name="hon_cons" id="cbox2" value="true"> <label for="cbox2">Hongos consistentes con candida sp</label><br>
+                    <input type="checkbox" name="sug_les" id="cbox3" value="true"> <label for="cbox3">Bacterias consistentes con actinomyces sp</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox4" value="true"> <label for="cbox4">Efectos citopáticos por virus herpes simple</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox5" value="true"> <label for="cbox5">Alteraciones en la flora sugestivos de vaginosis bacteriana</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox6" value="true"> <label for="cbox6">Oros</label>
                 </td>
                 <!--Otros Hallazgos-->
                 <td scope="row">
                     <p align="center"><strong>OTROS HALLAZGOS NO NEOPLASTICOS</strong></p>
+                    <input type="checkbox" name="trico_vag" id="cbox7" value="true"> <label for="cbox7">Cambios Célulares reactivos asociados</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hon_cons" id="cbox8" value="true"> <label for="cbox8">Inflamación</label>
+                    <input type="checkbox" name="sug_les" id="cbox9" value="true"> <label for="cbox9">Atrofia</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hon_cons" id="cbox10" value="true"> <label for="cbox10">Radiación</label>
+                    <input type="checkbox" name="sug_les" id="cbox11" value="true"> <label for="cbox11">DIU</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox12" value="true"> <label for="cbox12">Endometirales despues de 40 Años de edad</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox13" value="true"> <label for="cbox13">Otros</label><br>
+                    &nbsp;
                 </td>
             </tr>
         </tbody>
     </table>
     <hr>
-    <table class="table table-sm" border="0">
+    <table class="table" border="0">
         <tbody>
             <tr>
-                <td colspan="4">
+                <td colspan="3">
                     <p align="center"><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
                 </td>
             </tr>
             <tr>
-                <td scope="row" colspan="4">
-                    <p>OBSERVACIONES</p>
-
+                <td>
+                    <input type="checkbox" name="trico_vag" id="cbox14" value="true"> <label for="cbox14">Celulas Escamosas Atipicas (ASC)</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox15" value="true"> <label for="cbox15">De significado indeterminado (ASC-US)</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox16" value="true"> <label for="cbox16">Sugieren lesion de alto grado (ASC-H)</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox17" value="true"> <label for="cbox17">LIE-BG (Lesión escamosa intraepitelial<br>de bajo grado) NIC I - HPV</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox18" value="true"> <label for="cbox18">LIE-AG (Lesión escamosa intraepitelial<br>de alto grado) NIC II - NIC III</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox19" value="true"> <label for="cbox19">Carcicoma escamoso invasor</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="trico_vag" id="cbox20" value="true"> <label for="cbox20">Atípias de significado indeterminado</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox21" value="true"> <label for="cbox21">Endocervicales</label><input type="checkbox" name="trico_vag" id="cbox22" value="true"> <label for="cbox22">Endometriales</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox23" value="true"> <label for="cbox23">Otras glandulares</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox24" value="true"> <label for="cbox24">Células glandulares endocervicales,<br>que favorecen neoplasia </label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox25" value="true"> <label for="cbox25">Endocervicales</label><input type="checkbox" name="trico_vag" id="cbox26" value="true"> <label for="cbox26">Endometriales</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox27" value="true"> <label for="cbox27">Otras glandulares</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="trico_vag" id="cbox28" value="true"> <label for="cbox28">Adenocarcicoma in situ</label><br>
+                    <input type="checkbox" name="trico_vag" id="cbox29" value="true"> <label for="cbox29">Adenocarcicoma</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox30" value="true"> <label for="cbox30">Endocervical</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox31" value="true"> <label for="cbox31">Endometrial</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox32" value="true"> <label for="cbox32">Extrauterino</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="trico_vag" id="cbox33" value="true"> <label for="cbox33">No especificado</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" colspan="3">
+                    <div class="form-group">
+                      <label for="observaciones"><strong>OBSERVACIONES</strong></label>
+                      <textarea rows="5" class="form-control" name="observaciones" id="observaciones" placeholder="Observaciones"></textarea>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -165,4 +208,6 @@
     var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
     document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
+    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
+    document.getElementById("edad").innerHTML = Edad;
 </script>

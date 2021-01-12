@@ -73,6 +73,7 @@ router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
     var t_informe = req.params.t_informe;
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     //console.log(entidades);
+    const epss = await pool.query('SELECT id, razon_social FROM eps');
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
 
     switch (t_informe) {
@@ -104,7 +105,7 @@ router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
         paciente
     };
 
-    res.render('informes/nuevoc', { informe, entidades, patologos });
+    res.render('informes/nuevoc', { informe, entidades, patologos, epss });
 });
 
 router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
@@ -145,6 +146,50 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
         default:
             ultInf = "Unknown";
     };
+
+    req.flash('success', 'Informe Guardado!');
+    res.redirect('/informes')
+});
+
+//NuevoCitologia Post
+router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
+    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, observaciones, t_informe, ultInf } = req.body;
+    nuevoInformeC = {
+        informe_cod,
+        numdoc,
+        paciente,
+        telefono,
+        sexo,
+        edad,
+        entidad,
+        eps,
+        medRemitente,
+        fec_muestra,
+        fec_inf,
+        fec_ingreso,
+        patologo,
+        cal_muestra,
+        ins_motivo,
+        observaciones
+    };
+    console.log(nuevoInformeC);
+    //await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
+
+    switch (t_informe) {
+        case "Q":
+            //await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
+            break;
+        case "L":
+            //await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
+            break;
+        case "C":
+            //await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
+            break;
+        default:
+            ultInf = "Unknown";
+    };
+
+    console.log(t_informe, "-" ,ultInf);
 
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes')
