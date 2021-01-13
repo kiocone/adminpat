@@ -6,7 +6,7 @@ const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const informes = await pool.query('SELECT * FROM informe')
+    const informes = await pool.query('(select id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informe) UNION (select id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informec)')
     res.render('informes/ult_informes', { informes });
 });
 
@@ -203,17 +203,17 @@ router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
         observaciones
     };
     console.log(nuevoInformeC);
-    //await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
+    await pool.query('INSERT INTO informec set ?', [nuevoInformeC]);
 
     switch (t_informe) {
         case "Q":
-            //await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
             break;
         case "L":
-            //await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
             break;
         case "C":
-            //await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
             break;
         default:
             ultInf = "Unknown";

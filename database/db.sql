@@ -113,15 +113,19 @@ CREATE TABLE informec (
 	sexo varchar(1),
 	edad varchar(10),
 	entidad varchar(100),
+	eps varchar(100),
 	medRemitente varchar(100),
 	fec_muestra varchar(10),
 	fec_inf varchar(10),
 	fec_ingreso varchar(10),
 	patologo varchar(100),
 	cal_muestra INT(1),
-	ins_por varchar(50),
+	ins_motivo varchar(50),
 	cat_gen INT(1),
-	
+	cbox1 varchar(5), cbox2 varchar(5), cbox3 varchar(5), cbox4 varchar(5), cbox5 varchar(5), cbox6 varchar(5), cbox7 varchar(5), cbox8 varchar(5), cbox9 varchar(5), cbox10 varchar(5), 
+	cbox11 varchar(5), cbox12 varchar(5), cbox13 varchar(5), cbox14 varchar(5), cbox15 varchar(5), cbox16 varchar(5), cbox17 varchar(5), cbox18 varchar(5), cbox19 varchar(5), cbox20 varchar(5), 
+	cbox21 varchar(5), cbox22 varchar(5), cbox23 varchar(5), cbox24 varchar(5), cbox25 varchar(5), cbox26 varchar(5), cbox27 varchar(5), cbox28 varchar(5), cbox29 varchar(5), cbox30 varchar(5), 
+	cbox31 varchar(5), cbox32 varchar(5), cbox33 varchar(5),
 	observaciones text,
 	PRIMARY KEY (id)
 );
