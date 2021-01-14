@@ -85,6 +85,7 @@ ALTER TABLE estudios ADD CONSTRAINT estudios_fk0 FOREIGN KEY (t_precio) REFERENC
 CREATE TABLE informe (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	informe_cod varchar(11),
+	t_informe varchar(1),
 	numdoc varchar(13),
 	paciente varchar(100),
 	telefono varchar(50),
@@ -107,6 +108,7 @@ CREATE TABLE informe (
 CREATE TABLE informec (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	informe_cod varchar(11),
+	t_informe varchar(1),
 	numdoc varchar(13),
 	paciente varchar(100),
 	telefono varchar(50),
