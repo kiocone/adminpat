@@ -30,7 +30,7 @@ router.get('/tipo_informe', isLoggedIn, async (req, res) => {
     res.render('informes/tipo_informe', { pacientes });
 });
 
-router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
+router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
     const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
@@ -77,7 +77,7 @@ router.get('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 });
 
 //nuevo informe de citologia
-router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
+router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
     const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
@@ -123,7 +123,7 @@ router.get('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
     res.render('informes/nuevoc', { informe, entidades, patologos, epss });
 });
 
-router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
+router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
     nuevoInforme = {
         informe_cod,
@@ -168,7 +168,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 });
 
 //NuevoCitologia Post
-router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
+router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
     const { 
         informe_cod,
         numdoc, 
