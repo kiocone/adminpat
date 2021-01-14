@@ -16,19 +16,23 @@
                 </td>
             </tr>
             <tr class="xheaderf3">
-                <td colspan="2" id="nombre" scope="row">
+                <td id="nombre" scope="row">
                     <p><strong>Paciente:</strong> {{informe.paciente}}</p>
                 </td>
-                <td style="width:320px" id="num_doc" scope="row">
-                    <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
+                <td colspan="2" style="width:320px" id="num_doc" scope="row">
+                    <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <p><strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
+            <tr class="xheaderf6">
+                <td style="width:380px">
+                    <p><strong>IPS:</strong> {{informe.entidad}}</p>
                 </td>
                 <td colspan="2">
-                    <p><strong>Med. Solicitante:</strong> {{informe.medRemitente}}</p>
+                    {{#if eps}}
+                    <p><strong>EPS:</strong> {{informe.eps}}</p>
+                    {{else}}
+                    &nbsp;
+                    {{/if}}
                 </td>
             </tr>
             <tr class="xheaderf5">
@@ -42,40 +46,34 @@
                     &nbsp;
                 </td>
             </tr>
-            <tr class="xheaderf6">
-                <td style="width:380px">
-                    <p><strong>IPS:</strong> {{informe.entidad}}</p>
-                </td>
-                <td>
-                    {{#if eps}}
-                    <p><strong>EPS:</strong> {{informe.eps}}</p>
-                    {{else}}
-                    &nbsp;
-                    {{/if}}
+            <tr>
+                <td colspan="3">
+                    <p><strong>Med. Remitente:</strong> {{informe.medRemitente}}</p>
                 </td>
             </tr>
+            <!--Linea Horizontal-->
             <tr>
                 <td scope="row" colspan="3">
-                    <p>DESCRIPCIÓN MACROSCÓPICA</p>
+                    <strong><p>DESCRIPCIÓN MACROSCÓPICA</p></strong>
                     <p>{{informe.macro}}</p>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="3">
-                    <p>DESCRIPCIÓN MICROSCÓPICA</p>
+                    <strong><p>DESCRIPCIÓN MICROSCÓPICA</p></strong>
                     <p>{{informe.micro}}</p>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="3">
-                    <p>DIAGNOSTICO:</p>
+                    <strong><p>DIAGNOSTICO:</p></strong>
                     <pre>{{informe.diagnostico}}</pre>
                 </td>
             </tr>
             {{#if observacion}}
             <tr>
                 <td scope="row" colspan="3">
-                    <p>OBSERVACIONES:</p>
+                    <strong><p>OBSERVACIONES:</p></strong>
                     <p>{{informe.observaciones}}</p>
                 </td>
             </tr>
@@ -83,7 +81,7 @@
             {{#if inmuno}}
             <tr>
                 <td scope="row" colspan="3">
-                    <p>INMUNOHISTOQUÍMICA:</p>
+                    <strong><p>INMUNOHISTOQUÍMICA:</p></strong>
                     <p>{{informe.inmuno}}</p>
                 </td>
             </tr>
@@ -129,7 +127,7 @@
     
     .footer,
     .footer-space {
-        height: 120px;
+        height: 80px;
     }
     
     .header {
