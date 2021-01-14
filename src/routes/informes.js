@@ -1,12 +1,27 @@
 const { Router } = require('express');
 const express = require('express');
+const { assertEachIs } = require('pdf-lib');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const informes = await pool.query('(select id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informe) UNION (select id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informec)')
+    const informes = await pool.query('(select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informe) UNION (select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informec)')
+    var i = 0;
+    informes.forEach(t_informe => {
+        switch (informes[i].t_informe) {
+            case "C":
+                informes[i].t_informe = "C";
+                //console.log(i, informes[i].t_informe);
+                break;
+            default:
+                informes[i].t_informe = "";
+                //console.log(i, informes[i].t_informe);
+        }
+        i = i+1;        
+    });
+    
     res.render('informes/ult_informes', { informes });
 });
 
@@ -112,6 +127,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
     const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
     nuevoInforme = {
         informe_cod,
+        t_informe,
         numdoc,
         paciente,
         telefono,
@@ -154,7 +170,7 @@ router.post('/nuevo/:id:t_informe', isLoggedIn, async (req, res) => {
 //NuevoCitologia Post
 router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
     const { 
-        informe_cod, 
+        informe_cod,
         numdoc, 
         paciente, 
         telefono, 
@@ -181,6 +197,7 @@ router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
 
     nuevoInformeC = {
         informe_cod,
+        t_informe,
         numdoc,
         paciente,
         telefono,
@@ -227,7 +244,7 @@ router.post('/nuevoc/:id:t_informe', isLoggedIn, async (req, res) => {
 
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
+    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc );
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo );
 
@@ -250,6 +267,25 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
 
+//Impresion de informe Citologia
+router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10,  cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones FROM informec WHERE id = ?', [id]);
+    const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc );
+    const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo );
+
+    if (res_informe[0].observaciones) {
+        console.log('Observacion de informe');
+    }
+    else {
+        console.log('Vacio');
+    }
+
+    console.log(res_informe[0]);
+
+    res.render('informes/imprimirC', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
+});
+
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     await pool.query('DELETE FROM entidad WHERE ID = ?', [id]);
@@ -259,18 +295,29 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_informe = await pool.query('SELECT id, informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
+    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     const epss = await pool.query('SELECT id, razon_social FROM eps');
     res.render('informes/edit', { informe: res_informe[0], patologos, entidades, epss });
 });
 
+//Editar Citologia
+router.get('/editC/:id', isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10,  cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones FROM informec WHERE id = ?', [id]);
+    const patologos = await pool.query('SELECT id, patologo FROM patologo');
+    const entidades = await pool.query('SELECT id, razon_social FROM entidad');
+    const epss = await pool.query('SELECT id, razon_social FROM eps');
+    res.render('informes/editC', { informe: res_informe[0], patologos, entidades, epss });
+});
+
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones } = req.body;
+    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones } = req.body;
     const { id } = req.params;
     editInforme = {
         informe_cod,
+        t_informe,
         numdoc,
         paciente,
         telefono,
@@ -290,6 +337,40 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
     };
     console.log(editInforme);
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
+    req.flash('success', 'Informe Guardado!');
+    res.redirect('/informes');
+});
+
+//Editar informe de citologia
+router.post('/editC/:id', isLoggedIn, async (req, res) => {
+    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10,  cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones } = req.body;
+    const { id } = req.params;
+    editInformeC = {
+        informe_cod,
+        t_informe,
+        numdoc,
+        paciente,
+        telefono,
+        sexo,
+        edad,
+        entidad,
+        eps,
+        medRemitente,
+        fec_muestra,
+        fec_inf,
+        fec_ingreso,
+        patologo,
+        cal_muestra,
+        ins_motivo,
+        cat_gen,
+        cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10, 
+        cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, 
+        cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, 
+        cbox31, cbox32, cbox33,
+        observaciones
+    };
+    //console.log(editInformeC);
+    await pool.query('UPDATE informec set ? WHERE id = ?', [editInformeC, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes');
 });

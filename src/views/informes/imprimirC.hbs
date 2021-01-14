@@ -1,0 +1,372 @@
+<div class="container left">
+    <table border="0">
+        <thead>
+            <tr class="header-space xheaderf1">
+                <td colspan="3">
+                    <div>
+                        &nbsp;
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <form action="" method="post">
+                <!--Encabezado Inf Citologias -->
+                <tr>
+                    <td colspan="4" style="text-align: center">
+                        <p style="text-align: center">INFORME DE ESTUDIO CITOLOGIA No: <strong><i
+                                    style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="num_doc" scope="col">
+                        <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
+                    </td>
+                    <td colspan="2" id="nombre" scope="col">
+                        <p><strong>Paciente:</strong> {{informe.paciente}}</p>
+                    </td>
+                    <td scope="col">
+                        <p style="text-align: center">Edad: <i id="edad"></i></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Medico remitente <input name="medRemitente" type="text"
+                            value="{{informe.medRemitente}}"></td>
+                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="{{informe.fec_inf}}"
+                            min="1920-01-01" max="2040-12-31"></td>
+                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden" value="2021-01-01"
+                        min="1920-01-01" max="2040-12-31"><!-- </td>-->
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
+                            min="1920-01-01" max="2040-12-31"></td>
+                </tr>
+                <tr>
+                    <td scope="col"> <br>
+                        <select name="entidad">
+                            <option selected value="{{informe.entidad}}">{{informe.entidad}}</option>
+                        </select>
+                    </td>
+                    <td scope="col">    
+                        <select name="eps">
+                            <option selected value="{{informe.eps}}">{{informe.eps}}</option>
+                        </select>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table" border="0">
+        <tbody>
+            <!--Cuerpo Inf Citologias 
+                    Calidad de muestra-->
+            <tr>
+                <td scope="row" colspan="3">
+                    <p align="center"><strong>CALIDAD DE MUESTRA</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                                id="cal_muestra0" value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                                id="cal_muestra1" value="1"> Satisfactoria <br>
+                            (Sin celulas endocervicales / Z. T.)
+                        </td>
+                        <td style="width: 400" colspan="2">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input widht="20" class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra2"
+                                value="2">
+                            <div>Insatisfactoria por:<input type="text" name="ins_motivo" value="{{informe.ins_motivo}}"
+                                    placeholder="Motivo">
+                            </div>
+                        </td>
+                    </label>
+                    <script>
+                        document.getElementById("cal_muestra{{informe.cal_muestra}}").checked = true;
+                    </script>
+                </div>
+            </tr>
+
+            <!--Categoria General-->
+            <tr>
+                <td colspan="3">
+                    <p align="center"><strong>CATEGORIZACION GENERAL</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <td scope="row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen0" value="0"> Negativa
+                            para lesión intraepitelial o malignidad
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen1" value="1">
+                            Anormalidad en células epiteliales
+                        </td>
+                        <td colspan="2">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen2" value="2"> Otros
+                        </td>
+                    </label>
+                    <script>
+                        document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
+                    </script>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table" border="0">
+        <tbody>
+            <tr>
+                <!--microorganizmos -izq-->
+                <td scope="row">
+                    <p align="center"><strong>MICROORGANISMOS</strong></p>
+                    <input type="checkbox" name="cbox1" id="cbox1"><label for="cbox1">Tricoma vaginalis</label><br>
+                    <input type="checkbox" name="cbox2" id="cbox2"> <label for="cbox2">Hongos consistentes con candida
+                        sp</label><br>
+                    <input type="checkbox" name="cbox3" id="cbox3"> <label for="cbox3">Bacterias consistentes con
+                        actinomyces sp</label><br>
+                    <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por virus
+                        herpes simple</label><br>
+                    <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en la flora
+                        sugestivos de vaginosis bacteriana</label><br>
+                    <input type="checkbox" name="cbox6" id="cbox6"> <label for="cbox6">Oros</label>
+                </td>
+                <!--Otros Hallazgos-->
+                <td scope="row">
+                    <p align="center"><strong>OTROS HALLAZGOS NO NEOPLASTICOS</strong></p>
+                    <input type="checkbox" name="cbox7" id="cbox7"> <label for="cbox7">Cambios Célulares reactivos
+                        asociados</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox8" id="cbox8"> <label for="cbox8">Inflamación</label>
+                    <input type="checkbox" name="cbox9" id="cbox9"> <label for="cbox9">Atrofia</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox10" id="cbox10"> <label for="cbox10">Radiación</label>
+                    <input type="checkbox" name="cbox11" id="cbox11"> <label for="cbox11">DIU</label><br>
+                    <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometirales despues de 40
+                        Años de edad</label><br>
+                    <input type="checkbox" name="cbox13" id="cbox13"> <label for="cbox13">Otros</label><br>
+                    &nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="table" border="0">
+        <tbody>
+            <tr>
+                <td colspan="3">
+                    <p align="center"><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="cbox14" id="cbox14"> <label for="cbox14">Celulas Escamosas Atipicas
+                        (ASC)</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox15" id="cbox15"> <label for="cbox15">De significado indeterminado
+                        (ASC-US)</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox16" id="cbox16"> <label for="cbox16">Sugieren lesion de alto grado
+                        (ASC-H)</label><br>
+                    <input type="checkbox" name="cbox17" id="cbox17"> <label for="cbox17">LIE-BG (Lesión escamosa
+                        intraepitelial<br>de bajo grado) NIC I - HPV</label><br>
+                    <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG (Lesión escamosa
+                        intraepitelial<br>de alto grado) NIC II - NIC III</label><br>
+                    <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcicoma escamoso
+                        invasor</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="cbox20" id="cbox20"> <label for="cbox20">Atípias de significado
+                        indeterminado</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label>
+                    <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox23" id="cbox23"> <label for="cbox23">Otras glandulares</label><br>
+                    <input type="checkbox" name="cbox24" id="cbox24"> <label for="cbox24">Células glandulares
+                        endocervicales,<br>que favorecen neoplasia </label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label>
+                    <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcicoma in
+                        situ</label><br>
+                    <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcicoma</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox31" id="cbox31"> <label for="cbox31">Endometrial</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox32" id="cbox32"> <label for="cbox32">Extrauterino</label><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="cbox33" id="cbox33"> <label for="cbox33">No especificado</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" colspan="3">
+                    <div class="form-group">
+                        <label for="observaciones"><strong>OBSERVACIONES</strong></label>
+                        <textarea rows="5" class="form-control" name="observaciones"
+                            id="observaciones">{{informe.observaciones}}</textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button class="btn btn-success mx-auto">
+                        Guardar Informe
+                    </button>
+                </td>
+            </tr>
+            </form>
+        </tbody>
+    </table>
+</div>
+
+<div class="header">
+    <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
+</div>
+<div style="width: 980px;" class="footer">
+    <p style="text-align: center;">
+        Medicos Patólogos-MediPat S.A.S, Calle Velez Danies #4-11 Piso 2<br>
+        Telefono: 660.13.51 &#9679; 315.322.09.66 &#9679; Email: administracion@medipat.com.co
+    </p>
+</div>
+
+<script>
+
+    //document.getElementById("fecInforme").value = new Date().toDateInputValue();
+    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
+    document.getElementById("edad").innerHTML = Edad;
+
+    if ("{{informe.cbox1}}" == "on") { document.getElementById("cbox1").checked = true; };
+    if ("{{informe.cbox2}}" == "on") { document.getElementById("cbox2").checked = true; };
+    if ("{{informe.cbox3}}" == "on") { document.getElementById("cbox3").checked = true; };
+    if ("{{informe.cbox4}}" == "on") { document.getElementById("cbox4").checked = true; };
+    if ("{{informe.cbox5}}" == "on") { document.getElementById("cbox5").checked = true; };
+    if ("{{informe.cbox6}}" == "on") { document.getElementById("cbox6").checked = true; };
+    if ("{{informe.cbox7}}" == "on") { document.getElementById("cbox7").checked = true; };
+    if ("{{informe.cbox8}}" == "on") { document.getElementById("cbox8").checked = true; };
+    if ("{{informe.cbox9}}" == "on") { document.getElementById("cbox9").checked = true; };
+    if ("{{informe.cbox10}}" == "on") { document.getElementById("cbox10").checked = true; };
+    if ("{{informe.cbox11}}" == "on") { document.getElementById("cbox11").checked = true; };
+    if ("{{informe.cbox12}}" == "on") { document.getElementById("cbox12").checked = true; };
+    if ("{{informe.cbox13}}" == "on") { document.getElementById("cbox13").checked = true; };
+    if ("{{informe.cbox14}}" == "on") { document.getElementById("cbox14").checked = true; };
+    if ("{{informe.cbox15}}" == "on") { document.getElementById("cbox15").checked = true; };
+    if ("{{informe.cbox16}}" == "on") { document.getElementById("cbox16").checked = true; };
+    if ("{{informe.cbox17}}" == "on") { document.getElementById("cbox17").checked = true; };
+    if ("{{informe.cbox18}}" == "on") { document.getElementById("cbox18").checked = true; };
+    if ("{{informe.cbox19}}" == "on") { document.getElementById("cbox19").checked = true; };
+    if ("{{informe.cbox20}}" == "on") { document.getElementById("cbox20").checked = true; };
+    if ("{{informe.cbox21}}" == "on") { document.getElementById("cbox21").checked = true; };
+    if ("{{informe.cbox22}}" == "on") { document.getElementById("cbox22").checked = true; };
+    if ("{{informe.cbox23}}" == "on") { document.getElementById("cbox23").checked = true; };
+    if ("{{informe.cbox24}}" == "on") { document.getElementById("cbox24").checked = true; };
+    if ("{{informe.cbox25}}" == "on") { document.getElementById("cbox25").checked = true; };
+    if ("{{informe.cbox26}}" == "on") { document.getElementById("cbox26").checked = true; };
+    if ("{{informe.cbox27}}" == "on") { document.getElementById("cbox27").checked = true; };
+    if ("{{informe.cbox28}}" == "on") { document.getElementById("cbox28").checked = true; };
+    if ("{{informe.cbox29}}" == "on") { document.getElementById("cbox29").checked = true; };
+    if ("{{informe.cbox30}}" == "on") { document.getElementById("cbox30").checked = true; };
+    if ("{{informe.cbox31}}" == "on") { document.getElementById("cbox31").checked = true; };
+    if ("{{informe.cbox32}}" == "on") { document.getElementById("cbox32").checked = true; };
+    if ("{{informe.cbox33}}" == "on") { document.getElementById("cbox33").checked = true; };    
+</script>
+
+<style>
+    .navbar {
+        display: none;
+    }
+
+    .header-space {
+        height: 100px;
+    }
+
+    .footer,
+    .footer-space {
+        height: 80px;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+    }
+
+    .headerf1 {
+        position: fixed;
+        top: 0;
+    }
+
+    .headerf2 {
+        position: fixed;
+        top: 100px;
+    }
+
+    .headerf3 {
+        position: fixed;
+        top: 130px;
+    }
+
+    .headerf4 {
+        position: fixed;
+        top: 160px;
+    }
+
+    .headerf5 {
+        position: fixed;
+        top: 190px;
+    }
+
+    .headerf6 {
+        position: fixed;
+        top: 220px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    .right {
+        position: absolute;
+        right: 0px;
+        padding: 10px;
+    }
+
+    .left {
+        position: absolute;
+        left: 0px;
+        padding: 10px;
+    }
+
+    .borde {
+        border: 1px solid black;
+    }
+
+    .tamprint {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    pre {
+        font-family: "worksans";
+        font-size: 22px;
+        word-break: break-word;
+        width: 960px;
+    }
+</style>

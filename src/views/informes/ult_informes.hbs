@@ -25,12 +25,21 @@
                 <td class="small" scope="row">{{telefono}}</td>
                 <td class="small" scope="row">{{fec_inf}}</td>
                 <td class="small" scope="col">
+                    {{#if t_informe}}
+                    <a href="/informes/edit{{t_informe}}/{{id}}" class="btn btn-success">
+                        <i class='fas fa-edit'></i>
+                    </a>
+                    <a href="/informes/imprimir{{t_informe}}/{{id}}" class="btn btn-success">
+                        <i class="fas fa-print"></i>
+                    </a>
+                    {{else}}
                     <a href="/informes/edit/{{id}}" class="btn btn-success">
                         <i class='fas fa-edit'></i>
                     </a>
                     <a href="/informes/imprimir/{{id}}" class="btn btn-success">
                         <i class="fas fa-print"></i>
                     </a>
+                    {{/if}}
                 </td>
             </tr>
             {{/each}}
