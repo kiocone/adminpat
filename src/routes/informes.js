@@ -7,7 +7,7 @@ const { isLoggedIn } = require('../lib/auth');
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const informes = await pool.query('(select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informe) UNION (select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informec)')
+    const informes = await pool.query('(select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informe) UNION (select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo from informec) ORDER BY id DESC')
     var i = 0;
     informes.forEach(t_informe => {
         switch (informes[i].t_informe) {
