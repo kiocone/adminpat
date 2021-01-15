@@ -11,23 +11,23 @@
         </thead>
         <tbody>
             <tr class="xheaderf2">
-                <td colspan="4" style="text-align: center">
-                        <p style="text-align: center">INFORME DE ESTUDIO ANATOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
+                <td colspan="4">
+                        <p style="line-height: 2px; text-align: center;">INFORME DE ESTUDIO ANATOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
                 </td>
             </tr>
             <tr class="xheaderf3">
                 <td colspan="2" id="nombre" scope="row">
-                    <p><strong>Paciente:</strong> {{informe.paciente}}</p>
+                    <p style="line-height: 20px; width:400px;"><strong>Paciente:</strong> {{informe.paciente}}</p>
                 </td>
-                <td colspan="2" style="width:320px" id="num_doc" scope="row">
-                    <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
+                <td colspan="2" style="width:250px;" id="num_doc" scope="row">
+                    <p style="line-height: 20px;" class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong> {{informe.sexo}}</p>
                 </td>
             </tr>
             <tr class="xheaderf6">
-                <td colspan="2" style="width:380px">
+                <td colspan="2" style="line-height: 20px; width:380px;">
                     <p><strong>IPS:</strong> {{informe.entidad}}</p>
                 </td>
-                <td colspan="2">
+                <td colspan="2" style="line-height: 20px; width:380px;">
                     {{#if eps}}
                     <p><strong>EPS:</strong> {{informe.eps}}</p>
                     {{else}}
@@ -50,26 +50,26 @@
             </tr>
             <!--Linea Horizontal-->
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="4">
                     <strong><p>DESCRIPCIÓN MACROSCÓPICA</p></strong>
                     <pre>{{informe.macro}}</pre>
                 </td>
             </tr>
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="4">
                     <strong><p>DESCRIPCIÓN MICROSCÓPICA</p></strong>
-                    <p>{{informe.micro}}</p>
+                    <pre>{{informe.micro}}</pre>
                 </td>
             </tr>
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="4">
                     <strong><p>DIAGNOSTICO:</p></strong>
                     <pre>{{informe.diagnostico}}</pre>
                 </td>
             </tr>
             {{#if observacion}}
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="4">
                     <strong><p>OBSERVACIONES:</p></strong>
                     <p>{{informe.observaciones}}</p>
                 </td>
@@ -77,7 +77,7 @@
             {{/if}}
             {{#if inmuno}}
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="4">
                     <strong><p>INMUNOHISTOQUÍMICA:</p></strong>
                     <p>{{informe.inmuno}}</p>
                 </td>
@@ -97,7 +97,7 @@
         </tbody>
         <tfoot class="header-space">
             <tr>
-                <td colspan="3">&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
         </tfoot>
     </table>
@@ -106,7 +106,7 @@
 <div class="header">
     <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
 </div>
-<div style="width: 980px;" class="footer">
+<div style="width: 1000px;" class="footer">
     <p style="text-align: center;">
         Medicos Patólogos-MediPat S.A.S,  Calle Velez Danies #4-11 Piso 2<br>
         Telefono: 660.13.51 &#9679; 315.322.09.66 &#9679; Email: administracion@medipat.com.co
