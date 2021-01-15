@@ -11,12 +11,12 @@
         </thead>
         <tbody>
             <tr class="xheaderf2">
-                <td colspan="3" style="text-align: center">
+                <td colspan="4" style="text-align: center">
                         <p style="text-align: center">INFORME DE ESTUDIO ANATOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
                 </td>
             </tr>
             <tr class="xheaderf3">
-                <td id="nombre" scope="row">
+                <td colspan="2" id="nombre" scope="row">
                     <p><strong>Paciente:</strong> {{informe.paciente}}</p>
                 </td>
                 <td colspan="2" style="width:320px" id="num_doc" scope="row">
@@ -24,7 +24,7 @@
                 </td>
             </tr>
             <tr class="xheaderf6">
-                <td style="width:380px">
+                <td colspan="2" style="width:380px">
                     <p><strong>IPS:</strong> {{informe.entidad}}</p>
                 </td>
                 <td colspan="2">
@@ -39,15 +39,12 @@
                 <td scope="row">
                     <p><strong>Ingreso:</strong> {{informe.fec_ingreso}}</p>
                 </td>
-                <td scope="row" colspan="2">
+                <td scope="row" colspan="3">
                     <p><strong>Informe:</strong> {{informe.fec_inf}}</p>
-                </td>
-                <td scope="row">
-                    &nbsp;
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     <p><strong>Med. Remitente:</strong> {{informe.medRemitente}}</p>
                 </td>
             </tr>
