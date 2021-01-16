@@ -13,24 +13,20 @@
             <form action="" method="post">
                 <!--Encabezado Inf Citologias -->
                 <tr>
-                    <td colspan="4" style="text-align: center">
-                        <p style="text-align: center">INFORME DE ESTUDIO CITOLOGIA No: <strong><i
-                                    style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
+                    <td colspan="5" style="text-align: center">
+                        <p style="text-align: center">INFORME DE ESTUDIO CITOLOGIA No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">
-                        <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}}</p>
-                    </td>
-                    <td colspan="2" id="nombre" scope="col">
-                        <p><strong>Paciente:</strong> {{informe.paciente}}</p>
+                    <td colspan="4" id="num_doc" scope="col">
+                        <p class="mayus"><strong>{{paciente.t_docu}}:</strong> {{informe.numdoc}} &nbsp; <strong>Paciente:</strong> {{informe.paciente}}</p>
                     </td>
                     <td scope="col">
-                        <p style="text-align: center">Edad: <i id="edad"></i></p>
+                        <p style="text-align: center"><strong>Edad: </strong><i id="edad"></i></p>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">Medico remitente <input name="medRemitente" type="text"
+                    <td colspan="3">Medico remitente <input name="medRemitente" type="text"
                             value="{{informe.medRemitente}}"></td>
                     <td scope="col">Informe <br> <input name="fec_inf" type="date" value="{{informe.fec_inf}}"
                             min="1920-01-01" max="2040-12-31"></td>
@@ -40,12 +36,12 @@
                             min="1920-01-01" max="2040-12-31"></td>
                 </tr>
                 <tr>
-                    <td scope="col"> <br>
+                    <td colspan="2.5" scope="col"> <br>
                         <select name="entidad">
                             <option selected value="{{informe.entidad}}">{{informe.entidad}}</option>
                         </select>
                     </td>
-                    <td scope="col">    
+                    <td colspan="2.5" scope="col">    
                         <select name="eps">
                             <option selected value="{{informe.eps}}">{{informe.eps}}</option>
                         </select>
@@ -59,7 +55,7 @@
             <!--Cuerpo Inf Citologias 
                     Calidad de muestra-->
             <tr>
-                <td scope="row" colspan="3">
+                <td scope="row" colspan="5">
                     <p align="center"><strong>CALIDAD DE MUESTRA</strong></p>
                 </td>
             </tr>
