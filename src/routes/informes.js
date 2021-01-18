@@ -295,7 +295,7 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones FROM informe WHERE id = ?', [id]);
+    const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     const epss = await pool.query('SELECT id, razon_social FROM eps');
@@ -313,7 +313,7 @@ router.get('/editC/:id', isLoggedIn, async (req, res) => {
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, observaciones } = req.body;
+    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
     const { id } = req.params;
     editInforme = {
         informe_cod,
@@ -333,6 +333,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         macro,
         micro,
         diagnostico,
+        inmuno,
         observaciones
     };
     console.log(editInforme);

@@ -1,5 +1,5 @@
 <div class="container">
-    <table border="0">
+    <table border="0" class="content-block">
         <thead>
             <tr class="header-space">
                 <td colspan="3">
@@ -59,16 +59,16 @@
                     <strong>
                         <p>INMUNOHISTOQUÍMICA:</p>
                     </strong>
-                    <p>{{informe.inmuno}}</p>
+                    <pre style="line-height: 21px; width:1000px;letter-spacing: -1px;">{{informe.inmuno}}</pre>
                 </td>
             </tr>
             {{/if}}
             <tr>
-                <td style="vertical-align: bottom;">&nbsp;</td>
+                <td style="vertical-align: bottom;width:550px;">&nbsp;</td>
                 <td>&nbsp;</td>
-                <td style="text-align: center;">
+                <td style="text-align: center;" colspan="2">
                     <p>&nbsp;<br>
-                        ____________________________________<br>
+                        __________________________________<br>
                         Patologo: {{informe.patologo}}<br>
                         Registro: {{medico.reg_med}}
                     </p>
