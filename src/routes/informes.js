@@ -263,7 +263,8 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     }
 
     console.log(res_informe[0]);
-
+    console.log(res_tipoDoc[0]);
+    
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
 
