@@ -245,7 +245,9 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
+    console.log(res_informe[0].numdoc);
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc );
+    console.log(res_tipoDoc);
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo );
 
     if (res_informe[0].observaciones) {
