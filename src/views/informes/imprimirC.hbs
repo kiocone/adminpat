@@ -21,15 +21,15 @@
                 <label class="form-check-label">
                     <td style="width:360px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input campos" type="radio" name="cal_muestra"
-                            id="cal_muestra0" value="0">Satisfactoria (Con celulas endocervicales / Z. T.)
+                            id="cal_muestra0" value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:360px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
-                            id="cal_muestra1" value="1"> Satisfactoria (Sin celulas endocervicales / Z. T.)
+                            id="cal_muestra1" value="1"> Satisfactoria <br>(Sin celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:200;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra">
-                        Insatisfactoria por: {{informe.ins_motivo}}
+                        Insatisfactoria por: <br>{{informe.ins_motivo}}
                     </td>
                 </label>
                 <script>
@@ -50,7 +50,7 @@
         <tr>
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <td style="width:500px;" scope="row">
+                    <td style="width:430px;" scope="row">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
                             id="cat_gen0" value="0"> Negativa
                         para lesión intraepitelial o malignidad
@@ -83,7 +83,7 @@
                         actinomyces sp</label><br>
                     <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por virus
                         herpes simple</label><br>
-                    <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en la flora
+                    <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en flora
                         sugestivos de vaginosis bacteriana</label><br>
                     <input type="checkbox" name="cbox6" id="cbox6"> <label for="cbox6">Oros</label>
                 </td>
@@ -115,7 +115,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:500px;">
+                <td style="width:350px;">
                     <input type="checkbox" name="cbox14" id="cbox14"> <label for="cbox14">Celulas Escamosas Atipicas
                         (ASC)</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -126,14 +126,14 @@
                     <input type="checkbox" name="cbox16" id="cbox16"> <label for="cbox16">Sugieren lesion de alto
                         grado
                         (ASC-H)</label><br>
-                    <input type="checkbox" name="cbox17" id="cbox17"> <label for="cbox17">LIE-BG (Lesión escamosa
-                        intraepitelial de bajo grado) NIC I - HPV</label><br>
-                    <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG (Lesión escamosa
-                        intraepitelial de alto grado) NIC II - NIC III</label><br>
+                    <input type="checkbox" name="cbox17" id="cbox17"> <label for="cbox17">LIE-BG <!--(Lesión escamosa
+                        intraepitelial de bajo grado) -->NIC I - HPV</label><br>
+                    <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG <!--(Lesión escamosa
+                        intraepitelial de alto grado) -->NIC II - NIC III</label><br>
                     <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcicoma escamoso
                         invasor</label><br>
                 </td>
-                <td style="width:300px;">
+                <td style="width:310px;">
                     <input type="checkbox" name="cbox20" id="cbox20"> <label for="cbox20">Atípias de significado
                         indeterminado</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -150,7 +150,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label>
                 </td>
-                <td style="width:200px;">
+                <td style="width:250px;">
                     <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcicoma in
                         situ</label><br>
                     <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcicoma</label><br>
@@ -172,8 +172,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="vertical-align: bottom;width:550px;">&nbsp;</td>
-                <td>
+                <td colspan="3" style="vertical-align: bottom;width:550px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">
                     <p class="firma">&nbsp;<br>__________________________________<br>
                         Patologo: {{informe.patologo}}<br>
                         Registro: {{medico.reg_med}}
@@ -357,7 +359,7 @@
     }
 
     td {
-        font-size: 14px;
+        font-size: 16px;
         height: 15px;
     }
 
@@ -400,7 +402,7 @@
 
     .firma {
         line-height: 18px;
-        font-size: 20px;
+        font-size: 22px;
         text-align: center;
         color: black;
     }

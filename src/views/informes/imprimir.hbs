@@ -93,13 +93,21 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" id="nombre" scope="row">
-                <p style="line-height: 10px; width:500px;" class="textjusto-1"><strong>Paciente:</strong>
+            <td colspan="4" id="nombre" scope="row">
+                <p style="line-height: 10px; width:500px;" class="textjusto-1 mayus"><strong>Paciente:</strong>
                     {{informe.paciente}}</p>
             </td>
+        </tr>
+        <tr>
             <td colspan="2" style="width:500px;" id="num_doc" scope="row">
                 <p style="line-height: 10px;" class="mayus textjusto-1"><strong>{{paciente.t_docu}}:</strong>
-                    {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i> &nbsp;<strong>Sexo:</strong>
+                    {{informe.numdoc}}</p>
+            </td>
+            <td>
+                <p style="line-height: 10px;" class="mayus textjusto-1"><strong>Edad: </strong><i id="edad"></i></p>
+            </td>
+            <td>
+                <p style="line-height: 10px;" class="mayus textjusto-1"><strong>Sexo:</strong>
                     {{informe.sexo}}</p>
             </td>
         </tr>
@@ -153,7 +161,7 @@
     }
 
     .header-space {
-        height: 235px;
+        height: 255px;
     }
 
     @media print {
