@@ -373,7 +373,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         cbox31, cbox32, cbox33,
         observaciones
     };
-    //console.log(editInformeC);
+    console.log(editInformeC);
     await pool.query('UPDATE informec set ? WHERE id = ?', [editInformeC, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes');

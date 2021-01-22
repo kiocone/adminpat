@@ -26,16 +26,16 @@
             <tr>
                 <label class="form-check-label">
                     <td style="width:360px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input campos" type="radio" name="cal_muestra"
-                            id="cal_muestra0" value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
+                        <input style="" type="radio" name="cal_muestra"
+                            id="cal_muestra0" value="0">&nbsp;Satisfactoria <br>(Con celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:360px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
                             id="cal_muestra1" value="1"> Satisfactoria <br>(Sin celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:200;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra">
-                        Insatisfactoria por: <br>{{informe.ins_motivo}}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                            id="cal_muestra2" value="2">Insatisfactoria por: <br>{{informe.ins_motivo}}
                     </td>
                 </label>
                 <script>
@@ -189,7 +189,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <p class="firma">&nbsp;<br>__________________________________<br>
+                    <p class="firma">&nbsp;<br>______________________________________<br>
                         Patologo: {{informe.patologo}}<br>
                         Registro: {{medico.reg_med}}
                     </p>
@@ -210,12 +210,12 @@
         </tr>
         <tr>
             <td colspan="2" style="padding-top: 0px;">
-                <p class="encabezado textjusto-1"><strong>Paciente:</strong>
+                <p class="encabezado textjusto-1"><strong>PACIENTE:</strong>
                     {{informe.paciente}}</p>
             </td>
             <td colspan="2" style="width:500px;" id="num_doc" scope="row">
                 <p class="encabezado" class="mayus textjusto-1"><strong class="mayus">{{paciente.t_docu}}:</strong>
-                    {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i>  &nbsp; <strong>Sexo: </strong> <i class="mayus">{{informe.sexo}}</i></p>
+                    {{informe.numdoc}} &nbsp; <strong>EDAD: </strong><i id="edad"></i>  &nbsp; <strong>SEXO: </strong> <i class="mayus">{{informe.sexo}}</i></p>
             </td>
         </tr>
         <tr>
@@ -234,17 +234,17 @@
         </tr>
         <tr>
             <td style="width:500px;">
-                <p class="encabezado textjusto-1"><strong>Ingreso:</strong>
+                <p class="encabezado textjusto-1"><strong>INGRESO:</strong>
                     {{informe.fec_ingreso}}</p>
             </td>
             <td style="width:500px;" colspan="3">
-                <p class="encabezado textjusto-1"><strong>Informe:</strong>
+                <p class="encabezado textjusto-1"><strong>INFORME:</strong>
                     {{informe.fec_inf}}</p>
             </td>
         </tr>
         <tr>
             <td style="width:1000px;" colspan="4">
-                <p class="encabezado textjusto-1"><strong>Med. Remitente:</strong>
+                <p class="encabezado textjusto-1"><strong>REMITENTE:</strong>
                     {{informe.medRemitente}}</p>
             </td>
         </tr>
