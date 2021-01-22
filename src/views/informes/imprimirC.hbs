@@ -10,10 +10,16 @@
             </tr>
         </thead>
         <tbody>
+            <!--Linea Horizontal-->
+            <tr>
+                <td colspan="4" style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
+                    <strong><i>___________________________________________________________________________________</i></strong>
+                </td>
+            </tr>
             <!--Cuerpo Inf Citologias 
                     Calidad de muestra-->
             <tr>
-                <td class="titulo" colspan="3">
+                <td class="titulo" colspan="3" style="padding-top: 20px;">
                     <p class="titulo"><strong>CALIDAD DE MUESTRA</strong></p>
                 </td>
             </tr>
@@ -75,14 +81,14 @@
                 <!--microorganizmos -izq-->
                 <td style="width:500px;">
                     <p class="titulo-alt"><strong>MICROORGANISMOS</strong></p>
-                    <input type="checkbox" name="cbox1" id="cbox1"><label for="cbox1">Tricoma vaginalis</label><br>
+                    <input type="checkbox" name="cbox1" id="cbox1"><label for="cbox1">Tricomoma vaginalis</label><br>
                     <input type="checkbox" name="cbox2" id="cbox2"> <label for="cbox2">Hongos consistentes con
-                        candida
+                        Candida
                         sp</label><br>
                     <input type="checkbox" name="cbox3" id="cbox3"> <label for="cbox3">Bacterias consistentes con
-                        actinomyces sp</label><br>
+                        Actinomyces sp</label><br>
                     <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por virus
-                        herpes simple</label><br>
+                        Herpes simple</label><br>
                     <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en flora
                         sugestivos de vaginosis bacteriana</label><br>
                     <input type="checkbox" name="cbox6" id="cbox6"> <label for="cbox6">Oros</label>
@@ -94,11 +100,15 @@
                         asociados</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox8" id="cbox8"> <label for="cbox8">Inflamación</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox9" id="cbox9"> <label for="cbox9">Atrofia</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox10" id="cbox10"> <label for="cbox10">Radiación</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox11" id="cbox11"> <label for="cbox11">DIU</label><br>
-                    <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometirales despues de
+                    <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometriales despues de
                         40
                         Años de edad</label><br>
                     <input type="checkbox" name="cbox13" id="cbox13"> <label for="cbox13">Otros</label><br>
@@ -110,7 +120,7 @@
     <table border="0">
         <tbody>
             <tr>
-                <td class="titulo" colspan="3">
+                <td class="titulo" colspan="3" style="padding-top: 20px;">
                     <p><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
                 </td>
             </tr>
@@ -138,6 +148,7 @@
                         indeterminado</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label>
+                    &nbsp;&nbsp;
                     <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox23" id="cbox23"> <label for="cbox23">Otras
@@ -146,14 +157,15 @@
                         endocervicales,<br>que favorecen neoplasia </label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label>
+                    &nbsp;&nbsp;
                     <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label>
                 </td>
                 <td style="width:250px;">
-                    <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcicoma in
+                    <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcinoma in
                         situ</label><br>
-                    <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcicoma</label><br>
+                    <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcinoma</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -166,7 +178,8 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:1000px;" colspan="3">
+                <td style="width:1000px;" colspan="3" style="padding-top: 100px;">
+                    <br>
                     <strong class="titulo">OBSERVACIONES</strong>
                     <pre>{{informe.observaciones}}</pre>
                 </td>
@@ -190,19 +203,19 @@
     <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
     <table border="0">
         <tr>
-            <td colspan="4">
+            <td colspan="4" style="padding-top: 10px;">
                 <p class="titulo-inf textjusto-1">INFORME DE ESTUDIO
-                    ANATOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
+                    CITOLÓGICO No: <strong><i style="size: 26px;">{{informe.informe_cod}}</i></strong></p>
             </td>
         </tr>
         <tr>
-            <td colspan="2" id="nombre" scope="row">
+            <td colspan="2" style="padding-top: 0px;">
                 <p class="encabezado textjusto-1"><strong>Paciente:</strong>
                     {{informe.paciente}}</p>
             </td>
             <td colspan="2" style="width:500px;" id="num_doc" scope="row">
                 <p class="encabezado" class="mayus textjusto-1"><strong class="mayus">{{paciente.t_docu}}:</strong>
-                    {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i></p>
+                    {{informe.numdoc}} &nbsp; <strong>Edad: </strong><i id="edad"></i>  &nbsp; <strong>Sexo: </strong> <i class="mayus">{{informe.sexo}}</i></p>
             </td>
         </tr>
         <tr>
@@ -298,7 +311,7 @@
     }
 
     .header-space {
-        height: 235px;
+        height: 210px;
     }
 
     @media print {
@@ -401,7 +414,7 @@
     }
 
     .firma {
-        line-height: 18px;
+        line-height: 22px;
         font-size: 22px;
         text-align: center;
         color: black;
