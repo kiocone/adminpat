@@ -1,4 +1,3 @@
-<input style="font-size: 25px;" type="radio" name="prueba" id="prueba">texto
 <div class="container">
     <table border="0">
         <thead>
@@ -28,15 +27,15 @@
                 <label class="form-check-label">
                     <td style="width:360px;">
                         <input style="" type="radio" name="cal_muestra"
-                            id="cal_muestra0" value="0"><label class"etiqueta">&nbsp;Satisfactoria</label><label>(Con celulas endocervicales / Z. T.)</label>
+                            id="cal_muestra0" value="0">&nbsp;&nbsp;Satisfactoria<br>(Con celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:360px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
-                            id="cal_muestra1" value="1"> Satisfactoria <br>(Sin celulas endocervicales / Z. T.)
+                            id="cal_muestra1" value="1">&nbsp;Satisfactoria <br>(Sin celulas endocervicales / Z. T.)
                     </td>
                     <td style="width:200;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
-                            id="cal_muestra2" value="2">Insatisfactoria por: <br>{{informe.ins_motivo}}
+                            id="cal_muestra2" value="2">&nbsp;Insatisfactoria por: <br>{{informe.ins_motivo}}
                     </td>
                 </label>
                 <script>
@@ -96,7 +95,7 @@
                 </td>
                 <!--Otros Hallazgos-->
                 <td style="width:500px;">
-                    <p class="titulo2"><strong>OTROS HALLAZGOS NO NEOPLASTICOS</strong></p>
+                    <p class="titulo2"><strong>OTROS HALLAZGOS NO NEOPLASICOS</strong></p>
                     <input type="checkbox" name="cbox7" id="cbox7"> <label for="cbox7">Cambios Célulares reactivos
                         asociados</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -141,7 +140,7 @@
                         intraepitelial de bajo grado) -->NIC I - HPV</label><br>
                     <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG <!--(Lesión escamosa
                         intraepitelial de alto grado) -->NIC II - NIC III</label><br>
-                    <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcicoma escamoso
+                    <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcinoma escamoso
                         invasor</label><br>
                 </td>
                 <td style="width:310px;">
@@ -388,9 +387,9 @@
         transform: scale(2.5);
     }
 
-    .etiqueta {
-        font-size: 16px;
-    }
+    label {
+        padding-left: 10px;
+        }
 
     .titulo {
         font-size: 22px;
