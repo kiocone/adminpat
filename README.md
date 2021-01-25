@@ -1,7 +1,8 @@
 # Adminpat dev 0.1
-<p>db.Tabla y vistas de EPS</p>
-<p>informe de citologias</p>
-<p>campos de eps en vistas de informe</p>
+<p>Ajuste de fecha automatica nuevo, editar informe</p>
+<p>Hecho. db.Tabla y vistas de EPS</p>
+<p>Hecho. informe de citologias</p>
+<p>Hecho. campos de eps en vistas de informe</p>
 <p>hecho. <code><pre></code>" tag Incluir salto de linea en campos text</p>
 <p>hecho. separar codigo inf con "-"</p>
 <br>
