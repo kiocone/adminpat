@@ -3,6 +3,13 @@
         {{#if paciente}}
         <thead>
             <tr>
+                <th colspan="11">
+                    <a href="/pacientes/add" class="btn btn-success">
+                <i class='fas fa-plus-square'></i>
+            </a>
+                </th>
+            </tr>
+            <tr>
                 <th scope="col">id</th>
                 <th scope="col">Tipo</th>
                 <th scope="col"># Doc</th>
@@ -13,11 +20,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Comentario</th>
-                <th scope="col" colspan="3">Nuevo</th>
+                <th scope="col" colspan="3">Acción</th>
             </tr>
-            <a href="/pacientes/add" class="btn btn-success">
-                <i class='fas fa-plus-square'></i>
-            </a>
         </thead>
         {{/if}}
         <tbody>
@@ -26,7 +30,9 @@
                 <td scope="row" class="small">{{id}}</td>
                 <td class="small">{{t_docu}}</td>
                 <td class="small">{{num_docu}}</td>
-                <td class="small">{{nombre}}</td>
+                <td class="small"><span class="tooltip-multiline tooltip-bottom-left" data-tooltip="{{description}}">
+                        {{nombre}}
+                    </span></td>
                 <td class="small mayus">{{sexo}}</td>
                 <td class="small">{{direccion}}</td>
                 <td class="small">{{telefono}}</td>
