@@ -19,8 +19,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
                 <th scope="col">Edad</th>
-                <th scope="col">Comentario</th>
-                <th scope="col" colspan="3">Acción</th>
+                <th scope="col" colspan="4">Acción</th>
             </tr>
         </thead>
         {{/if}}
@@ -30,7 +29,7 @@
                 <td scope="row" class="small">{{id}}</td>
                 <td class="small">{{t_docu}}</td>
                 <td class="small">{{num_docu}}</td>
-                <td class="small"><span class="tooltip-multiline tooltip-bottom-left" data-tooltip="{{description}}">
+                <td class="small"><span data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{description}}">
                         {{nombre}}
                     </span></td>
                 <td class="small mayus">{{sexo}}</td>
@@ -38,27 +37,24 @@
                 <td class="small">{{telefono}}</td>
                 <td class="small">{{email}}</td>
                 <td class="small"><time>{{f_nac}}</time></td>
-                <td class="small">
-                    <span class="tooltip-multiline tooltip-bottom-left" data-tooltip="{{description}}">
-                        Ver
-                    </span>
+                <td style="padding-left: 0px; padding-right: 2px;" class="small">
                     <a href="/pacientes/edit/{{id}}" class="btn btn-success">
                         <i class='fas fa-edit'></i>
                     </a>
                 </td>
-                <td style="padding-left: 0px; padding-right: 0px;">
+                <td style="padding-left: 0px; padding-right: 1px;">
                     <form method="GET" action="/informes/nuevo/Q{{id}}">
 
                         <a class="btn btn-success" onclick="this.parentNode.submit();">Q</a>
                     </form>
                 </td>
-                <td style="padding-left: 0px; padding-right: 0px;">
+                <td style="padding-left: 0px; padding-right: 1px;">
                     <form method="GET" action="/informes/nuevo/L{{id}}">
 
                         <a class="btn btn-success" onclick="this.parentNode.submit();">L</a>
                     </form>
                 </td>
-                <td style="padding-left: 0px; padding-right: 0px;">
+                <td style="padding-left: 0px; padding-right: 1px;">
                     <form method="GET" action="/informes/nuevoc/C{{id}}">
 
                         <a class="btn btn-success" onclick="this.parentNode.submit();">C</a>
