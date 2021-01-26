@@ -10,9 +10,8 @@
                         <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
                     </td>
                     <td colspan="3">
-                        <i>Patologo</i>
                         <select name="patologo">
-                            <option selected="true" value="{{informe.patologo}}"></option>
+                            <option selected="true" value="0">Patologo</option>
                             {{#each patologos}}
                             <option value="{{patologo}}">{{patologo}}</option>
                             {{/each}}
@@ -26,9 +25,10 @@
                             value="{{informe.paciente.nombre}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
                             value="{{informe.paciente.telefono}}"></td>
-                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="10" value="{{informe.paciente.sexo}}">
+                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="10"
+                            value="{{informe.paciente.sexo}}">
                     </td>
-                    
+
                 </tr>
                 <tr>
                     <td scope="col"> <br>
@@ -47,11 +47,12 @@
                     </td>
                     <td colspan="2" scope="col">
                         Medico remitente <input name="medRemitente" type="text"><br>
-                        Informe<input name="fec_inf" id="fec_inf" type="date" value="2021-01-15" min="1920-01-01" max="2040-12-31"> 
-                        Ingreso <input name="fec_ingreso" id="fec_ingreso" type="date" value="2021-01-15" min="1920-01-01" max="2040-12-31">
+                        Informe <input type="date" name="fec_inf" id="fechaInf" placeholder="dd-mm-yyyy">
+                        Ingreso <input name="fec_ingreso" id="fechaIng" type="date" value="2021-01-15"
+                            min="1920-01-01" max="2040-12-31">
                     </td>
-                    <td id="edad" scope="col">
-                        Edad <input name="edad" type="text" size="10" value="{{informe.paciente.f_nac}}">
+                    <td scope="col">
+                        Edad: <span id="edad"></span>
                     </td>
                 </tr>
                 <tr>
@@ -100,5 +101,11 @@
     var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
     var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
     document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
-    document.getElementById("fec_Inf").value = dia + "/" + mes  + "/" + year;
+
+    document.getElementById('fechaInf').valueAsDate = new Date();
+    document.getElementById('fechaIng').valueAsDate = new Date();
+
+    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
+    document.getElementById("edad").innerHTML = Edad;
+
 </script>
