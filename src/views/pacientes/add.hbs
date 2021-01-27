@@ -14,16 +14,20 @@
                                 <option value="pasaporte">Pasaporte</option>
                             </select>
                         </p>
-                        <input type="text" name="num_docu" class="form-control" placeholder="Numero de Documento" required>
+                        <input type="text" name="num_docu" class="form-control" placeholder="Numero de Documento"
+                            required>
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre Completo" required>
-                        <input type="text" name="sexo" class="form-control mayus" placeholder="M ó F" maxlength="1" required>
+                        <input type="text" name="sexo" class="form-control mayus" placeholder="M ó F" maxlength="1"
+                            required>
                         <input type="text" name="direccion" class="form-control" placeholder="Direccoión" required>
                         <input type="text" name="telefono" class="form-control" placeholder="telefono" required>
                         <input type="email" name="email" class="form-control" placeholder="Email" required>
                         <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
-                            <input type="date" name="fecha_nacimiento" value="2000-01-01" min="1920-01-01" max="2040-12-31">
+                            <input type="number" id="edad" onchange="fechaNacimiento()" size="5"> <input type="date"
+                                name="fecha_nacimiento" id="fecNac" min="1920-01-01" max="2040-12-31">
                         </p>
-                        <textarea type="description" rows="2" class="form-control" name="description" placeholder="Description"></textarea>
+                        <textarea type="description" rows="2" class="form-control" name="description"
+                            placeholder="Description"></textarea>
                         <button class="btn btn-success btn-block">
                             Guardar
                         </button>
@@ -33,3 +37,15 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function fechaNacimiento() {
+        var edad = document.getElementById("edad").value;
+        var year = new Date().getFullYear();
+        var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
+        var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
+        var fechaNacimiento =  (year - edad) + "-" + mes + "-" + dia;
+        document.getElementById("fecNac").value = fechaNacimiento;
+    } 
+</script>
