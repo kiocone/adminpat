@@ -4,7 +4,8 @@
             <form action="/informes/edit/{{informe.id}}" method="POST">
                 <tr>
                     <td colspan="2">Informe:{{id}}
-                        <input type="text" name="informe_cod" value="{{informe.informe_cod}}" />
+                        <input type="text" name="informe_cod" value="{{informe.informe_cod}}">
+                        <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
                     </td>
                     <td colspan="3">
                         <i>Patologo</i>
@@ -86,6 +87,7 @@
                         <button class="btn btn-success mx-auto">
                             Guardar Informe
                         </button>
+                        <!--<a method="POST" href="/informes/savePrint/{{informe.id}}" class="btn btn-secondary">Imprimir</a>-->
                     </td>
                 </tr>
             </form>

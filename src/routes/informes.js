@@ -242,6 +242,13 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
     res.redirect('/informes')
 });
 
+router.get('/saveImprimir/:p:id', isLoggedIn, async (req, res) =>{
+    const { id } = req.params;
+    const { p } = req.params;
+    console.log(p , 'Se envia imprimir desde editar');
+    res.redirect('/informes/imprimir/' + id)
+})
+
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
@@ -341,8 +348,37 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
     };
     console.log(editInforme);
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
-    req.flash('success', 'Informe Guardado!');
-    res.redirect('/informes');
+        req.flash('success', 'Informe Guardado!');
+        res.redirect('/informes');
+});
+
+router.post('/savePrint/:id', isLoggedIn, async (req, res) => {
+    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
+    const { id } = req.params;
+    editInforme = {
+        informe_cod,
+        t_informe,
+        numdoc,
+        paciente,
+        telefono,
+        sexo,
+        edad,
+        entidad,
+        eps,
+        medRemitente,
+        fec_muestra,
+        fec_inf,
+        fec_ingreso,
+        patologo,
+        macro,
+        micro,
+        diagnostico,
+        inmuno,
+        observaciones
+    };
+    console.log('SavePrint!!!');
+    //await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
+    res.redirect('/informes/imprimir/' + id);
 });
 
 //Editar informe de citologia
