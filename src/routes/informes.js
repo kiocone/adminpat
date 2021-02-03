@@ -346,39 +346,11 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    console.log(editInforme);
+    console.log(paciente);
+    console.log('Guardado!')
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
         req.flash('success', 'Informe Guardado!');
-        res.redirect('/informes');
-});
-
-router.post('/savePrint/:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
-    const { id } = req.params;
-    editInforme = {
-        informe_cod,
-        t_informe,
-        numdoc,
-        paciente,
-        telefono,
-        sexo,
-        edad,
-        entidad,
-        eps,
-        medRemitente,
-        fec_muestra,
-        fec_inf,
-        fec_ingreso,
-        patologo,
-        macro,
-        micro,
-        diagnostico,
-        inmuno,
-        observaciones
-    };
-    console.log('SavePrint!!!');
-    //await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
-    res.redirect('/informes/imprimir/' + id);
+        res.redirect('/informes/edit/' + id);
 });
 
 //Editar informe de citologia
