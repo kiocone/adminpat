@@ -1,3 +1,64 @@
+<div class="header">
+    <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
+    <table border="0">
+        <tr>
+            <td colspan="4">
+                <p style="line-height: 18px; padding-top: 15px; text-align: center; width:1000px;" class="textjusto-1">INFORME DE ESTUDIO
+                    ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
+            </td>
+        </tr>
+        <tr style="">
+            <td colspan="4">
+                <p style="line-height: 10px; width:1000px;" class="textjusto-1"><b>PACIENTE:</b>
+                    {{informe.paciente}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="line-height: 10px; width:500px;" class="mayus textjusto-1"><b>{{paciente.t_docu}}:</b>
+                    {{informe.numdoc}}</p>
+            </td>
+            <td>
+                <p style="line-height: 10px;" class="mayus textjusto-1"><b>EDAD: </b><i id="edad"></i></p>
+            </td>
+            <td>
+                <p style="line-height: 10px;" class="mayus textjusto-1"><b>SEXO:</b>
+                    {{informe.sexo}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="line-height: 10px; width:500px;" class="textjusto-1"><b>IPS:</b>
+                    {{informe.entidad}}</p>
+            </td>
+            <td colspan="2">
+                {{#if eps}}
+                <p style="line-height: 10px; width:500px;" class="textjusto-1"><b>EPS:</b> {{informe.eps}}
+                </p>
+                {{else}}
+                &nbsp;
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style="line-height: 10px; width:500px;" class="textjusto-1"><b>INGRESO:</b>
+                    {{informe.fec_ingreso}}</p>
+            </td>
+            <td colspan="3">
+                <p style="line-height: 10px; width:500px;" class="textjusto-1"><b>INFORME:</b>
+                    {{informe.fec_inf}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p style="line-height: 10px; width:1000px;" class="textjusto-1"><b>MED. REMITENTE:</b>
+                    {{informe.medRemitente}}</p>
+            </td>
+        </tr>
+    </table>
+</div>
+
 <div class="container">
     <table border="0" class="content-block">
         <thead>
@@ -13,7 +74,7 @@
             <!--Linea Horizontal-->
             <tr>
                 <td colspan="4" style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
-                    <strong><i>___________________________________________________________________________________</i></strong>
+                    <b><i>___________________________________________________________________________________</i></b>
                 </td>
             </tr>
             <tr>
@@ -21,34 +82,34 @@
             </tr>
             <tr>
                 <td scope="row" colspan="4" style="padding-top: 0px;">
-                    <strong>
+                    <b>
                         <p style="line-height: 21px; width:1000px;">DESCRIPCIÓN MACROSCÓPICA</p>
-                    </strong>
-                    <pre style="line-height: 21px; width:1000px;letter-spacing: -1px;">{{informe.macro}}</pre>
+                    </b>
+                    <pre style="line-height: 0.8; width:1000px;letter-spacing: -1px;">{{informe.macro}}</pre>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="4">
-                    <strong>
+                    <b>
                         <p>DESCRIPCIÓN MICROSCÓPICA</p>
-                    </strong>
+                    </b>
                     <pre style="line-height: 21px; width:1000px;letter-spacing: -1px;">{{informe.micro}}</pre>
                 </td>
             </tr>
             <tr>
                 <td scope="row" colspan="4">
-                    <strong>
+                    <b>
                         <p>DIAGNOSTICO:</p>
-                    </strong>
+                    </b>
                     <pre style="line-height: 21px; width:1000px;letter-spacing: -1px;">{{informe.diagnostico}}</pre>
                 </td>
             </tr>
             {{#if observacion}}
             <tr>
                 <td scope="row" colspan="4">
-                    <strong>
+                    <b>
                         <p>OBSERVACIONES:</p>
-                    </strong>
+                    </b>
                     <pre style="line-height: 21px; width:1000px;">{{informe.observaciones}}</pre>
                 </td>
             </tr>
@@ -56,9 +117,9 @@
             {{#if inmuno}}
             <tr>
                 <td scope="row" colspan="4">
-                    <strong>
+                    <b>
                         <p>INMUNOHISTOQUÍMICA:</p>
-                    </strong>
+                    </b>
                     <pre style="line-height: 21px; width:1000px;letter-spacing: -1px;">{{informe.inmuno}}</pre>
                 </td>
             </tr>
@@ -82,66 +143,7 @@
     </table>
 </div>
 
-<div class="header">
-    <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
-    <table border="0">
-        <tr>
-            <td colspan="4">
-                <p style="line-height: 18px; padding-top: 15px; text-align: center; width:1000px;" class="textjusto-1">INFORME DE ESTUDIO
-                    ANATOMOPATOLÓGICO No: <strong><i style="size: 24px;">{{informe.informe_cod}}</i></strong></p>
-            </td>
-        </tr>
-        <tr style="">
-            <td colspan="4">
-                <p style="line-height: 10px; width:1000px;" class="textjusto-1"><strong>Paciente:</strong>
-                    {{informe.paciente}}</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p style="line-height: 10px; width:500px;" class="mayus textjusto-1"><strong>{{paciente.t_docu}}:</strong>
-                    {{informe.numdoc}}</p>
-            </td>
-            <td>
-                <p style="line-height: 10px;" class="mayus textjusto-1"><strong>Edad: </strong><i id="edad"></i></p>
-            </td>
-            <td>
-                <p style="line-height: 10px;" class="mayus textjusto-1"><strong>Sexo:</strong>
-                    {{informe.sexo}}</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p style="line-height: 10px; width:500px;" class="textjusto-1"><strong>IPS:</strong>
-                    {{informe.entidad}}</p>
-            </td>
-            <td colspan="2">
-                {{#if eps}}
-                <p style="line-height: 10px; width:500px;" class="textjusto-1"><strong>EPS:</strong> {{informe.eps}}
-                </p>
-                {{else}}
-                &nbsp;
-                {{/if}}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p style="line-height: 10px; width:500px;" class="textjusto-1"><strong>Ingreso:</strong>
-                    {{informe.fec_ingreso}}</p>
-            </td>
-            <td colspan="3">
-                <p style="line-height: 10px; width:500px;" class="textjusto-1"><strong>Informe:</strong>
-                    {{informe.fec_inf}}</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <p style="line-height: 10px; width:1000px;" class="textjusto-1"><strong>Med. Remitente:</strong>
-                    {{informe.medRemitente}}</p>
-            </td>
-        </tr>
-    </table>
-</div>
+
 <div class="footer">
     <p class="pie">
         Medicos Patólogos-MediPat S.A.S, Calle Velez Danies #4-11 Piso 2<br>
@@ -220,10 +222,11 @@
     }
 
     pre {
+        width: 960px;
         font-family: "worksans";
         font-size: 22px;
-        word-break: break-word;
-        width: 960px;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .firma {
