@@ -57,11 +57,11 @@
                         </select>
                     </td>
                     <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
-                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="2021-01-01" min="1920-01-01"
+                    <td scope="col">Informe <br> <input name="fec_inf" id="fechaInf"  type="date" value="2021-01-01" min="1920-01-01"
                             max="2040-12-31"></td>
-                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden" value="2021-01-01"
+                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden"
                         min="1920-01-01" max="2040-12-31"><!-- </td>-->
-                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="2021-01-01"
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" id="fechaIng"  type="date" 
                             min="1920-01-01" max="2040-12-31"></td>
                 </tr>
         </tbody>
@@ -209,6 +209,9 @@
             </tr>
             <tr>
                 <td colspan="4">
+                    <a href="/pacientes" class="btn btn-secondary">
+                        <i>Volver</i>
+                    </a>
                     <button class="btn btn-success mx-auto">
                         Guardar Informe
                     </button>
@@ -225,4 +228,8 @@
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
     document.getElementById("edad").innerHTML = Edad;
+
+    document.getElementById('fechaInf').valueAsDate = new Date();
+    document.getElementById('fechaIng').valueAsDate = new Date();
+
 </script>

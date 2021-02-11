@@ -2,10 +2,7 @@
     <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
     <table border="0">
         <tr>
-            <td colspan="4">
-                <p style="line-height: 18px; padding-top: 15px; text-align: center; width:1000px;" class="textjusto-1">INFORME DE ESTUDIO
-                    ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
-            </td>
+            <td colspan="4" >&nbsp;</td>
         </tr>
         <tr style="">
             <td colspan="4">
@@ -78,7 +75,10 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4">&nbsp;</td>
+                <td colspan="4">
+                    <p style="line-height: 18px; padding-top: 29px; text-align: center; width:1000px;" class="textjusto-1">INFORME DE ESTUDIO
+                    ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
+                </td>
             </tr>
             <tr>
                 <td scope="row" colspan="4" style="padding-top: 0px;">
@@ -128,7 +128,7 @@
                 <td style="vertical-align: bottom;width:550px;">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td style="text-align: center;" colspan="2">
-                    <p class="firma">&nbsp;<br>______________________________________<br>
+                    <p class="firma">&nbsp;<br><br>______________________________________<br>
                         {{informe.patologo}}<br>
                         Patologo - Registro: {{medico.reg_med}}
                     </p>
@@ -162,7 +162,7 @@
     }
 
     .header-space {
-        height: 280px;
+        height: 260px;
     }
 
     @media print {
