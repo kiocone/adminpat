@@ -387,4 +387,10 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
     res.redirect('/informes');
 });
 
+router.get('/consecutivo', isLoggedIn, async (req, res) => {
+    const res_consecutivo = await pool.query('SELECT * FROM secuenciainforme WHERE id = 1');
+    
+    res.render('informes/consecutivo', { consecutivo: res_consecutivo[0] });
+});
+
 module.exports = router;

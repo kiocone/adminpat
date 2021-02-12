@@ -6,6 +6,7 @@
         </thead>
         <tbody>
             <tr>
+                <td scope="col"><strong>&nbsp;&nbsp;Opciones&nbsp;&nbsp;</strong></td>
                 <td scope="col" style="width: 90px;"><strong># Informe</strong></td>
                 <td scope="col"><strong>Paciente</strong></td>
                 <td scope="col"><strong>Documento</strong></td>
@@ -13,17 +14,10 @@
                 <td scope="col"><strong>Remite</strong></td>
                 <td scope="col"><strong>Telefono</strong></td>
                 <td scope="col" style="width: 90px;"><strong>Fecha Inf</strong></td>
-                <td scope="col"><strong>&nbsp;&nbsp;Opciones&nbsp;&nbsp;</strong></td>
+                
             </tr>
             {{#each informes}}
             <tr>
-                <td class="small" scope="row">{{informe_cod}}</td>
-                <td class="small" scope="row">{{paciente}}</td>
-                <td class="small" scope="row">{{numdoc}}</td>
-                <td class="small" scope="row">{{entidad}}</td>
-                <td class="small" scope="row">{{medRemitente}}</td>
-                <td class="small" scope="row">{{telefono}}</td>
-                <td class="small" scope="row">{{fec_inf}}</td>
                 <td class="small" scope="col">
                     {{#if t_informe}}
                     <a href="/informes/edit{{t_informe}}/{{id}}" class="btn btn-success">
@@ -41,6 +35,14 @@
                     </a>
                     {{/if}}
                 </td>
+                <td class="small" scope="row">{{informe_cod}}</td>
+                <td class="small" scope="row">{{paciente}}</td>
+                <td class="small" scope="row">{{numdoc}}</td>
+                <td class="small" scope="row">{{entidad}}</td>
+                <td class="small" scope="row">{{medRemitente}}</td>
+                <td class="small" scope="row">{{telefono}}</td>
+                <td class="small" scope="row">{{fec_inf}}</td>
+                
             </tr>
             {{/each}}
             <tr>
