@@ -539,58 +539,30 @@ INSERT INTO `users` (`id`, `username`, `password`, `fullname`, `email`) VALUES
 ALTER TABLE `entidad`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `eps`
---
 ALTER TABLE `eps`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `informe`
---
 ALTER TABLE `informe`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `informec`
---
 ALTER TABLE `informec`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `medremitente`
---
 ALTER TABLE `medremitente`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `paciente`
---
 ALTER TABLE `paciente`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `paciente_fk0` (`user_id`);
 
---
--- Indices de la tabla `patologo`
---
 ALTER TABLE `patologo`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `secuenciainforme`
---
 ALTER TABLE `secuenciainforme`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `sessions`
---
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`session_id`);
 
---
--- Indices de la tabla `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
@@ -604,51 +576,26 @@ ALTER TABLE `users`
 ALTER TABLE `entidad`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
---
--- AUTO_INCREMENT de la tabla `eps`
---
 ALTER TABLE `eps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
---
--- AUTO_INCREMENT de la tabla `informe`
---
 ALTER TABLE `informe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
---
--- AUTO_INCREMENT de la tabla `informec`
---
 ALTER TABLE `informec`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
---
--- AUTO_INCREMENT de la tabla `medremitente`
---
 ALTER TABLE `medremitente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `paciente`
---
-ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+ALTER TABLE `paciente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
---
--- AUTO_INCREMENT de la tabla `patologo`
---
 ALTER TABLE `patologo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT de la tabla `secuenciainforme`
---
 ALTER TABLE `secuenciainforme`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de la tabla `users`
---
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
