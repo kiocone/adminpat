@@ -1,3 +1,11 @@
+--mysql prepare
+service mysqld stop
+mysqld_safe --skip-grant-tables &
+FLUSH PRIVILEGES;
+ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('my secret password');
+FLUSH PRIVILEGES;
+service mysqld start
+
 --users table
 CREATE DATABASE adminpatdb;
 
