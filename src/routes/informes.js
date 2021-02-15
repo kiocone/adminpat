@@ -401,7 +401,6 @@ router.post('/consecutivo',isLoggedIn, async (req, res) => {
         ultC
     };
     console.log(updateConsecutivo);
-    //await pool.query('UPDATE secuenciainforme set ultC = ? WHERE id = 1', ultInf);
     await pool.query('UPDATE secuenciainforme set ? WHERE id = 1', updateConsecutivo);
     res.redirect('/panel');
 })
