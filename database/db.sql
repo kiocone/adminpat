@@ -1,9 +1,11 @@
 --mysql prepare
 service mysqld stop
 mysqld_safe --skip-grant-tables &
+mysql
 FLUSH PRIVILEGES;
-ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('my secret password');
+ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('121601001');
 FLUSH PRIVILEGES;
+exit;
 service mysqld start
 
 --users table
