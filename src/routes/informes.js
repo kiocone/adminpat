@@ -151,13 +151,13 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
 
     switch (t_informe) {
         case "Q":
-            await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultQ = ? WHERE id = 1', ultInf);
             break;
         case "L":
-            await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultL = ? WHERE id = 1', ultInf);
             break;
         case "C":
-            await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultC = ? WHERE id = 1', ultInf);
             break;
         default:
             ultInf = "Unknown";
@@ -224,13 +224,13 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 
     switch (t_informe) {
         case "Q":
-            await pool.query('UPDATE secuenciaInforme set ultQ = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultQ = ? WHERE id = 1', ultInf);
             break;
         case "L":
-            await pool.query('UPDATE secuenciaInforme set ultL = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultL = ? WHERE id = 1', ultInf);
             break;
         case "C":
-            await pool.query('UPDATE secuenciaInforme set ultC = ? WHERE id = 1', ultInf);
+            await pool.query('UPDATE secuenciainforme set ultC = ? WHERE id = 1', ultInf);
             break;
         default:
             ultInf = "Unknown";
@@ -393,4 +393,16 @@ router.get('/consecutivo', isLoggedIn, async (req, res) => {
     res.render('informes/consecutivo', { consecutivo: res_consecutivo[0] });
 });
 
+router.post('/consecutivo',isLoggedIn, async (req, res) => {
+    const { ultQ, ultL, ultC } = req.body;
+    updateConsecutivo = {
+        ultQ,
+        ultL,
+        ultC
+    };
+    console.log(updateConsecutivo);
+    //await pool.query('UPDATE secuenciainforme set ultC = ? WHERE id = 1', ultInf);
+    await pool.query('UPDATE secuenciainforme set ? WHERE id = 1', updateConsecutivo);
+    res.redirect('/panel');
+})
 module.exports = router;
