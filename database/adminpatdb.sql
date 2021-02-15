@@ -482,9 +482,6 @@ CREATE TABLE `secuenciainforme` (
   `ultL` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `secuenciainforme`
---
 
 INSERT INTO `secuenciainforme` (`id`, `ultQ`, `ultC`, `ultL`) VALUES
 (1, 1629, 144, 71);
@@ -536,35 +533,25 @@ INSERT INTO `users` (`id`, `username`, `password`, `fullname`, `email`) VALUES
 --
 -- Indices de la tabla `entidad`
 --
-ALTER TABLE `entidad`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `entidad` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `eps`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `eps` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `informe`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `informe` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `informec`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `informec` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `medremitente`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `medremitente` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `paciente`
-  ADD PRIMARY KEY (`id`),
+ALTER TABLE `paciente` ADD PRIMARY KEY (`id`),
 
-ALTER TABLE `patologo`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE patologo ADD PRIMARY KEY (id);
 
-ALTER TABLE `secuenciainforme`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `secuenciainforme` ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`session_id`);
+ALTER TABLE `sessions` ADD PRIMARY KEY (`session_id`);
 
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users` ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -573,31 +560,23 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de la tabla `entidad`
 --
-ALTER TABLE `entidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `entidad` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
-ALTER TABLE `eps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `eps` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
-ALTER TABLE `informe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+ALTER TABLE `informe` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
-ALTER TABLE `informec`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `informec` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
-ALTER TABLE `medremitente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `medremitente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `paciente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
-ALTER TABLE `patologo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `patologo` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
-ALTER TABLE `secuenciainforme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `secuenciainforme` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `users` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
