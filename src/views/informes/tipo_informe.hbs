@@ -1,26 +1,59 @@
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/informes/nuevo:{{id}}:t_informe" method="GET">
-                        <div class="form-group"></div>
+                    <div class="form-group" style="text-align: center;">
                         <h3>Tipo de Informe</h3>
-                        <select name="id">
-                            <option value="0">Paciente</option>
-                            {{#each pacientes}}
-                            <option value="{{id}}">{{nombre}}</option>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td scope="row">
+                                        <form method="GET" action="/informes/lista/Q">
+                                            <a class="btn btn-success"
+                                                onclick="this.parentNode.submit();">Quirúrgico</a>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="GET" action="/informes/lista/L">
+                                            <a class="btn btn-success"
+                                                onclick="this.parentNode.submit();">Líquido</a>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="GET" action="/informes/lista/C">
+                                            <a class="btn btn-success"
+                                                onclick="this.parentNode.submit();">Citología</a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!--<form method="GET" action="/informes/ult_informes/Q">
+                        <select name="Q" onmouseup="this.parentNode.submit();">
+                            <option value="0">Quirúrgico</option>
+                            {{#each res_informeQ}}
+                            <option value="{{informe_cod}}">{{informe_cod}}</option>
                             {{/each}}
                         </select>
-                        <select name="t_informe">
-                            <option selected="true" value="Q">Quirúrgico</option>
-                            <option value="L">Líquido</option>
-                            <option value="C">Citología</option>
-                        </select>
-                        <button class="btn btn-success btn-block">
-                            Siguiente
-                        </button>
                     </form>
+                    <select name="id">
+                        <option value="0">Líquido</option>
+                        {{#each res_informeL}}
+                        <option value="{{informe_cod}}">{{informe_cod}}</option>
+                        {{/each}}
+                    </select>
+                    <select name="id">
+                        <option value="0">Citología</option>
+                        {{#each res_informeC}}
+                        <option value="{{informe_cod}}">{{informe_cod}}</option>
+                        {{/each}}
+                    </select>
+                    <button class="btn btn-success btn-block">
+                        Siguiente
+                    </button>-->
+                    </div>
                 </div>
             </div>
         </div>
