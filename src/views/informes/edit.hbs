@@ -3,11 +3,12 @@
         <tbody>
             <form action="/informes/edit/{{informe.id}}" method="POST">
                 <tr>
-                    <td colspan="2">Informe:{{id}}
+                    <td>Informe:{{id}}
                         <input type="text" name="informe_cod" value="{{informe.informe_cod}}">
                         <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
+                        
                     </td>
-                    <td colspan="3">
+                    <td>
                         <i>Patologo</i>
                         <select name="patologo">
                             <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
@@ -16,9 +17,13 @@
                             {{/each}}
                         </select>
                     </td>
+
+                    <td scope="col">Medico remitente <input name="medRemitente" type="text"
+                            value="{{informe.medRemitente}}">
+                    </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">Doc. <input name="numdoc" type="number" value="{{informe.numdoc}}">
+                    <td id="num_doc" scope="col">Doc. <input name="numdoc" type="text" value="{{informe.numdoc}}">
                     </td>
                     <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
                             value="{{informe.paciente}}"></td>
@@ -46,8 +51,7 @@
                             {{/each}}
                         </select>
                     </td>
-                    <td scope="col">Medico remitente <input name="medRemitente" type="text"
-                            value="{{informe.medRemitente}}"></td>
+
                     <td scope="col">Informe <br> <input name="fec_inf" id="fechaInf" type="date" min="1970-01-01"
                             max="2040-12-31"></td>
                     <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"

@@ -26,7 +26,7 @@ CREATE TABLE paciente (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	--id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, --en windows xammp
 	t_docu varchar(11) NOT NULL,
-	num_docu INT(11) NOT NULL,
+	num_docu varchar(11) NOT NULL,
 	nombre varchar(150) NOT NULL,
 	sexo varchar(1) NOT NULL,
 	direccion varchar(255) NOT NULL,
