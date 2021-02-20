@@ -3,10 +3,10 @@
         <tbody>
             <form action="/informes/edit/{{informe.id}}" method="POST">
                 <tr>
-                    <td>Informe:{{id}}
-                        <input type="text" name="informe_cod" value="{{informe.informe_cod}}">
+                    <td scope="row">Informe:{{id}}
+                        <input type="text" name="informe_cod" size="8" value="{{informe.informe_cod}}">
                         <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
-                        
+                        Doc. <input name="numdoc" type="text" size="8" value="{{informe.numdoc}}">
                     </td>
                     <td>
                         <i>Patologo</i>
@@ -17,21 +17,24 @@
                             {{/each}}
                         </select>
                     </td>
-
-                    <td scope="col">Medico remitente <input name="medRemitente" type="text"
-                            value="{{informe.medRemitente}}">
+                    <td>
+                        Medico remitente <input name="medRemitente" type="text" value="{{informe.medRemitente}}">
                     </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">Doc. <input name="numdoc" type="text" value="{{informe.numdoc}}">
+                    <td scope="row">
+                        Paciente <input name="paciente" type="text" value="{{informe.paciente}}"><br>
+                        Sexo <input name="sexo" type="text" size="0" value="{{informe.sexo}}">
                     </td>
-                    <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
-                            value="{{informe.paciente}}"></td>
-                    <td id="telefono" scope="col" width="20px">Telefono <input name="telefono" type="text"
-                            value="{{informe.telefono}}" size="15"></td>
-                    <td id="sexo" scope="col">Sexo <input size="10" name="sexo" type="text" value="{{informe.sexo}}">
+                    <td>
+                        Edad <input size="10" name="edad" id="edad" type="text" value="{{informe.edad}}"><br>
+                        Telefono <input name="telefono" type="text" size="10" value="{{informe.telefono}}" size="15">
                     </td>
-                    <td id="edad" scope="col">Edad <input size="10" name="edad" type="text" value="{{informe.edad}}">
+                    <td>
+                        Ingreso<input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
+                            min="1920-01-01" max="2040-12-31"><br>
+                        Informe<input name="fec_inf" id="fechaInf" type="date" min="1970-01-01"
+                            max="2040-12-31">
                     </td>
                 </tr>
                 <tr>
@@ -51,44 +54,40 @@
                             {{/each}}
                         </select>
                     </td>
-
-                    <td scope="col">Informe <br> <input name="fec_inf" id="fechaInf" type="date" min="1970-01-01"
-                            max="2040-12-31"></td>
-                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
-                            min="1920-01-01" max="2040-12-31"></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>MACRO</p>
                         <textarea name="macro" rows="5" cols="100">{{informe.macro}}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>MICRO</p>
                         <textarea name="micro" rows="5" cols="100">{{informe.micro}}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>DIAGNOSTICO</p>
                         <textarea name="diagnostico" rows="5" cols="100">{{informe.diagnostico}}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>OBSERVACIONES</p>
                         <textarea name="observaciones" rows="5" cols="100">{{informe.observaciones}}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>INMUNOHISTOQUÍMICA</p>
                         <textarea name="inmuno" rows="5" cols="100">{{informe.inmuno}}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5">
+                    <td colspan="3">
                         <a href="/informes/lista/{{informe.t_informe}}" class="btn btn-secondary">
                             <i class="fas fa-long-arrow-alt-left"></i>
                         </a>
@@ -110,4 +109,6 @@
     //document.getElementById("infCod").value = "{{informe.t_informe}}" + year + mes + "{{informe.ultInf}}";
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
     document.getElementById('fechaInf').valueAsDate = new Date();
+    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
+    document.getElementById("edad").value = Edad;
 </script>
