@@ -2,7 +2,7 @@
     <img height="100" src="/img/logo.png" alt="Logo">&nbsp;
     <table border="0">
         <tr>
-            <td colspan="4" >&nbsp;</td>
+            <td colspan="4">&nbsp;</td>
         </tr>
         <tr style="">
             <td colspan="4">
@@ -70,14 +70,16 @@
         <tbody>
             <!--Linea Horizontal-->
             <tr>
-                <td colspan="4" style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
+                <td colspan="4"
+                    style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
                     <b><i>___________________________________________________________________________________</i></b>
                 </td>
             </tr>
             <tr>
                 <td colspan="4">
-                    <p style="line-height: 18px; padding-top: 29px; text-align: center; width:1000px;" class="textjusto-1">INFORME DE ESTUDIO
-                    ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
+                    <p style="line-height: 18px; padding-top: 29px; text-align: center; width:1000px;"
+                        class="textjusto-1">INFORME DE ESTUDIO
+                        ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
                 </td>
             </tr>
             <tr>
@@ -134,7 +136,7 @@
                 </td>
             </tr>
         </tbody>
-        
+
     </table>
 </div>
 
@@ -239,12 +241,25 @@
         color: rgb(54, 89, 163);
 
     }
-    
+
     .textjusto-1 {
         letter-spacing: -1px;
     }
 </style>
 <script>
+
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").innerHTML = Edad;
+    if (Edad.valueOf.length == 2) {
+
+        document.getElementById("edad").innerHTML = Edad;
+        alert("length is 2");
+    }
+    else if (Edad.valueOf.length == 1) {
+        document.getElementById("edad").innerHTML = Edad;
+        alert("length is 1");
+
+    }
+    else document.getElementById("edad").innerHTML = Edad;
+
+
 </script>
