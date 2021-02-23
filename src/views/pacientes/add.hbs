@@ -14,14 +14,15 @@
                                 <option value="PP">PP</option>
                             </select>
                         </p>
-                        <input type="text" name="num_docu" class="form-control mayus" placeholder="Numero de Documento"
+                        <input type="text" name="num_docu" id="numdocu" class="form-control mayus" placeholder="Numero de Documento"
                             required>
-                        <input type="text" name="nombre" class="form-control mayus" placeholder="Nombre Completo" required>
-                        <input type="text" name="sexo" class="form-control mayus" placeholder="M ó F" maxlength="1"
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre Completo"
+                            required>
+                        <input type="text" name="sexo" id="sexo" class="form-control" placeholder="M ó F" maxlength="1"
                             required>
                         <input type="text" name="direccion" class="form-control" placeholder="Direccoión" required>
                         <input type="text" name="telefono" class="form-control" placeholder="telefono" required>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                         <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
                             <input type="number" id="edad" onchange="fechaNacimiento()" size="5"> <input type="date"
                                 name="fecha_nacimiento" id="fecNac" min="1920-01-01" max="2040-12-31">
@@ -45,7 +46,25 @@
         var year = new Date().getFullYear();
         var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
         var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
-        var fechaNacimiento =  (year - edad) + "-" + mes + "-" + dia;
+        var fechaNacimiento = (year - edad) + "-" + mes + "-" + dia;
         document.getElementById("fecNac").value = fechaNacimiento;
-    } 
+    }
+
+    var numdocu = document.getElementById('numdocu');
+    numdocu.onkeyup = function () {
+        this.value = this.value.toUpperCase();
+    }
+    var nombre = document.getElementById('nombre');
+    nombre.onkeyup = function () {
+        this.value = this.value.toUpperCase();
+    }
+    var nombre = document.getElementById('sexo');
+    nombre.onkeyup = function () {
+        this.value = this.value.toUpperCase();
+    }
+    var email = document.getElementById('email');
+    email.onkeyup = function () {
+        this.value = this.value.toLowerCase();
+    }
+     
 </script>
