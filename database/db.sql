@@ -178,6 +178,7 @@ CREATE TABLE patologo (
 
 CREATE TABLE liquidacion (
 	id INT(11) NOT NULL AUTO_INCREMENT,
+	fecha varchar(15),
 	entidad varchar(100) NOT NULL,
 	direccion varchar(255) NOT NULL,
 	telefono varchar(30) NOT NULL,
@@ -192,12 +193,15 @@ CREATE TABLE liquidacion (
 
 CREATE TABLE itemLiquidacion (
 	id INT(11) NOT NULL AUTO_INCREMENT,
+	fechaIn varchar(15),
+	fechaOut varchar(15),
 	entidad varchar(100) NOT NULL,
 	periodo varchar(10),
 	numdoc varchar(13),	
 	paciente varchar(100),
-	cuc varchar(10)
-	concepto varchar(100)
+	convenio varchar(100),
+	cups varchar(10),
+	valor INT(8)  
 )
 
 ALTER TABLE informe ADD CONSTRAINT informe_fk0 FOREIGN KEY (id_paciente) REFERENCES paciente(id);
