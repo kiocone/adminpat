@@ -25,7 +25,7 @@
                             value="{{informe.paciente.nombre}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
                             value="{{informe.paciente.telefono}}"></td>
-                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="10"
+                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="2"
                             value="{{informe.paciente.sexo}}">
                     </td>
 
@@ -52,8 +52,8 @@
                             min="1920-01-01" max="2040-12-31">
                     </td>
                     <td scope="col">
-                        Edad: <span id="edad"></span>
-                        <input type="hidden" name="edad" value="{{informe.paciente.f_nac}}">
+                        Edad: 
+                        <input type="text" name="edad" id="edad" size="2" value="">
                     </td> 
                 </tr>
                 <tr>
@@ -107,6 +107,7 @@
     document.getElementById('fechaIng').valueAsDate = new Date();
 
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").innerHTML = Edad;
+    document.getElementById("edad").value = Edad;
+
 
 </script>

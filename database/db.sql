@@ -90,7 +90,7 @@ CREATE TABLE estudios (
 	t_precio INT(11) NOT NULL,
 	PRIMARY KEY (id)
 );
-ALTER TABLE estudios ADD CONSTRAINT estudios_fk0 FOREIGN KEY (t_precio) REFERENCES origen_factura(id);
+--ALTER TABLE estudios ADD CONSTRAINT estudios_fk0 FOREIGN KEY (t_precio) REFERENCES origen_factura(id);
 
 CREATE TABLE informe (
 	id INT(11) NOT NULL AUTO_INCREMENT,
@@ -176,16 +176,29 @@ CREATE TABLE patologo (
 --ALTER TABLE patologo ADD COLUMN reg_med varchar(5) NOT NULL AFTER num_doc;
 --ALTER TABLE patologo ADD COLUMN reg_med_ciudad varchar(15) NOT NULL AFTER reg_med;
 
-CREATE TABLE factura (
+CREATE TABLE liquidacion (
 	id INT(11) NOT NULL AUTO_INCREMENT,
-	cliente varchar(150) NOT NULL,
+	entidad varchar(100) NOT NULL,
 	direccion varchar(255) NOT NULL,
 	telefono varchar(30) NOT NULL,
 	email varchar(50) NOT NULL,
-	concepto TEXT NOT NULL,
+	periodo varchar(10), 
+	concepto TEXT,
+	subTotal DECIMAL(12) NOT NULL,
+	iva DECIMAL(12) NOT NULL,
 	total DECIMAL(12) NOT NULL,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE itemLiquidacion (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	entidad varchar(100) NOT NULL,
+	periodo varchar(10),
+	numdoc varchar(13),	
+	paciente varchar(100),
+	cuc varchar(10)
+	concepto varchar(100)
+)
 
 ALTER TABLE informe ADD CONSTRAINT informe_fk0 FOREIGN KEY (id_paciente) REFERENCES paciente(id);
 ALTER TABLE informe ADD CONSTRAINT informe_fk1 FOREIGN KEY (id_entidad) REFERENCES entidad(id);
