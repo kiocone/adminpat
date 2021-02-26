@@ -45,9 +45,6 @@ app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
     app.locals.user = req.user;
-    app.locals.ultInfQ = req.ultInfQ;
-    app.locals.ultInfL = req.ultInfL;
-    app.locals.ultInfC = req.ultInfC;
     next();
 });
 
@@ -59,6 +56,7 @@ app.use('/entidades',require('./routes/entidades'));
 app.use('/eps',require('./routes/eps'));
 app.use('/patologos',require('./routes/patologos'));
 app.use('/informes',require('./routes/informes'));
+app.use('/liquidacion',require('./routes/liquidacion'));
 
 // Publics
 app.use(express.static(path.join(__dirname, 'public')));
