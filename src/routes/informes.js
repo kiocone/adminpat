@@ -405,7 +405,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
     console.log(editInformeC);
     await pool.query('UPDATE informec set ? WHERE id = ?', [editInformeC, id]);
     req.flash('success', 'Informe Guardado!');
-    res.redirect('/informes');
+    res.redirect('/informes/edit/' + id);
 });
 
 router.get('/consecutivo', isLoggedIn, async (req, res) => {
