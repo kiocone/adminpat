@@ -5,27 +5,34 @@ const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 
 router.get('/solicitar/', isLoggedIn, async (req, res) => {
-    /*const res_informeQ = await pool.query('SELECT informe_cod, t_informe FROM informe WHERE t_informe = "Q" ORDER BY id DESC');
-    const res_informeL = await pool.query('SELECT informe_cod, t_informe FROM informe WHERE t_informe = "L" ORDER BY id DESC');
-    const res_informeC = await pool.query('SELECT informe_cod, t_informe FROM informec ORDER BY id DESC');
-    */
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     res.render('liquidacion/solicitar', { entidades });
 });
 
 router.post('/solicitar/', isLoggedIn, async (req, res) => {
-    /*const res_informeQ = await pool.query('SELECT informe_cod, t_informe FROM informe WHERE t_informe = "Q" ORDER BY id DESC');
-    const res_informeL = await pool.query('SELECT informe_cod, t_informe FROM informe WHERE t_informe = "L" ORDER BY id DESC');
-    const res_informeC = await pool.query('SELECT informe_cod, t_informe FROM informec ORDER BY id DESC');
-    */
-    console.log('Exito paso por POST');
-    res.redirect('/liquidacion/consulta'/*, { res_informeQ, res_informeL, res_informeC }*/);
+
+    res.redirect('/liquidacion/consulta');
 });
 
 router.get('/consulta/', isLoggedIn, async (req, res) => {
-    const { entidad, fechaInicio, fechaFin } = req.body;
-    console.log( entidad, fechaInicio, fechaFin );
-    res.render('liquidacion/consulta'/*, { informes }*/);
+    const entidad = req.query.entidad;
+    const fechaInicio = req.query.fechaInicio;
+    const fechaFin = req.query.fechaFin;
+    const yearmes = fechaInicio.slice(0,7) + '%';
+
+    console.log(entidad, yearmes);
+    const vista_liquidacion = await pool.query('(SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informe WHERE entidad = ? AND fec_ingreso like ?) UNION (SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informec WHERE entidad = ? AND fec_ingreso like ?) ORDER BY fec_ingreso ASC', [entidad, yearmes, entidad, yearmes]);
+    var i = 0;
+    vista_liquidacion.forEach(eps => {
+        switch (vista_liquidacion[i].eps) {
+            case "0":
+                vista_liquidacion[i].eps = "";
+                break;
+        }
+        i = i+1;        
+    });
+    console.log(vista_liquidacion);
+    res.render('liquidacion/consulta', { vista_liquidacion, entidad });
 });
 
 module.exports = router;

@@ -77,3 +77,10 @@ div {
   font-family: "worksans";
 }
 
+.text-centro {
+  text-align: center;
+}
+
+.pad-top {
+  padding-top: 2%;
+}

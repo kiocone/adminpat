@@ -1,44 +1,38 @@
 <div class="container">
-    <div class="card">
-        <h1 style="background: transparent;">Titulo de consulta</h1>
-    </div>
-    <table id="tblData">
-        <tr>
-            <th>Fecha</th>
-            <th>ID</th>
-            <th>Paciente</th>
-            <th>Convenio</th>
-            <th>CUPS</th>
-            <th>Valor</th>
-        </tr>
-        <tr>
-            <td>01/01/2021</td>
-            <td>33552845</td>
-            <td>Jose Molina Torres</td>
-            <td>Sanitas</td>
-            <td>898242</td>
-            <td>105905</td>
-        </tr>
-        <tr>
-            <td>01/01/2021</td>
-            <td>33552845</td>
-            <td>Carlos Duran Marrugo</td>
-            <td>Salud Total</td>
-            <td>898242</td>
-            <td>105905</td>
-        </tr>
-        <tr>
-            <td>01/01/2021</td>
-            <td>33552845</td>
-            <td>Jose Marrugo</td>
-            <td>IPS Total</td>
-            <td>898242</td>
-            <td>105905</td>
-        </tr>
-    </table>
-    <div>
-        <button class="btn btn-success mx-auto" onclick="exportTableToExcel('tblData')"><i class="fas fa-file-download"></i></button>
-        
+    <div class="col-md-11 mx-auto pad-top">
+        <div class="card">
+            <hr>
+            <h3 class="text-centro">Resultado consulta liquidación: {{entidad}}</h3>
+            <hr>
+            <div class="form-group">
+                <table class="tab-liq" id="tblData">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>ID</th>
+                        <th>Paciente</th>
+                        <th>Convenio</th>
+                        <th>CUPS</th>
+                        <th>Valor</th>
+                    </tr>
+                    {{#each vista_liquidacion}}
+                        {{#if eps}}
+                            <tr>
+                                <td>{{fec_ingreso}}</td>
+                                <td>{{numdoc}}</td>
+                                <td>{{paciente}}</td>
+                                <td>{{eps}}</td>
+                                <td>###</td>
+                                <td>0.00</td>
+                            </tr>
+                        {{/if}}
+                    {{/each}}
+                </table>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-success" onclick="exportTableToExcel('tblData')">
+                    Descargar&nbsp;<i class="fas fa-file-download"></i></button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -74,3 +68,13 @@
         }
     }
 </script>
+<style>
+    th,
+    td {
+        padding-right: 10px;
+    }
+
+    .tab-liq {
+        margin: auto;
+    }
+</style>
