@@ -21,7 +21,7 @@
                                 <td>{{numdoc}}</td>
                                 <td>{{paciente}}</td>
                                 <td>{{eps}}</td>
-                                <td>###</td>
+                                <td>&sharp;&sharp;&sharp;</td>
                                 <td>0.00</td>
                             </tr>
                         {{/if}}
@@ -44,7 +44,7 @@
         var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
         // Specify file name
-        filename = filename ? filename + '.xls' : 'liquidacion.xls';
+        filename = filename ? filename + '.xls' : 'liquidacion.xlsx';
 
         // Create download link element
         downloadLink = document.createElement("a");
