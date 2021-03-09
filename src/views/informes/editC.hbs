@@ -27,8 +27,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="num_doc" scope="col">Id <input name="numdoc" type="number"
-                            value="{{informe.numdoc}}"></td>
+                    <td>
+                        Id <input name="numdoc" type="number" value="{{informe.numdoc}}"><br>
+                        <select name="cups" id="">
+                            <option value="{{informe.numdoc}}">{{informe.cups}}</option>
+                            {{#each cups}}
+                            <option value="{{cups}}">{{cups}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
                     <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
                             value="{{informe.paciente}}"></td>
                     <td id="telefono" scope="col">Telefono <input name="telefono" type="text"

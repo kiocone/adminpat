@@ -16,46 +16,55 @@
                                     </td>
                                     <td>
                                         <form method="GET" action="/informes/lista/L">
-                                            <a class="btn btn-success"
-                                                onclick="this.parentNode.submit();">Líquido</a>
+                                            <a class="btn btn-success" onclick="this.parentNode.submit();">Líquido</a>
                                         </form>
                                     </td>
                                     <td>
                                         <form method="GET" action="/informes/lista/C">
-                                            <a class="btn btn-success"
-                                                onclick="this.parentNode.submit();">Citología</a>
+                                            <a class="btn btn-success" onclick="this.parentNode.submit();">Citología</a>
                                         </form>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <!--<form method="GET" action="/informes/ult_informes/Q">
-                        <select name="Q" onmouseup="this.parentNode.submit();">
-                            <option value="0">Quirúrgico</option>
-                            {{#each res_informeQ}}
-                            <option value="{{informe_cod}}">{{informe_cod}}</option>
-                            {{/each}}
-                        </select>
-                    </form>
-                    <select name="id">
-                        <option value="0">Líquido</option>
-                        {{#each res_informeL}}
-                        <option value="{{informe_cod}}">{{informe_cod}}</option>
-                        {{/each}}
-                    </select>
-                    <select name="id">
-                        <option value="0">Citología</option>
-                        {{#each res_informeC}}
-                        <option value="{{informe_cod}}">{{informe_cod}}</option>
-                        {{/each}}
-                    </select>
-                    <button class="btn btn-success btn-block">
-                        Siguiente
-                    </button>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<style>
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label {
+  padding-left: 0;
+}
+
+.checkbox label:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 10px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  font-family: "FontAwesome";
+}
+
+.checkbox input[type="checkbox"]:checked+label::before {
+  content: "\f00d";
+}
+</style>
+
+<div class="checkbox">
+  <input type="checkbox" id="profile_notifications" value="" checked/>
+  <label for="profile_notifications">I agree</label>
 </div>

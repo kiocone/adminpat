@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col-md-7 mx-auto pad-top">
+        <div class="card">
+            <hr>
+            <h3 class="text-centro">Lista de codigos CUPS</h3>
+            <hr>
+            <div class="form-group">
+                <table class="tab-auto" id="tblData">
+                    <tr>
+                        <th></th>
+                        <th>CUPS</th>
+                        <th>Valor</th>
+                        <th>Descripcion</th>
+                    </tr>
+                    {{#each cups}}
+                    <tr>
+                        <td>
+                            <a href="/cups/edit/{{id}}" class="btn btn-success">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                        </td>
+                        <td>{{cups}}</td>
+                        <td>{{valor}}</td>
+                        <td>{{descripcion}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+            <div class="form-group text-center">
+                <a href="/panel" class="btn btn-success">
+                    Volver&nbsp;<i class="fas fa-back"></i></a>
+                <a href="/cups/nuevo" class="btn btn-success">Agregar Paciente</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    th,
+    td {
+        padding-right: 10px;
+    }
+</style>

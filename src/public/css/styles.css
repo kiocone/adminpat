@@ -84,3 +84,7 @@ div {
 .pad-top {
   padding-top: 2%;
 }
+
+.tab-auto {
+  margin: auto;
+}

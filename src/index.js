@@ -57,6 +57,7 @@ app.use('/eps',require('./routes/eps'));
 app.use('/patologos',require('./routes/patologos'));
 app.use('/informes',require('./routes/informes'));
 app.use('/liquidacion',require('./routes/liquidacion'));
+app.use('/cups',require('./routes/cups'));
 
 // Publics
 app.use(express.static(path.join(__dirname, 'public')));

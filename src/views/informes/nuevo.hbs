@@ -2,14 +2,14 @@
     <table class="table table-sm" border="5">
         <tbody>
             <form action="" method="post">
-                <!--Cabecera-->
                 <tr>
-                    <td>Infome:
-                        <input type="text" id="infCod" name="informe_cod" value="" size="15" />
+                    <td>Informe:
+                        <input type="text" id="infCod" name="informe_cod" value="" size="8">
                         <input type="hidden" name="ultInf" value="{{informe.paciente.ultInf}}">
                         <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
+                        Doc. <input name="numdoc" type="text" size="8" value="{{informe.paciente.num_docu}}">
                     </td>
-                    <td colspan="3">
+                    <td>
                         <select name="patologo">
                             <option selected="true" value="0">Patologo</option>
                             {{#each patologos}}
@@ -17,27 +17,34 @@
                             {{/each}}
                         </select>
                     </td>
-                </tr>
-                <tr>
-                    <td id="num_doc" scope="col">Documentro <input name="numdoc" type="text"
-                            value="{{informe.paciente.num_docu}}"></td>
-                    <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
-                            value="{{informe.paciente.nombre}}"></td>
-                    <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
-                            value="{{informe.paciente.telefono}}"></td>
-                    <td id="sexo" scope="col">Sexo <input name="sexo" type="text" size="2"
-                            value="{{informe.paciente.sexo}}">
+                    <td>
+                        Medico remitente <br><input name="medRemitente" type="text">
                     </td>
-
                 </tr>
                 <tr>
-                    <td scope="col"> <br>
+                    <td>
+                        Paciente <input name="paciente" type="text" value="{{informe.paciente.nombre}}"><br>
+                        Telefono <input name="telefono" type="text" size="10" value="{{informe.paciente.telefono}}">
+                    </td>
+                    <td>
+                        Edad:<input name="edad" type="text" size="2" id="edad" value=""><br>
+                        Sexo:<input name="sexo" type="text" size="2" value="{{informe.paciente.sexo}}">
+                    </td>
+                    <td>
+                        Ingreso <input name="fec_ingreso" type="date" id="fechaIng"><br>
+                        Informe <input name="fec_inf" type="date"  id="fechaInf">
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
                         <select name="entidad">
                             <option selected="true" value="">Entidad</option>
                             {{#each entidades}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
-                        </select><br>
+                        </select>
+                    </td>
+                    <td>
                         <select name="eps">
                             <option selected="true" value="">EPS</option>
                             {{#each epss}}
@@ -45,49 +52,47 @@
                             {{/each}}
                         </select>
                     </td>
-                    <td colspan="2" scope="col">
-                        Medico remitente <input name="medRemitente" type="text"><br>
-                        Informe <input type="date" name="fec_inf" id="fechaInf" placeholder="dd-mm-yyyy">
-                        Ingreso <input name="fec_ingreso" id="fechaIng" type="date" value="2021-01-15"
-                            min="1920-01-01" max="2040-12-31">
+                    <td>
+                        <select name="cups" id="">
+                            <option value="">cups</option>
+                            {{#each cups}}
+                            <option value="{{cups}}">{{cups}}</option>
+                            {{/each}}
+                        </select>
                     </td>
-                    <td scope="col">
-                        Edad: 
-                        <input type="text" name="edad" id="edad" size="2" value="">
-                    </td> 
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>MACRO</p>
                         <textarea name="macro" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>MICRO</p>
                         <textarea name="micro" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>DIAGNOSTICO</p>
                         <textarea name="diagnostico" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>OBSERVACIONES</p>
                         <textarea name="observaciones" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row" colspan="5">
+                    <td scope="row" colspan="3">
                         <p>INMUNOHISTOQUÍMICA</p>
                         <textarea name="inmuno" rows="5" cols="100"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="5">
+                    <td colspan="3">
                         <button class="btn btn-success mx-auto">
                             Guardar Informe
                         </button>

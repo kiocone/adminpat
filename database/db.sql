@@ -201,8 +201,17 @@ CREATE TABLE itemLiquidacion (
 	paciente varchar(100),
 	convenio varchar(100),
 	cups varchar(10),
-	valor INT(8)  
-)
+	valor INT(8),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE cups (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	cups varchar(30),
+	valor varchar(8),
+	descripcion varchar(150),
+	PRIMARY KEY (id)
+);
 
 ALTER TABLE informe ADD CONSTRAINT informe_fk0 FOREIGN KEY (id_paciente) REFERENCES paciente(id);
 ALTER TABLE informe ADD CONSTRAINT informe_fk1 FOREIGN KEY (id_entidad) REFERENCES entidad(id);

@@ -5,7 +5,7 @@
             <h3 class="text-centro">Resultado consulta liquidación: {{entidad}}</h3>
             <hr>
             <div class="form-group">
-                <table class="tab-liq" id="tblData">
+                <table class="tab-auto" id="tblData">
                     <tr>
                         <th>Fecha</th>
                         <th>ID</th>
@@ -21,7 +21,7 @@
                                 <td>{{numdoc}}</td>
                                 <td>{{paciente}}</td>
                                 <td>{{eps}}</td>
-                                <td>&sharp;&sharp;&sharp;</td>
+                                <td>&num;&num;&num;</td>
                                 <td>0.00</td>
                             </tr>
                         {{/if}}
@@ -74,7 +74,4 @@
         padding-right: 10px;
     }
 
-    .tab-liq {
-        margin: auto;
-    }
 </style>
