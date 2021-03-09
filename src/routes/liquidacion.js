@@ -21,7 +21,7 @@ router.get('/consulta/', isLoggedIn, async (req, res) => {
     const yearmes = fechaInicio.slice(0,7) + '%';
 
     console.log(entidad, yearmes);
-    const vista_liquidacion = await pool.query('(SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informe WHERE entidad = ? AND fec_ingreso like ?) UNION (SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informec WHERE entidad = ? AND fec_ingreso like ?) ORDER BY fec_ingreso ASC', [entidad, yearmes, entidad, yearmes]);
+    const vista_liquidacion = await pool.query('(SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informe WHERE entidad = ? OR fec_ingreso like ?) UNION (SELECT fec_ingreso, numdoc, paciente, entidad, eps FROM informec WHERE entidad = ? AND fec_ingreso like ?) ORDER BY fec_ingreso ASC', [entidad, yearmes, entidad, yearmes]);
     var i = 0;
     vista_liquidacion.forEach(eps => {
         switch (vista_liquidacion[i].eps) {
