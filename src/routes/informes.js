@@ -150,7 +150,7 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
     console.log(cups);
     if (cups == "cups") {
-        cups = "";
+       const cups = "";
     }
     console.log(cups, 'cups: Vacio');
     nuevoInforme = {
@@ -226,7 +226,7 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
     } = req.body;
     console.log(cups);
     if (cups == "cups") {
-        cups = "";
+        const cups = "";
     }
     console.log(cups, 'cups: Vacio');
     nuevoInformeC = {
@@ -374,7 +374,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     console.log(cups);
     if (cups == "cups") {
-        cups = "";
+       const cups = "";
     }
     console.log(cups, 'cups: Vacio');
     editInforme = {
@@ -412,7 +412,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     console.log(cups);
     if (cups == "cups") {
-        cups = "";
+        const cups = "";
     }
     console.log(cups, 'cups: Vacio');
     editInformeC = {
