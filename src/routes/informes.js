@@ -147,12 +147,18 @@ router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 });
 
 router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
-    console.log(cups);
+    var { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, valor, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
+    console.log("151", cups, valor);
     if (cups == "cups") {
-       const cups = "";
+        var cups = "";
+        var valor = "";
+        console.log(cups, 'cups: Vacio');
+    } else {
+        const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
+        var valor = valorcups[0].valor;
+        console.log(cups, valor, "lleno");
     }
-    console.log(cups, 'cups: Vacio');
+
     nuevoInforme = {
         informe_cod,
         t_informe,
@@ -164,6 +170,7 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
         entidad,
         eps,
         cups,
+        valor,
         medRemitente,
         fec_muestra,
         fec_inf,
@@ -198,7 +205,7 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
 
 //NuevoCitologia Post
 router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
-    const {
+    var {
         informe_cod,
         numdoc,
         paciente,
@@ -208,6 +215,7 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         entidad,
         eps,
         cups,
+        valor,
         medRemitente,
         fec_muestra,
         fec_inf,
@@ -224,11 +232,17 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         t_informe,
         ultInf
     } = req.body;
-    console.log(cups);
+    console.log("235", cups,valor);
     if (cups == "cups") {
-        const cups = "";
+        var cups = "";
+        var valor = "";
+        console.log(cups, 'Vacio');
+    } else {
+        const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
+        var valor = valorcups[0].valor;
+        console.log(cups, valor, "lleno");
     }
-    console.log(cups, 'cups: Vacio');
+    console.log(cups,valor);
     nuevoInformeC = {
         informe_cod,
         t_informe,
@@ -240,6 +254,7 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         entidad,
         eps,
         cups,
+        valor,
         medRemitente,
         fec_muestra,
         fec_inf,
@@ -271,7 +286,7 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     };
 
-    console.log(t_informe, "-", ultInf);
+    //console.log(t_informe, "-", ultInf);
 
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/lista/' + t_informe)
@@ -306,8 +321,8 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
         console.log('Inmuno Vacio');
     }
 
-    console.log(res_informe[0]);
-    console.log(res_tipoDoc[0]);
+    //console.log(res_informe[0]);
+    //console.log(res_tipoDoc[0]);
 
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
@@ -326,7 +341,7 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
         console.log('Vacio');
     }
 
-    console.log(res_informe[0]);
+    //console.log(res_informe[0]);
 
     res.render('informes/imprimirC', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
 });
@@ -345,6 +360,9 @@ router.get('/edit/:id', isLoggedIn, async (req, res) => {
     if (res_informe[0].cups == null) {
         res_informe[0].cups = "cups";
     }
+    if (res_informe[0].cups == "") {
+        res_informe[0].cups = "cups";
+    }
     console.log(res_informe[0].cups, 'cups: Lleno');
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
@@ -361,6 +379,9 @@ router.get('/editC/:id', isLoggedIn, async (req, res) => {
     if (res_informe[0].cups == null) {
         res_informe[0].cups = "cups";
     }
+    if (res_informe[0].cups == "") {
+        res_informe[0].cups = "cups";
+    }
     console.log(res_informe[0].cups, 'cups: Lleno');
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
@@ -370,11 +391,17 @@ router.get('/editC/:id', isLoggedIn, async (req, res) => {
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
+    var { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, valor, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
     const { id } = req.params;
     console.log(cups);
     if (cups == "cups") {
-       const cups = "";
+        var cups = "";
+        var valor = "";
+        console.log(cups, 'Vacio');
+    } else {
+        const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
+        var valor = valorcups[0].valor;
+        console.log(cups, valor, "lleno");
     }
     console.log(cups, 'cups: Vacio');
     editInforme = {
@@ -388,6 +415,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         entidad,
         eps,
         cups,
+        valor,
         medRemitente,
         fec_muestra,
         fec_inf,
@@ -408,13 +436,18 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
 
 //Editar informe de citologia
 router.post('/editC/:id', isLoggedIn, async (req, res) => {
-    const { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10, cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones } = req.body;
+    var { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, valor, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10, cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones } = req.body;
     const { id } = req.params;
-    console.log(cups);
     if (cups == "cups") {
-        const cups = "";
+        var cups = "";
+        var valor = "";
+        console.log(cups, 'Vacio');
+    } else {
+        const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
+        var valor = valorcups[0].valor;
+        console.log(cups, valor, "lleno");
     }
-    console.log(cups, 'cups: Vacio');
+    console.log(cups,valor);
     editInformeC = {
         informe_cod,
         t_informe,
@@ -426,6 +459,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         entidad,
         eps,
         cups,
+        valor,
         medRemitente,
         fec_muestra,
         fec_inf,
