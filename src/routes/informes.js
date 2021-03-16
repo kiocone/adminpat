@@ -444,12 +444,13 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         console.log(cups, 'Vacio');
     } else {
         var valorcups = await pool.query('select valor from cups where cups = ?', cups);
-        if ( valorcups[0].valor ) {
+        try {
             var valor = valorcups[0].valor;
             console.log(cups, valor, "lleno");
-        } else {
+        } catch (error) {
+            console.error(error);
             var valor = "";
-            console.log('Valor: 0')
+            console.log('Valor: 0');
         }
     }
     console.log(cups,valor);
