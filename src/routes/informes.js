@@ -443,9 +443,14 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         var valor = "";
         console.log(cups, 'Vacio');
     } else {
-        const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
-        var valor = valorcups[0].valor;
-        console.log(cups, valor, "lleno");
+        var valorcups = await pool.query('select valor from cups where cups = ?', cups);
+        if ( valorcups[0].valor ) {
+            var valor = valorcups[0].valor;
+            console.log(cups, valor, "lleno");
+        } else {
+            var valor = "";
+            console.log('Valor: 0')
+        }
     }
     console.log(cups,valor);
     editInformeC = {
