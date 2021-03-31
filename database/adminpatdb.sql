@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-03-2021 a las 19:33:56
+-- Tiempo de generación: 31-03-2021 a las 19:02:23
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -567,7 +567,10 @@ INSERT INTO `informe` (`id`, `informe_cod`, `t_informe`, `numdoc`, `paciente`, `
 (429, 'Q2103-1963', 'Q', '45545464', 'ADRIANA PATRICIA TINOCO VALENCIA', '3156355053', 'F', '38', 'LIGA CONTRA EL CANCER', '', '898201', '33200', 'Doctor CARLOS OSORIO', NULL, '2021-03-29', '2021-03-26', 'OLIVA MARRUGO GRICE', 'Rotulado \"Trucut de mama derecha\" se reciben tres fragmentos cilíndricos de tejido de color blanquecino que miden 0.4 cms. Se toma todo.\r\n\r\n\r\n\r\n\r\n', 'Los cortes revelan tejido mamario que muestra algunos canaliculos con cambios secretorios, en otras áreas el estroma esta infiltrado por linfocitos, plasmocitos y neutrófilos.\r\n\r\n\r\n\r\n', ' Biopsia por trucut de mama derecha:\r\n-MASTITIS AGUDA Y CRÓNICA\r\n\r\n\r\n\r\n', '', 'En el material enviado no se observan cambios neoplasicos.\r\n\r\n\r\n'),
 (430, 'L2103-77', 'L', '1102881834', 'OSNEIDI ELIZABETH FLOREZ ALVAREZ', '3143870571', 'F', '7', 'HOSP. INF. NAPOLEON FRANCO PAREJA', '', '898201', '33200', 'Doctora HEIDY MARSIGLIA ARMELLA', NULL, '2021-03-29', '2021-03-29', 'OLIVA MARRUGO GRICE', 'Rotulado \"Liquido cefalorraquideo\" se reciben 3 ml. de un líquido transparente. Se centrifuga y se hace extendido del sedimento.\r\n\r\n\r\n\r\n', 'Extendido acelular.\r\n\r\n\r\n\r\n', ' Citología de líquido cefalorraquideo:\r\n-EXTENDIDO ACELULAR\r\n\r\n\r\n', '', ''),
 (431, 'L2103-78', 'L', '45545464', 'ADRIANA PATRICIA TINOCO VALENCIA', '3156355053', 'F', '38', 'LIGA CONTRA EL CANCER', '', '898201', '33200', 'Doctor CARLOS OSORIO', NULL, '2021-03-29', '2021-03-29', 'OLIVA MARRUGO GRICE', 'Rotulado \"BACAF de seno derecho\" se reciben 6 ml. de un líquido de color pardo claro. Se centrifuga y se hace extendido del sedimento.\r\n\r\n\r\n\r\n', 'Los extendidos están constituidos por linfocitos, plasmocitos y neutrófilos.\r\n\r\n\r\n\r\n', ' ACAF de mama derecha:\r\n-NEGATIVA PARA CÉLULAS MALIGNAS\r\n\r\n', '', ''),
-(432, 'L2103-79', 'L', '70900591', 'PEDRO CLAVER GONZALEZ PINEDA', '000', 'M', '60', 'PARTICULAR', 'PARTICULAR', '20205', '93200', 'Doctor YAMITH ENRIQUE URUETA CHAVEZ ', NULL, '2021-03-29', '2021-03-29', 'JOSÉ CARABALLO GRACIA', 'Rotulado \"BACAF de tiroides parotida izquierda\" se reciben cuatro placas con su extendido.', '', '', '', '');
+(432, 'L2103-79', 'L', '70900591', 'PEDRO CLAVER GONZALEZ PINEDA', '000', 'M', '60', 'PARTICULAR', 'PARTICULAR', '20205', '93200', 'Doctor YAMITH ENRIQUE URUETA CHAVEZ ', NULL, '2021-03-29', '2021-03-29', 'JOSÉ CARABALLO GRACIA', 'Rotulado \"BACAF de tiroides parotida izquierda\" se reciben cuatro placas con su extendido.', '', '', '', ''),
+(433, 'Q2103-1964', 'Q', 'VEN2391388', 'DANIELA ALEJANDRA MENDEZ ARANBULET', '3044130013', 'F', '12', 'HOSP. INF. NAPOLEON FRANCO PAREJA', '', '20201', '59100', 'Doctor MARIO JAIMES GUTIERREZ', NULL, '2021-03-30', '2021-03-30', 'JOSÉ CARABALLO GRACIA', 'Rotulado \"Apéndice + epiplon\" se recibe un apendice cecal que mide 8 x 1.3 cms. La superficie externa esta cubierta por una serosa irregular de color pardo claro y en la parte media se observa una solución de continuidad que se comunica la luz. Al ocrte se encuentra una luz ddilatada que contiene un material grumoso de color verdoso. Se toman cortes, Además, tres fragemtnos de epiplon de forma irregular. Se toman cortes', '', '', '', ''),
+(434, 'Q2103-1965', 'Q', '1041973408', 'GLORIANIS VALETA JULIO', '3205034793', 'F', '16', 'GASTROPACK SAS', 'ECOPETROL S.A', '898201', '33200', 'Doctor ELKIN TORRES RODRIGUEZ', NULL, '2021-03-30', '2021-03-30', 'JOSÉ CARABALLO GRACIA', 'En recipientes separados y rotulados, se reciben:\r\n1. \"Esófago\" dos fragmentos de tejido de forma irregular de color pardo claro y consistencia blanda que promedian un diámetro mayor de 0.3 cms. Se toma todo y se rotulan A.\r\n2. \"Antro\" dos fragmentos de tejido de forma irregular de color pardo claro y consistencia blanda que miden respectivamente 0.1 y 0.4 cms. Se toma todo y se rotulan B.\r\n3. \"Cuerpo\" dos fragmentos de tejido de forma irregular de color pardo claro y consistencia blanda que proemdian 0.2 cms. Se toma todo y se rotulan C.\r\n4. \"Bulbo\" un fragmento de tejido de forma irregular de color pardo claro y consistencia blanda que mide 0..3 cms. Se toma todo y se rotulan D.\r\n5. \"Segunda porción del duodeno\" un fragmento de tejido de forma irregular de color pardo claro y consistencia blanda que mide 0.2 cms. Se toma todo y se rotulan E.', '', '', '', ''),
+(435, 'Q2103-1966', 'Q', '17093474', 'VICTOR JULIO RAMIREZ LEON', '0000', 'M', '79', 'CLIN. SAN JOSE DE TORICES SAS', 'Org. Magisterio', '898201', '33200', 'Doctor PEDRO IMBETH ACOSTA', NULL, '2021-03-30', '2021-03-30', 'JOSÉ CARABALLO GRACIA', 'Rotulado \"Lesión ulcerada en recto y tercio medio distal\" se reciben dos fragmentos de tejido de forma irregular de color pardo oscuro y consistencia blanda que promedian un diámetro mayor de 0.2 cms. Se toma todo.', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1205,7 +1208,10 @@ INSERT INTO `paciente` (`id`, `t_docu`, `num_docu`, `nombre`, `sexo`, `direccion
 (476, 'C.C.', '51591605', 'ROCIO ASTRID VILLARREAL FLOREZ', 'F', 'CENTRO', '0000', 'correo@correo.com', '1961-03-02', '', 1, '2021-03-29 13:52:23'),
 (477, 'C.C.', '45539760', 'RAQUEL MENDOZA MONTES', 'F', 'CENTRO', '000', 'correo@correo.com', '1983-03-02', '', 1, '2021-03-29 13:53:30'),
 (478, 'C.C.', '32631238', 'MAGDALENA MINERVINI S', 'F', 'CENTRO', '000', 'correo@correo.com', '1956-03-02', '', 1, '2021-03-29 13:54:31'),
-(479, 'C.C.', '70900591', 'PEDRO CLAVER GONZALEZ PINEDA', 'M', 'CEN', '000', 'correo@correo.com', '1961-03-02', '', 1, '2021-03-29 13:55:21');
+(479, 'C.C.', '70900591', 'PEDRO CLAVER GONZALEZ PINEDA', 'M', 'CEN', '000', 'correo@correo.com', '1961-03-02', '', 1, '2021-03-29 13:55:21'),
+(480, 'T.I.', 'VEN2391388', 'DANIELA ALEJANDRA MENDEZ ARANBULET', 'F', 'CENTRO', '3044130013', 'correo@correo.com', '2008-07-17', '', 1, '2021-03-30 21:41:31'),
+(481, 'T.I.', '1041973408', 'GLORIANIS VALETA JULIO', 'F', 'DANIEL LEMETRE', '3205034793', 'glojuca75@hotmail.com', '2004-09-30', '', 1, '2021-03-30 21:44:49'),
+(482, 'C.C.', '17093474', 'VICTOR JULIO RAMIREZ LEON', 'M', 'CENTRO', '0000', 'correo@correo.com', '1942-03-03', '', 1, '2021-03-30 21:49:11');
 
 -- --------------------------------------------------------
 
@@ -1254,7 +1260,7 @@ CREATE TABLE `secuenciainforme` (
 --
 
 INSERT INTO `secuenciainforme` (`id`, `ultQ`, `ultC`, `ultL`) VALUES
-(1, 1963, 182, 79);
+(1, 1966, 182, 79);
 
 -- --------------------------------------------------------
 
@@ -1273,15 +1279,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('-zmCuIzJf2PdMJvgL9OFgUkoDhfsx4R6', 1617203182, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('2wTH9rvITTfxN5eLg30bAkQnQMTIgJFJ', 1617138890, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}'),
-('CBhznbQxOm2xSKvkjh-A1HmideeggfSn', 1617203182, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('Ncc3qEqoQLt9hHU6k9xl_pObSCYH7rGp', 1617202956, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('OkmIMTE-AeBW4WI8NuJMf9ojAB3xCxWh', 1617206975, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}'),
-('U9zsn35eiF9uLx2JpekZ8xKUGjYGh2Nx', 1617203182, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('XwGV4lKsfp1y7nY_I1v1csI8YLXt47N4', 1617203182, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('w2r5mZ8QPwCKBuQW_-JAT6rY4BnfFkz2', 1617135633, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}'),
-('xJOQb-Y5mEjRHYVScORQW8G2yn4LmQFj', 1617210529, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}');
+('wyAhIhNF-YSWJK-xZLLhvb_xRvSeX5az', 1617294513, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}'),
+('xJOQb-Y5mEjRHYVScORQW8G2yn4LmQFj', 1617227447, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}');
 
 -- --------------------------------------------------------
 
@@ -1389,7 +1388,7 @@ ALTER TABLE `eps`
 -- AUTO_INCREMENT de la tabla `informe`
 --
 ALTER TABLE `informe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=433;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=436;
 
 --
 -- AUTO_INCREMENT de la tabla `informec`
@@ -1407,7 +1406,7 @@ ALTER TABLE `medremitente`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=480;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=483;
 
 --
 -- AUTO_INCREMENT de la tabla `patologo`
