@@ -400,8 +400,14 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         console.log(cups, 'Vacio');
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
-        var valor = valorcups[0].valor;
-        console.log(cups, valor, "lleno");
+        try {
+            var valor = valorcups[0].valor;
+            console.log(cups, valor, "lleno");
+        } catch (error) {
+            console.error(error);
+            var valor = "";
+            console.log('Valor: 0');
+        }
     }
     console.log(cups, 'cups: Vacio');
     editInforme = {
