@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `adminpatdb`
 --
-CREATE DATABASE `adminpatdb`;
+--CREATE DATABASE `adminpatdb`;
 USE adminpatdb;
 -- --------------------------------------------------------
 

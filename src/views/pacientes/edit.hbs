@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-3">
     <div class="row">
         <div class="col-md-4 mx-auto">
             <div class="card">
@@ -39,6 +39,43 @@
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-5 mx-auto">
+            <div class="card">
+                <table class="table table-sm table-striped">
+                    <tr>
+                        <th>Informe</th>
+                        <th>Fecha</th>
+                        <th>Patólogo</th>
+                    </tr>
+                    {{#each estudios}}
+                    <tr>
+                        <td>
+                            <a href="/informes/edit/{{id}}">{{informe_cod}}</a>
+                        </td>
+                        <td>
+                            {{fec_inf}}
+                        </td>
+                        <td>
+                            {{patologo}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{#each estudiosC}}
+                    <tr>
+                        <td>
+                            <a href="/informes/edit{{t_informe}}/{{id}}">{{informe_cod}}</a>
+                        </td>
+                        <td>
+                            {{fec_inf}}
+                        </td>
+                        <td>
+                            {{patologo}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
             </div>
         </div>
     </div>

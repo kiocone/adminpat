@@ -6,8 +6,9 @@ const { isLoggedIn } = require('../lib/auth');
 const Swal = require('sweetalert2');
 const { calcEdad } = require('../lib/helpers');
 
-router.get('/add', isLoggedIn, (req, res) => {
-    res.render('pacientes/add');
+router.get('/add', isLoggedIn, async (req, res) => {
+    const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente ORDER BY num_docu ASC');
+    res.render('pacientes/add', { paciente });
 });
 
 router.post('/add', isLoggedIn, async (req, res) => {
@@ -45,7 +46,10 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
-    res.render('pacientes/edit', {paciente: res_pacientes[0]});
+    const estudios = await pool.query('select id, t_informe, informe_cod, fec_inf, patologo from informe WHERE numdoc = ?', res_pacientes[0].num_docu)
+    const estudiosC = await pool.query('select id, t_informe, informe_cod, fec_inf, patologo from informec WHERE numdoc = ?', res_pacientes[0].num_docu)
+    
+    res.render('pacientes/edit', {paciente: res_pacientes[0], estudios: estudios, estudiosC: estudiosC});
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
