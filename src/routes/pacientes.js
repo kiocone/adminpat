@@ -6,6 +6,24 @@ const { isLoggedIn } = require('../lib/auth');
 const Swal = require('sweetalert2');
 const { calcEdad } = require('../lib/helpers');
 
+router.get('/check_paciente', isLoggedIn, async (req, res) => {
+    res.render('pacientes/check_paciente');
+});
+
+router.post('/check_paciente', isLoggedIn, async (req,res) => {
+    const { num_docu } = req.body
+    console.log(num_docu)
+    const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente WHERE num_docu = ?', num_docu);
+    console.log(paciente[0])
+    if (paciente[0]) {
+        res.redirect('/pacientes/edit/' + paciente[0].id)
+    }
+    else {
+        res.render('pacientes/add', {num_docu})
+    }
+})
+
+
 router.get('/add', isLoggedIn, async (req, res) => {
     const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente ORDER BY num_docu ASC');
     res.render('pacientes/add', { paciente });

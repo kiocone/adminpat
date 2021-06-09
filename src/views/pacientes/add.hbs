@@ -14,10 +14,10 @@
                                 <option value="PP">PP</option>
                             </select>
                         </p>
-                        <input type="text" name="num_docu" id="numdocu" class="form-control" placeholder="Numero de Documento"
+                        <input type="text" name="num_docu" id="numdocu" class="form-control" value="{{num_docu}}" placeholder="Numero de Documento"
                             required>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre Completo"
-                            required>
+                            required autofocus>
                         <input type="text" name="sexo" id="sexo" class="form-control" placeholder="M ó F" maxlength="1"
                             required>
                         <input type="text" name="direccion" class="form-control" placeholder="Direccoión" required>
@@ -53,6 +53,7 @@
     var numdocu = document.getElementById('numdocu');
     numdocu.onkeyup = function () {
         this.value = this.value.toUpperCase();
+        alert(this.value)
     }
     var nombre = document.getElementById('nombre');
     nombre.onkeyup = function () {
@@ -64,7 +65,7 @@
     }
     var email = document.getElementById('email');
     email.onkeyup = function () {
-        this.value = this.value.toLowerCase();
+        this.value = this.value.toLowerCase();   
     }
-     
+
 </script>
