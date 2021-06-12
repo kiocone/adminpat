@@ -1,6 +1,6 @@
 {
   "name": "adminpat",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "sistema para la administracion de informes de patologia",
   "main": "index.js",
   "scripts": {
