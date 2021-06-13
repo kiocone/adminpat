@@ -9,19 +9,21 @@
                             <tbody>
                                 <tr>
                                     <td scope="row">
-                                        <form method="GET" action="/informes/lista/Q">
-                                            <a class="btn btn-success"
-                                                onclick="this.parentNode.submit();">Quirúrgico</a>
-                                        </form>
+                                        <a class="btn btn-success" href="/informes/lista/Q">Quirúrgico</a>
                                     </td>
                                     <td>
-                                        <form method="GET" action="/informes/lista/L">
-                                            <a class="btn btn-success" onclick="this.parentNode.submit();">Líquido</a>
-                                        </form>
+                                        <a class="btn btn-success" href="/informes/lista/L">Líquido</a>
                                     </td>
                                     <td>
-                                        <form method="GET" action="/informes/lista/C">
-                                            <a class="btn btn-success" onclick="this.parentNode.submit();">Citología</a>
+                                        <a class="btn btn-success" href="/informes/lista/C">Citología</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-center"> 
+                                        <form action="/informes/buscar" method="post">
+                                        Buscar: 
+                                        <input type="search" name="encontrar" id="buscar" autofocus> 
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button> 
                                         </form>
                                     </td>
                                 </tr>

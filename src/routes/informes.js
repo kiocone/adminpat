@@ -509,4 +509,11 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
     await pool.query('UPDATE secuenciainforme set ? WHERE id = 1', updateConsecutivo);
     res.redirect('/panel');
 })
+
+router.post('/buscar', isLoggedIn, async (req,res) => {
+    const { encontrar } = req.body
+    const informes = await pool.query('select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, patologo from informe WHERE diagnostico LIKE ? ORDER BY id DESC', ['%'+encontrar+'%']);
+    res.render('informes/ult_informes', { informes });
+})
+
 module.exports = router;
