@@ -2,7 +2,12 @@
     <table class="table table-sm table-striped">
         {{#if informes}}
         <thead>
-            <th colspan="8">Ultimos 10 informes</th>
+            <th colspan="2">Ultimos 10 informes</th>
+            <th colspan="6" class="text-center">
+                {{#if encontrar}}
+                Resultados encontrados por: {{encontrar}}
+                {{/if}}
+            </th>
         </thead>
         <tbody>
             <tr>
