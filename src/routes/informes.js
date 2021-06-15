@@ -513,6 +513,19 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
 router.post('/buscar', isLoggedIn, async (req,res) => {
     const { encontrar } = req.body
     const informes = await pool.query('select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, patologo from informe WHERE diagnostico LIKE ? ORDER BY id DESC', ['%'+encontrar+'%']);
+    var i = 0;
+    informes.forEach(t_informe => {
+        switch (informes[i].t_informe) {
+            case "C":
+                informes[i].t_informe = "C";
+                //console.log(i, informes[i].t_informe);
+                break;
+            default:
+                informes[i].t_informe = "";
+                //console.log(i, informes[i].t_informe);
+        }
+        i = i+1;        
+    });
     res.render('informes/ult_informes', { informes, encontrar });
 })
 
