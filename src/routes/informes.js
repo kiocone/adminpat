@@ -347,10 +347,13 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
-    const { id } = req.params;
+    /* const { id } = req.params;
     await pool.query('DELETE FROM entidad WHERE ID = ?', [id]);
     req.flash('success', 'Patologo removida!');
-    res.redirect('/patologos');
+    res.redirect('/patologos'); */
+    var var01 = "10"
+    console.log("10" - 1)
+    res.redirect('/panel')
 });
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
