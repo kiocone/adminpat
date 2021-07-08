@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
-const Swal = require('sweetalert2');
+
 const { calcEdad } = require('../lib/helpers');
 
 router.get('/check_paciente', isLoggedIn, async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/check_paciente', isLoggedIn, async (req, res) => {
 });
 
 router.post('/check_paciente', isLoggedIn, async (req,res) => {
-    const { num_docu } = req.body
+    const { num_docu, t_docu } = req.body
     console.log(num_docu)
     const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente WHERE num_docu = ?', num_docu);
     console.log(paciente[0])
@@ -19,7 +19,7 @@ router.post('/check_paciente', isLoggedIn, async (req,res) => {
         res.redirect('/pacientes/edit/' + paciente[0].id)
     }
     else {
-        res.render('pacientes/add', {num_docu})
+        res.render('pacientes/add', {num_docu, t_docu})
     }
 })
 
