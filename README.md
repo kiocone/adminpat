@@ -1,3 +1,6 @@
+# Adminpat v0.2.1
+<p>Pendiente corregir dropdown menu</p>
+
 # Adminpat dev 0.1
 <p>Ajuste de fecha automatica nuevo, editar informe</p>
 <p>Hecho. db.Tabla y vistas de EPS</p>
