@@ -148,7 +148,6 @@ router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 
 router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     var { informe_cod, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, valor, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones, t_informe, ultInf } = req.body;
-    console.log("151", cups, valor);
     if (cups == "cups") {
         var cups = "";
         var valor = "";
@@ -232,7 +231,6 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         t_informe,
         ultInf
     } = req.body;
-    console.log("235", cups,valor);
     if (cups == "cups") {
         var cups = "";
         var valor = "";
