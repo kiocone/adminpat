@@ -2,7 +2,7 @@
     <table border="0">
         <thead>
             <tr class="header-space">
-                <td colspan="3">
+                <td colspan="6">
                     <div>
                         &nbsp;
                     </div>
@@ -12,9 +12,17 @@
         <tbody>
             <!--Linea Horizontal-->
             <tr>
-                <td colspan="4"
-                    style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
-                    <strong><i>___________________________________________________________________________________</i></strong>
+                <td colspan="6"
+                    style="color: rgb(117, 117, 117); 
+                            font-size: 22px; 
+                            line-height: 0px; 
+                            padding-left: 0px; 
+                            padding-bottom: 0px; 
+                            padding-top: 0px; 
+                            width:900px;">
+                    <strong>
+                        <i>_____________________________________________________________________________</i>
+                    </strong>
                 </td>
             </tr>
             <!-- prueba pretty checkbox 
@@ -28,29 +36,70 @@
             -->
             <!--Cuerpo Inf Citologias Calidad de muestra-->
             <tr>
-                <td class="titulo" colspan="3" style="padding-top: 20px;">
+                <td class="titulo" colspan="6" style="padding-top: 20px;">
                     <p class="titulo"><strong>CALIDAD DE MUESTRA</strong></p>
                 </td>
             </tr>
             <tr>
-                <label class="form-check-label">
-                    <td style="width:360px;">
-                        <input style="" type="radio" name="cal_muestra" id="cal_muestra0"
-                            value="0">&nbsp;&nbsp;Satisfactoria<br>(Con celulas endocervicales / Z. T.)
-                    </td>
-                    <td style="width:360px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
-                            id="cal_muestra1" value="1">&nbsp;Satisfactoria <br>(Sin celulas endocervicales / Z. T.)
-                    </td>
-                    <td style="width:200;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
-                            id="cal_muestra2" value="2">&nbsp;Insatisfactoria por: <br>{{informe.ins_motivo}}
-                    </td>
-                </label>
+                
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio"  name="cal_muestra" id="cal_muestra0" value="0"/>
+                            <div class="state p-primary">
+                                <label>Satisfactoria</label>
+                            </div>
+                    </div>
+                    {{!-- <input type="radio" name="cal_muestra" id="cal_muestra0"
+                        value="0"/>
+                        <label class="form-check-label">
+                            &nbsp;&nbsp;Satisfactoria<br>(Con celulas endocervicales / Z. T.)
+                        </label> --}}
+                </td>
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio"  name="cal_muestra" id="cal_muestra1" value="1"/>
+                            <div class="state p-primary">
+                                <label>Satisfactoria</label>
+                            </div>
+                    </div>
+                    {{!-- &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                        id="cal_muestra1" value="1">&nbsp;Satisfactoria <br>(Sin celulas endocervicales / Z. T.) --}}
+                </td>
+                <td colspan="2" style="width:300px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio"  name="cal_muestra" id="cal_muestra2" value="2"/>
+                            <div class="state p-primary">
+                                <label>Insatisfactoria por:</label>
+                            </div>
+                    </div>
+                    {{!-- &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                        id="cal_muestra2" value="2">&nbsp;Insatisfactoria por: <br>{{informe.ins_motivo}} --}}
+                </td>
+                
                 <script>
                     document.getElementById("cal_muestra{{informe.cal_muestra}}").checked = true;
                 </script>
 
+            </tr>
+            <tr>
+                <td style="width:35px">
+                    &nbsp;
+                </td>
+                <td>
+                    (Sin celulas endocervicales / Z. T.)
+                </td>
+                <td style="width:35px">
+                    &nbsp;
+                </td>
+                <td>
+                    (Con celulas endocervicales / Z. T.)
+                </td>
+                <td style="width:35px">
+                    &nbsp;
+                </td>
+                <td>
+                    {{informe.ins_motivo}}
+                </td>
             </tr>
         </tbody>
     </table>
@@ -64,22 +113,40 @@
         </tr>
         <tr>
             <div class="form-check form-check-inline">
-                <label class="form-check-label">
+                
                     <td style="width:430px;" scope="row">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen0" value="0"> Negativa
-                        para lesión intraepitelial o malignidad
+                        <div class="pretty p-default p-round p-smooth">
+                            <input type="radio"  name="cat_gen" id="cat_gen" value="0"/>
+                                <div class="state p-primary">
+                                    <label>Negativa para lesión intraepitelial o malignidad</label>
+                                </div>
+                        </div>
+                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
+                            id="cat_gen0" value="0"><label class="form-check-label"> Negativa
+                        para lesión intraepitelial o malignidad</label> --}}
                     </td>
                     <td style="width:400px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen1" value="1">
-                        Anormalidad en células epiteliales
+                        <div class="pretty p-default p-round p-smooth">
+                            <input type="radio"  name="cat_gen" id="cat_gen1" value="1"/>
+                                <div class="state p-primary">
+                                    <label>Anormalidad en células epiteliales</label>
+                                </div>
+                        </div>
+                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
+                            id="cat_gen1" value="1"><label class="form-check-label">
+                        Anormalidad en células epiteliales</label> --}}
                     </td>
                     <td style="width:100px;" colspan="2">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen2" value="2"> Otros
+                        <div class="pretty p-default p-round p-smooth">
+                            <input type="radio"  name="cat_gen" id="cat_gen2" value="2"/>
+                                <div class="state p-primary">
+                                    <label>Otros</label>
+                                </div>
+                        </div>
+                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
+                            id="cat_gen2" value="2"><label class="form-check-label"> Otros</label> --}}
                     </td>
-                </label>
+                
             </div>
         </tr>
     </table>
@@ -90,57 +157,57 @@
                 <!--microorganizmos -izq-->
                 <td style="width:500px;">
                     <p class="titulo-alt"><strong>MICROORGANISMOS</strong></p>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox1" id="cbox1" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Tricomonas vaginalis</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox1" id="cbox1"> <label for="cbox1">Tricomonas
                         vaginalis</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox2" id="cbox2" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Hongos consistentes con Candida sp</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox2" id="cbox2"> <label for="cbox2">Hongos consistentes con
                         Candida
                         sp</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox3" id="cbox3" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Bacterias consistentes con Actinomyces sp</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox3" id="cbox3"> <label for="cbox3">Bacterias consistentes con
                         Actinomyces sp</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox4" id="cbox4" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Efectos citopáticos por virus Herpes simple</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por
                         virus
                         Herpes simple</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox5" id="cbox5" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Alteraciones en flora sugestivos de vaginosis bacteriana</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en flora
                         sugestivos de vaginosis bacteriana</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox6" id="cbox6" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Otros</label>
                         </div>
                     </div>
@@ -149,10 +216,10 @@
                 <!--Otros Hallazgos-->
                 <td style="width:500px;">
                     <p class="titulo2"><strong>OTROS HALLAZGOS NO NEOPLASICOS</strong></p>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox7" id="cbox7" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Cambios Célulares reactivos
                                 asociados</label>
                         </div>
@@ -160,57 +227,57 @@
                     {{!-- <input type="checkbox" name="cbox7" id="cbox7"> <label for="cbox7">Cambios Célulares reactivos
                         asociados</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox8" id="cbox8" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Inflamación</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox8" id="cbox8"> <label for="cbox8">Inflamación</label> --}}
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox9" id="cbox9" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Atrofia</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox9" id="cbox9"> <label for="cbox9">Atrofia</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox10" id="cbox10" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Radiación</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox10" id="cbox10"> <label for="cbox10">Radiación</label> --}}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox11" id="cbox11" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>DIU</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox11" id="cbox11"> <label for="cbox11">DIU</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox12" id="cbox12" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endometriales despues de 40 Años de edad</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometriales despues de
                         40
                         Años de edad</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox13" id="cbox13" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Otros</label>
                         </div>
                     </div>
@@ -223,16 +290,16 @@
     <table border="0">
         <tbody>
             <tr>
-                <td style="width:1000px; padding-top: 20px;" class="titulo" colspan="3" >
+                <td style="width:900px; padding-top: 20px;" class="titulo" colspan="3" >
                     <p><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
                 </td>
             </tr>
             <tr>
                 <td style="width:360px;">
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox14" id="cbox14" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Celulas Escamosas Atipicas (ASC)</label>
                         </div>
                     </div>{{!-- <br> --}}
@@ -240,10 +307,10 @@
                         for="cbox14">Celulas Escamosas Atipicas
                         (ASC)</label> --}}
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox15" id="cbox15" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>De significado indeterminado (ASC-US)</label>
                         </div>
                     </div>
@@ -253,20 +320,20 @@
                         indeterminado
                         (ASC-US)</label> --}}{{!-- <br> --}}
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox16" id="cbox16" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Sugiere lesión de alto grado (ASC-H)</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox16" id="cbox16"> <label for="cbox16">Sugieren lesion de alto
                         grado
                         (ASC-H)</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox17" id="cbox17" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>LIE-BG NIC I - HPV</label>
                         </div>
                     </div>
@@ -274,10 +341,10 @@
                         <!--(Lesión escamosa
                         intraepitelial de bajo grado) -->NIC I - HPV
                     </label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox18" id="cbox18" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>LIE-AG NIC II - NIC III</label>
                         </div>
                     </div>
@@ -285,10 +352,10 @@
                         <!--(Lesión escamosa
                         intraepitelial de alto grado) -->NIC II - NIC III
                     </label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox19" id="cbox19" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Carcinoma escamoso invasor</label>
                         </div>
                     </div>
@@ -296,46 +363,46 @@
                         invasor</label> --}}<br>
                 </td>
                 <td style="width:380px;">
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox20" id="cbox20" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Atípias de significado indeterminado</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox20" id="cbox20"> <label for="cbox20">Atípias de significado
                         indeterminado</label> --}}<br>
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox21" id="cbox21" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endocervicales</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label> --}}
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox22" id="cbox22" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endometriales</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label> --}}<br>
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox23" id="cbox23" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Otras glandulares</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox23" id="cbox23"> <label for="cbox23">Otras
                         glandulares</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox24" id="cbox24" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Células glandulares endocervicales,</label>
                         </div>
                     </div>
@@ -345,82 +412,82 @@
                     {{!-- <input type="checkbox" name="cbox24" id="cbox24"> &nbsp;&nbsp;Células glandulares
                     endocervicales,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;que favorecen neoplasia --}}<br>
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox25" id="cbox25" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endocervicales</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label> --}}
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox26" id="cbox26" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endometriales</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label> --}}<br>
                     &nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox27" id="cbox27" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Otras glandulares</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label> --}}
                 </td>
                 <td style="width:250px;">
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox28" id="cbox28" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Adenocarcinoma in situ</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcinoma in
                         situ</label> --}}<br>
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox29" id="cbox29" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Adenocarcinoma</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcinoma</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox30" id="cbox30" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endocervical</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox31" id="cbox31" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Endometrial</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox31" id="cbox31"> <label for="cbox31">Endometrial</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox32" id="cbox32" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>Extrauterino</label>
                         </div>
                     </div>
                     {{!-- <input type="checkbox" name="cbox32" id="cbox32"> <label for="cbox32">Extrauterino</label> --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="pretty p-image p-plain">
+                    <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox33" id="cbox33" />
-                        <div class="state">
-                            <img class="image" src="/img/equis.png">
+                        <div class="state p-primary">
+                            {{!-- <img class="image" src="/img/equis.png"> --}}
                             <label>No especificado</label>
                         </div>
                     </div>
@@ -429,10 +496,14 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:1000px;" colspan="3" style="padding-top: 100px;">
+                <td style="width:900px;" colspan="3" style="padding-top: 100px;">
+                    {{#if informe.observaciones}}
                     <br>
                     <strong class="titulo">OBSERVACIONES</strong>
                     <pre>{{informe.observaciones}}</pre>
+                    {{else}}
+                        &nbsp;
+                    {{/if}}
                 </td>
             </tr>
             <tr>
@@ -515,7 +586,7 @@
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
     document.getElementById("edad").innerHTML = Edad;
-    document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
+    //document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
 
     if ("{{informe.cbox1}}" == "on") { document.getElementById("cbox1").checked = true; };
     if ("{{informe.cbox2}}" == "on") { document.getElementById("cbox2").checked = true; };
@@ -563,7 +634,7 @@
     }
 
     .header-space {
-        height: 250px;
+        height: 260px;
     }
 
     @media print {
