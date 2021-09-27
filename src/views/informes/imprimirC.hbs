@@ -116,7 +116,7 @@
                 
                     <td style="width:430px;" scope="row">
                         <div class="pretty p-default p-round p-smooth">
-                            <input type="radio"  name="cat_gen" id="cat_gen" value="0"/>
+                            <input type="radio"  name="cat_gen" id="cat_gen0" value="0"/>
                                 <div class="state p-primary">
                                     <label>Negativa para lesión intraepitelial o malignidad</label>
                                 </div>
@@ -586,7 +586,7 @@
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
     document.getElementById("edad").innerHTML = Edad;
-    //document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
+    document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
 
     if ("{{informe.cbox1}}" == "on") { document.getElementById("cbox1").checked = true; };
     if ("{{informe.cbox2}}" == "on") { document.getElementById("cbox2").checked = true; };
