@@ -24,13 +24,13 @@
                             <option value="{{patologo}}">{{patologo}}</option>
                             {{/each}}
                         </select>
-                        
+
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Id <input name="numdoc" type="number" value="{{informe.paciente.num_docu}}"><br>
-                        <select name="cups" id="">
+                        <select name="cups" id="cups">
                             <option value="cups">cups</option>
                             {{#each cups}}
                             <option value="{{cups}}">{{cups}}</option>
@@ -45,7 +45,7 @@
                     <input name="sexo" type="hidden" value="{{informe.paciente.sexo}}">
                     <!--</td>-->
                     <td scope="col">Edad: <p id="edad"></p>
-                    <input name="edad" type="hidden" value="{{informe.paciente.f_nac}}">
+                        <input name="edad" type="hidden" value="{{informe.paciente.f_nac}}">
                     </td>
                 </tr>
                 <tr>
@@ -64,12 +64,12 @@
                         </select>
                     </td>
                     <td scope="col">Medico remitente <input name="medRemitente" type="text"></td>
-                    <td scope="col">Informe <br> <input name="fec_inf" id="fechaInf"  type="date" value="2021-01-01" min="1920-01-01"
-                            max="2040-12-31"></td>
-                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden"
-                        min="1920-01-01" max="2040-12-31"><!-- </td>-->
-                    <td scope="col">Ingreso <br> <input name="fec_ingreso" id="fechaIng"  type="date" 
+                    <td scope="col">Informe <br> <input name="fec_inf" id="fechaInf" type="date" value="2021-01-01"
                             min="1920-01-01" max="2040-12-31"></td>
+                    <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden" min="1920-01-01"
+                        max="2040-12-31"><!-- </td>-->
+                    <td scope="col">Ingreso <br> <input name="fec_ingreso" id="fechaIng" type="date" min="1920-01-01"
+                            max="2040-12-31"></td>
                 </tr>
         </tbody>
     </table>
@@ -87,17 +87,19 @@
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
-                                value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                                id="cal_muestra" value="0">Satisfactoria <br>(Con celulas endocervicales / Z. T.)
                         </td>
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
-                                value="1"> Satisfactoria <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
+                                id="cal_muestra" value="1"> Satisfactoria <br>
                             (Sin celulas endocervicales / Z. T.)
                         </td>
                         <td style="width: 400" colspan="2">
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input widht="20"class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra" value="2"><div>Insatisfactoria por:<input type="text" name="ins_motivo" placeholder="Motivo">
+                            <input widht="20" class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra"
+                                value="2">
+                            <div>Insatisfactoria por:<input type="text" name="ins_motivo" placeholder="Motivo">
                             </div>
                         </td>
                     </label>
@@ -114,15 +116,18 @@
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <td scope="row">
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="0"> Negativa
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen" value="0"> Negativa
                             para lesión intraepitelial o malignidad
                         </td>
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="1">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen" value="1">
                             Anormalidad en células epiteliales
                         </td>
                         <td colspan="2">
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen" id="cat_gen" value="2"> Otros
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cat_gen"
+                                id="cat_gen" value="2"> Otros
                         </td>
                     </label>
                 </div>
@@ -137,23 +142,29 @@
                 <td scope="row">
                     <p align="center"><strong>MICROORGANISMOS</strong></p>
                     <input type="checkbox" name="cbox1" id="cbox1"><label for="cbox1">Tricoma vaginalis</label><br>
-                    <input type="checkbox" name="cbox2" id="cbox2"> <label for="cbox2">Hongos consistentes con candida sp</label><br>
-                    <input type="checkbox" name="cbox3" id="cbox3"> <label for="cbox3">Bacterias consistentes con actinomyces sp</label><br>
-                    <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por virus herpes simple</label><br>
-                    <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en la flora sugestivos de vaginosis bacteriana</label><br>
+                    <input type="checkbox" name="cbox2" id="cbox2"> <label for="cbox2">Hongos consistentes con candida
+                        sp</label><br>
+                    <input type="checkbox" name="cbox3" id="cbox3"> <label for="cbox3">Bacterias consistentes con
+                        actinomyces sp</label><br>
+                    <input type="checkbox" name="cbox4" id="cbox4"> <label for="cbox4">Efectos citopáticos por virus
+                        herpes simple</label><br>
+                    <input type="checkbox" name="cbox5" id="cbox5"> <label for="cbox5">Alteraciones en la flora
+                        sugestivos de vaginosis bacteriana</label><br>
                     <input type="checkbox" name="cbox6" id="cbox6"> <label for="cbox6">Oros</label>
                 </td>
                 <!--Otros Hallazgos-->
                 <td scope="row">
                     <p align="center"><strong>OTROS HALLAZGOS NO NEOPLASTICOS</strong></p>
-                    <input type="checkbox" name="cbox7" id="cbox7"> <label for="cbox7">Cambios Célulares reactivos asociados</label><br>
+                    <input type="checkbox" name="cbox7" id="cbox7"> <label for="cbox7">Cambios Célulares reactivos
+                        asociados</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox8" id="cbox8"> <label for="cbox8">Inflamación</label>
                     <input type="checkbox" name="cbox9" id="cbox9"> <label for="cbox9">Atrofia</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox10" id="cbox10"> <label for="cbox10">Radiación</label>
                     <input type="checkbox" name="cbox11" id="cbox11"> <label for="cbox11">DIU</label><br>
-                    <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometirales despues de 40 Años de edad</label><br>
+                    <input type="checkbox" name="cbox12" id="cbox12"> <label for="cbox12">Endometirales despues de 40
+                        Años de edad</label><br>
                     <input type="checkbox" name="cbox13" id="cbox13"> <label for="cbox13">Otros</label><br>
                     &nbsp;
                 </td>
@@ -170,23 +181,31 @@
             </tr>
             <tr>
                 <td>
-                    <input type="checkbox" name="cbox14" id="cbox14"> <label for="cbox14">Celulas Escamosas Atipicas (ASC)</label><br>
+                    <input type="checkbox" name="cbox14" id="cbox14"> <label for="cbox14">Celulas Escamosas Atipicas
+                        (ASC)</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="cbox15" id="cbox15"> <label for="cbox15">De significado indeterminado (ASC-US)</label><br>
+                    <input type="checkbox" name="cbox15" id="cbox15"> <label for="cbox15">De significado indeterminado
+                        (ASC-US)</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="cbox16" id="cbox16"> <label for="cbox16">Sugieren lesion de alto grado (ASC-H)</label><br>
-                    <input type="checkbox" name="cbox17" id="cbox17"> <label for="cbox17">LIE-BG (Lesión escamosa intraepitelial<br>de bajo grado) NIC I - HPV</label><br>
-                    <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG (Lesión escamosa intraepitelial<br>de alto grado) NIC II - NIC III</label><br>
-                    <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcicoma escamoso invasor</label><br>
+                    <input type="checkbox" name="cbox16" id="cbox16"> <label for="cbox16">Sugieren lesion de alto grado
+                        (ASC-H)</label><br>
+                    <input type="checkbox" name="cbox17" id="cbox17"> <label for="cbox17">LIE-BG (Lesión escamosa
+                        intraepitelial<br>de bajo grado) NIC I - HPV</label><br>
+                    <input type="checkbox" name="cbox18" id="cbox18"> <label for="cbox18">LIE-AG (Lesión escamosa
+                        intraepitelial<br>de alto grado) NIC II - NIC III</label><br>
+                    <input type="checkbox" name="cbox19" id="cbox19"> <label for="cbox19">Carcicoma escamoso
+                        invasor</label><br>
                 </td>
                 <td>
-                    <input type="checkbox" name="cbox20" id="cbox20"> <label for="cbox20">Atípias de significado indeterminado</label><br>
+                    <input type="checkbox" name="cbox20" id="cbox20"> <label for="cbox20">Atípias de significado
+                        indeterminado</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label>
                     <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox23" id="cbox23"> <label for="cbox23">Otras glandulares</label><br>
-                    <input type="checkbox" name="cbox24" id="cbox24"> <label for="cbox24">Células glandulares endocervicales,<br>que favorecen neoplasia </label><br>
+                    <input type="checkbox" name="cbox24" id="cbox24"> <label for="cbox24">Células glandulares
+                        endocervicales,<br>que favorecen neoplasia </label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label>
                     <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label><br>
@@ -194,7 +213,8 @@
                     <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcicoma in situ</label><br>
+                    <input type="checkbox" name="cbox28" id="cbox28"> <label for="cbox28">Adenocarcicoma in
+                        situ</label><br>
                     <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcicoma</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label><br>
@@ -209,8 +229,9 @@
             <tr>
                 <td scope="row" colspan="3">
                     <div class="form-group">
-                      <label for="observaciones"><strong>OBSERVACIONES</strong></label>
-                      <textarea rows="5" class="form-control" name="observaciones" id="observaciones" placeholder="Observaciones"></textarea>
+                        <label for="observaciones"><strong>OBSERVACIONES</strong></label>
+                        <textarea rows="5" class="form-control" name="observaciones" id="observaciones"
+                            placeholder="Observaciones"></textarea>
                     </div>
                 </td>
             </tr>
