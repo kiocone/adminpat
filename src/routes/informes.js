@@ -504,7 +504,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         var valor = "";
         console.log(cups, 'Vacio');
     } else {
-        var valorcups = await pool.query('select valor from cups where cups = ?', cups);
+        var valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         try {
             var valor = valorcups[0].valor;
             console.log(cups, valor, "lleno");
