@@ -12,8 +12,7 @@
         <tbody>
             <!--Linea Horizontal-->
             <tr>
-                <td colspan="6"
-                    style="color: rgb(117, 117, 117); 
+                <td colspan="6" style="color: rgb(117, 117, 117); 
                             font-size: 22px; 
                             line-height: 0px; 
                             padding-left: 0px; 
@@ -41,41 +40,40 @@
                 </td>
             </tr>
             <tr>
-                
+
                 <td colspan="2" style="width:270px">
                     <div class="pretty p-default p-round p-smooth">
-                        <input type="radio"  name="cal_muestra" id="cal_muestra0" value="0"/>
-                            <div class="state p-primary">
-                                <label>Satisfactoria</label>
-                            </div>
+                        <input type="radio" name="cal_muestra" id="cal_muestra0" value="0" />
+                        <div class="state p-primary">
+                            <label>Satisfactoria</label>
+                        </div>
                     </div>
-                    {{!-- <input type="radio" name="cal_muestra" id="cal_muestra0"
-                        value="0"/>
-                        <label class="form-check-label">
-                            &nbsp;&nbsp;Satisfactoria<br>(Con celulas endocervicales / Z. T.)
-                        </label> --}}
+                    {{!-- <input type="radio" name="cal_muestra" id="cal_muestra0" value="0" />
+                    <label class="form-check-label">
+                        &nbsp;&nbsp;Satisfactoria<br>(Con celulas endocervicales / Z. T.)
+                    </label> --}}
                 </td>
                 <td colspan="2" style="width:270px">
                     <div class="pretty p-default p-round p-smooth">
-                        <input type="radio"  name="cal_muestra" id="cal_muestra1" value="1"/>
-                            <div class="state p-primary">
-                                <label>Satisfactoria</label>
-                            </div>
+                        <input type="radio" name="cal_muestra" id="cal_muestra1" value="1" />
+                        <div class="state p-primary">
+                            <label>Satisfactoria</label>
+                        </div>
                     </div>
                     {{!-- &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
                         id="cal_muestra1" value="1">&nbsp;Satisfactoria <br>(Sin celulas endocervicales / Z. T.) --}}
                 </td>
                 <td colspan="2" style="width:300px">
                     <div class="pretty p-default p-round p-smooth">
-                        <input type="radio"  name="cal_muestra" id="cal_muestra2" value="2"/>
-                            <div class="state p-primary">
-                                <label>Insatisfactoria por:</label>
-                            </div>
+                        <input type="radio" name="cal_muestra" id="cal_muestra2" value="2" />
+                        <div class="state p-primary">
+                            <label>Insatisfactoria por:</label>
+                        </div>
                     </div>
                     {{!-- &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="cal_muestra"
                         id="cal_muestra2" value="2">&nbsp;Insatisfactoria por: <br>{{informe.ins_motivo}} --}}
                 </td>
-                
+
                 <script>
                     document.getElementById("cal_muestra{{informe.cal_muestra}}").checked = true;
                 </script>
@@ -86,13 +84,13 @@
                     &nbsp;
                 </td>
                 <td>
-                    (Sin celulas endocervicales / Z. T.)
+                    (Con celulas endocervicales / Z. T.)
                 </td>
                 <td style="width:35px">
                     &nbsp;
                 </td>
                 <td>
-                    (Con celulas endocervicales / Z. T.)
+                    (Sin celulas endocervicales / Z. T.)
                 </td>
                 <td style="width:35px">
                     &nbsp;
@@ -113,40 +111,40 @@
         </tr>
         <tr>
             <div class="form-check form-check-inline">
-                
-                    <td style="width:430px;" scope="row">
-                        <div class="pretty p-default p-round p-smooth">
-                            <input type="radio"  name="cat_gen" id="cat_gen0" value="0"/>
-                                <div class="state p-primary">
-                                    <label>Negativa para lesión intraepitelial o malignidad</label>
-                                </div>
+
+                <td style="width:430px;" scope="row">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="cat_gen" id="cat_gen0" value="0" />
+                        <div class="state p-primary">
+                            <label>Negativa para lesión intraepitelial o malignidad</label>
                         </div>
-                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen0" value="0"><label class="form-check-label"> Negativa
+                    </div>
+                    {{!-- <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen0" value="0"><label
+                        class="form-check-label"> Negativa
                         para lesión intraepitelial o malignidad</label> --}}
-                    </td>
-                    <td style="width:400px;">
-                        <div class="pretty p-default p-round p-smooth">
-                            <input type="radio"  name="cat_gen" id="cat_gen1" value="1"/>
-                                <div class="state p-primary">
-                                    <label>Anormalidad en células epiteliales</label>
-                                </div>
+                </td>
+                <td style="width:400px;">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="cat_gen" id="cat_gen1" value="1" />
+                        <div class="state p-primary">
+                            <label>Anormalidad en células epiteliales</label>
                         </div>
-                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen1" value="1"><label class="form-check-label">
+                    </div>
+                    {{!-- <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen1" value="1"><label
+                        class="form-check-label">
                         Anormalidad en células epiteliales</label> --}}
-                    </td>
-                    <td style="width:100px;" colspan="2">
-                        <div class="pretty p-default p-round p-smooth">
-                            <input type="radio"  name="cat_gen" id="cat_gen2" value="2"/>
-                                <div class="state p-primary">
-                                    <label>Otros</label>
-                                </div>
+                </td>
+                <td style="width:100px;" colspan="2">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="cat_gen" id="cat_gen2" value="2" />
+                        <div class="state p-primary">
+                            <label>Otros</label>
                         </div>
-                        {{!-- <input class="form-check-input" type="radio" name="cat_gen"
-                            id="cat_gen2" value="2"><label class="form-check-label"> Otros</label> --}}
-                    </td>
-                
+                    </div>
+                    {{!-- <input class="form-check-input" type="radio" name="cat_gen" id="cat_gen2" value="2"><label
+                        class="form-check-label"> Otros</label> --}}
+                </td>
+
             </div>
         </tr>
     </table>
@@ -290,7 +288,7 @@
     <table border="0">
         <tbody>
             <tr>
-                <td style="width:900px; padding-top: 20px;" class="titulo" colspan="3" >
+                <td style="width:900px; padding-top: 20px;" class="titulo" colspan="3">
                     <p><strong>ANORMALIDADES DE CELULAS EPITELIALES</strong></p>
                 </td>
             </tr>
@@ -380,7 +378,8 @@
                             <label>Endocervicales</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label> --}}
+                    {{!-- <input type="checkbox" name="cbox21" id="cbox21"> <label for="cbox21">Endocervicales</label>
+                    --}}
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox22" id="cbox22" />
                         <div class="state p-primary">
@@ -388,7 +387,8 @@
                             <label>Endometriales</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox22" id="cbox22"> <label for="cbox22">Endometriales</label>
+                    --}}<br>
                     &nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox23" id="cbox23" />
@@ -419,7 +419,8 @@
                             <label>Endocervicales</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label> --}}
+                    {{!-- <input type="checkbox" name="cbox25" id="cbox25"> <label for="cbox25">Endocervicales</label>
+                    --}}
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox26" id="cbox26" />
                         <div class="state p-primary">
@@ -427,7 +428,8 @@
                             <label>Endometriales</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox26" id="cbox26"> <label for="cbox26">Endometriales</label>
+                    --}}<br>
                     &nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox27" id="cbox27" />
@@ -436,7 +438,8 @@
                             <label>Otras glandulares</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras glandulares</label> --}}
+                    {{!-- <input type="checkbox" name="cbox27" id="cbox27"> <label for="cbox27">Otras
+                        glandulares</label> --}}
                 </td>
                 <td style="width:250px;">
                     <div class="pretty p-default p-round p-smooth">
@@ -455,7 +458,8 @@
                             <label>Adenocarcinoma</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcinoma</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox29" id="cbox29"> <label for="cbox29">Adenocarcinoma</label>
+                    --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox30" id="cbox30" />
@@ -464,7 +468,8 @@
                             <label>Endocervical</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox30" id="cbox30"> <label for="cbox30">Endocervical</label>
+                    --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox31" id="cbox31" />
@@ -473,7 +478,8 @@
                             <label>Endometrial</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox31" id="cbox31"> <label for="cbox31">Endometrial</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox31" id="cbox31"> <label for="cbox31">Endometrial</label>
+                    --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox32" id="cbox32" />
@@ -482,7 +488,8 @@
                             <label>Extrauterino</label>
                         </div>
                     </div>
-                    {{!-- <input type="checkbox" name="cbox32" id="cbox32"> <label for="cbox32">Extrauterino</label> --}}<br>
+                    {{!-- <input type="checkbox" name="cbox32" id="cbox32"> <label for="cbox32">Extrauterino</label>
+                    --}}<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="pretty p-default p-round p-smooth">
                         <input type="checkbox" name="cbox33" id="cbox33" />
@@ -502,7 +509,7 @@
                     <strong class="titulo">OBSERVACIONES</strong>
                     <pre>{{informe.observaciones}}</pre>
                     {{else}}
-                        &nbsp;
+                    &nbsp;
                     {{/if}}
                 </td>
             </tr>
