@@ -1,3 +1,9 @@
+medipatc_admin:Patologos*21
+medipatc_adminpatdb
+190-60-223-38.cprapid.com 
+190.60.223.38
+3306
+
 --mysql prepare
 service mysqld stop
 mysqld_safe --skip-grant-tables &
