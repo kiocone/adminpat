@@ -4,15 +4,20 @@ medipatc_adminpatdb
 190.60.223.38
 3306
 
---mysql prepare
-service mysqld stop
-mysqld_safe --skip-grant-tables &
-mysql
-FLUSH PRIVILEGES;
-ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('121601001');
-FLUSH PRIVILEGES;
-exit;
-service mysqld start
+--mysql Reset Password
+mysql -V
+sudo /etc/init.d/mysql stop
+sudo mkdir /var/run/mysqld
+sudo chown mysql /var/run/mysqld
+sudo mysqld_safe --skip-grant-tables&
+sudo mysql --user=root mysql
+update user set authentication_string=PASSWORD('your_password_here') where user='root';
+update user set plugin="mysql_native_password" where User='root';
+flush privileges;
+exit
+sudo killall -u mysql
+sudo /etc/init.d/mysql start
+sudo mysql -p -u root
 
 --users table
 CREATE DATABASE adminpatdb;
