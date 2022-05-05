@@ -19,6 +19,9 @@ sudo killall -u mysql
 sudo /etc/init.d/mysql start
 sudo mysql -p -u root
 
+--import DB backup
+mysql -u root -p adminpatdb < adminpatdb.sql
+
 --users table
 CREATE DATABASE adminpatdb;
 
