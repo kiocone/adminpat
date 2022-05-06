@@ -4,6 +4,7 @@ medipatc_adminpatdb
 190.60.223.38
 3306
 
+GH accesToken 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
 --mysql Reset Password
 mysql -V
 sudo /etc/init.d/mysql stop
