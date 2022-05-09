@@ -488,8 +488,8 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    console.log(paciente);
-    console.log('Guardado!')
+    //console.log(paciente);
+    console.log('Guardado!', informe_cod)
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/edit/' + id);
@@ -514,7 +514,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
             console.log('Valor: 0');
         }
     }
-    console.log(cups, valor);
+    //console.log(cups, valor);
     editInformeC = {
         informe_cod,
         t_informe,
@@ -596,7 +596,7 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
 
 router.post('/buscar', isLoggedIn, async (req, res) => {
     const { encontrar } = req.body //Get find string
-    const informes = await pool.query('select * from informe WHERE numdoc LIKE ? OR diagnostico LIKE ? ORDER BY id DESC', ['%' + encontrar + '%', '%' + encontrar + '%']); //Search in table by Diag or Patient's id
+    const informes = await pool.query('select * from informe WHERE numdoc LIKE ? OR diagnostico LIKE ? OR informe_cod LIKE ? ORDER BY id DESC', ['%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%']); //Search in table by Diag or Patient's id
     var i = 0;
     informes.forEach(t_informe => {
         switch (informes[i].t_informe) {
@@ -610,6 +610,7 @@ router.post('/buscar', isLoggedIn, async (req, res) => {
         }
         i = i + 1;
     });
+    console.log('informes.lenght', informes[0] )
     res.render('informes/ult_informes', { informes, encontrar });//Render reports results
 })
 
