@@ -76,8 +76,24 @@
     <hr>
     <table class="table" border="0">
         <tbody>
-            <!--Cuerpo Inf Citologias 
-                    Calidad de muestra-->
+            <tr>
+                <td colspan="3"><p align="center"><strong style="text-transform: uppercase;">Tipo de citología</strong></p></td>
+            </tr>
+            <tr>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="tipo_cito"
+                                id="tipo_cito0" value="Convencional">Convencional</td>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input class="form-check-input" type="radio" name="tipo_cito"
+                                id="tipo_cito1" value="Baseliquida">Base líquida (capa fina)</td>
+                    </label>
+                </div>
+            </tr>
+                    <script>
+                        document.getElementById("tipo_cito{{informe.tipo_cito}}").checked = true;
+                    </script>
             <tr>
                 <td scope="row" colspan="3">
                     <p align="center"><strong>CALIDAD DE MUESTRA</strong></p>

@@ -24,15 +24,34 @@
                     </strong>
                 </td>
             </tr>
-            <!-- prueba pretty checkbox 
-            <div class="pretty p-image p-plain">
-                <input type="checkbox" />
-                <div class="state">
-                    <img class="image" src="/img/equis.png">
-                    <label>Cancel</label>
-                </div>
-            </div>
-            -->
+            {{!-- Tipo de citologia --}}
+            <tr>
+                <td class="titulo" colspan="6" style="padding-top: 20px;">
+                    <p class="titulo"><strong>TIPO DE CITOLOGÍA</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="tipo_cito" id="tipo_cito0" value="0" />
+                        <div class="state p-primary">
+                            <label>Convencional</label>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="tipo_cito" id="tipo_cito1" value="1" />
+                        <div class="state p-primary">
+                            <label>Base líquida (capa fina)</label>
+                        </div>
+                    </div>
+                </td>
+                <script>
+                    document.getElementById("tipo_cito{{informe.tipo_cito}}").checked = true;
+                </script>
+
+            </tr>
             <!--Cuerpo Inf Citologias Calidad de muestra-->
             <tr>
                 <td class="titulo" colspan="6" style="padding-top: 20px;">
