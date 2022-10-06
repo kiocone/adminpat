@@ -5,7 +5,7 @@
  set backupDir="C:\adminpat\database\"
  set mysqldump="C:\Program Files\MariaDB 10.5\bin\mysqldump.exe"
  set mysqlDataDir="C:\Program Files\MariaDB 10.5\data"
- set zip="C:\Program Files\7-Zip\7z.exe"
+ set zip="7z.exe"
 
  :: get date
  for /F "tokens=2-4 delims=/ " %%i in ('date /t') do (
