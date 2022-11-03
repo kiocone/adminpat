@@ -1,5 +1,5 @@
 <div class="header">
-    <img height="100" src="/img/logoPrint.png" alt="Logo">&nbsp;
+    <img height="130" src="/img/logoPrint.png" alt="Logo">&nbsp;
     <table border="0">
         <tr>
             <td colspan="4">&nbsp;</td>
@@ -7,7 +7,7 @@
         <tr>
             <td colspan="4">
                 <p style="line-height: 10px; width:1000px;" class="textjusto-1"><b>PACIENTE:</b>
-                    {{informe.paciente}}</p>
+                    <b>{{informe.paciente}}</b></p>
             </td>
         </tr>
         <tr>
@@ -56,19 +56,15 @@
         <!--Linea Horizontal-->
         <tr>
             <td colspan="4"
-                style="color: rgb(117, 117, 117); font-size: 22px; line-height: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; width:1000px;">
-                <b style="text-align:center">
-                    <i style="text-align:center">
-                ___________________________________________________________________________________________
-                    </i>
-                </b>
+                style="border: 2px solid rgba(0, 0, 0, .7)">
+                <hr style="margin-bottom: 0rem !important; margin-top: 10px !important;">
             </td>
         </tr>
         <tr>
             <td colspan="4">
                 <p style="line-height: 18px; padding-top: 29px; text-align: center; width:1000px;" class="textjusto-1">
                     INFORME DE ESTUDIO
-                    ANATOMOPATOLÓGICO No: <b><i style="size: 24px;">{{informe.informe_cod}}</i></b></p>
+                    ANATOMOPATOLÓGICO No: <b><i style="font-size: 24px !important;">{{informe.informe_cod}}</i></b></p>
             </td>
         </tr>
     </table>
@@ -87,7 +83,7 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row" colspan="4" style="padding-top: 0px;">
+                <td scope="row" colspan="4" style="padding-top: 20px;">
                     <b>
                         <p style="line-height: 15px; padding-top: 0px; padding-bottom: 0px">DESCRIPCIÓN MACROSCÓPICA</p>
                     </b>
@@ -163,7 +159,7 @@
     }
 
     .header-space {
-        height: 340px;
+        height: 360px;
     }
 
     @media print {

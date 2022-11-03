@@ -12,7 +12,21 @@
         <tbody>
             <!--Linea Horizontal-->
             <tr>
-                <td colspan="6" style="color: rgb(117, 117, 117); 
+                <td colspan="6" style="color: rgb(70, 70, 70); 
+                            font-size: 22px; 
+                            line-height: 5px; 
+                            padding-left: 0px; 
+                            padding-bottom: 0px; 
+                            padding-top: 0px; 
+                            width:900px;
+                            height: 10px;">
+                    <strong>
+                        <i>_____________________________________________________________________________</i>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="color: rgb(70, 70, 70); 
                             font-size: 22px; 
                             line-height: 0px; 
                             padding-left: 0px; 
@@ -24,15 +38,34 @@
                     </strong>
                 </td>
             </tr>
-            <!-- prueba pretty checkbox 
-            <div class="pretty p-image p-plain">
-                <input type="checkbox" />
-                <div class="state">
-                    <img class="image" src="/img/equis.png">
-                    <label>Cancel</label>
-                </div>
-            </div>
-            -->
+            {{!-- Tipo de citologia --}}
+            <tr>
+                <td class="titulo" colspan="6" style="padding-top: 20px;">
+                    <p class="titulo"><strong>TIPO DE CITOLOGÍA</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="tipo_cito" id="tipo_cito0" value="0" />
+                        <div class="state p-primary">
+                            <label>Convencional</label>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2" style="width:270px">
+                    <div class="pretty p-default p-round p-smooth">
+                        <input type="radio" name="tipo_cito" id="tipo_cito1" value="1" />
+                        <div class="state p-primary">
+                            <label>Base líquida (capa fina)</label>
+                        </div>
+                    </div>
+                </td>
+                <script>
+                    document.getElementById("tipo_cito{{informe.tipo_cito}}").checked = true;
+                </script>
+
+            </tr>
             <!--Cuerpo Inf Citologias Calidad de muestra-->
             <tr>
                 <td class="titulo" colspan="6" style="padding-top: 20px;">
@@ -529,10 +562,10 @@
 </div>
 <!--Cabecera-->
 <div class="header">
-    <img height="100" src="/img/logoPrint.png" alt="Logo">&nbsp;
+    <img height="130" src="/img/logoPrint.png" alt="Logo">&nbsp;
     <table border="0">
         <tr>
-            <td colspan="4" style="padding-top: 40px;">
+            <td colspan="4" style="padding-top: 20px;">
                 <p class="titulo-inf textjusto-1">INFORME DE ESTUDIO
                     CITOLÓGICO No: <strong><i style="size: 26px;">{{informe.informe_cod}}</i></strong></p>
             </td>
@@ -540,7 +573,7 @@
         <tr>
             <td colspan="2" style="padding-top: 0px;">
                 <p class="encabezado textjusto-1"><strong>PACIENTE:</strong>
-                    {{informe.paciente}}</p>
+                    <b>{{informe.paciente}}</b></p>
             </td>
             <td colspan="2" style="width:500px;" id="num_doc" scope="row">
                 <p class="encabezado" class="mayus textjusto-1"><strong class="mayus">{{paciente.t_docu}}:</strong>
@@ -641,7 +674,7 @@
     }
 
     .header-space {
-        height: 260px;
+        height: 270px;
     }
 
     @media print {
@@ -772,7 +805,7 @@
 
     .pie {
         line-height: 14px;
-        font-size: 16px;
+        font-size: 17px;
         text-align: center;
         color: rgb(54, 89, 163);
 

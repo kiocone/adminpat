@@ -4,35 +4,54 @@
             <div class="card">
                 <div class="card-body">
                     <form action="/pacientes/add" method="POST">
-                        <div class="form-group"></div>
-                        <p>Tipo de Documento:
-                            <select name="t_docu">
-                                <option selected="true" value={{t_docu}}>{{t_docu}}</option>
-                                <option value="C.C.">C.C.</option>
-                                <option value="T.I.">T.I.</option>
-                                <option value="R.C.">R.C.</option>
-                                <option value="C.E.">C.E.</option>
-                                <option value="PP">PP</option>
-                            </select>
-                        </p>
-                        <input type="text" name="num_docu" id="numdocu" class="form-control" value="{{num_docu}}" placeholder="Numero de Documento"
-                            required>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre Completo"
-                            required autofocus>
-                        <input type="text" name="sexo" id="sexo" class="form-control" placeholder="M ó F" maxlength="1"
-                            required>
-                        <input type="text" name="direccion" class="form-control" placeholder="Direccoión" required>
-                        <input type="text" name="telefono" class="form-control" placeholder="telefono" required>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                        <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
-                            <input type="number" id="edad" onchange="fechaNacimiento()" size="5"> <input type="date"
-                                name="fecha_nacimiento" id="fecNac" min="1920-01-01" max="2040-12-31">
-                        </p>
-                        <textarea type="description" rows="2" class="form-control" name="description"
-                            placeholder="Descripción"></textarea>
-                        <button class="btn btn-success btn-block">
-                            Guardar
-                        </button>
+                        <div class="form-group">
+                            <div class="pb-3">Tipo de Documento:
+                                <select name="t_docu">
+                                    <option selected="true" value={{t_docu}}>{{t_docu}}</option>
+                                    <option value="C.C.">C.C.</option>
+                                    <option value="T.I.">T.I.</option>
+                                    <option value="R.C.">R.C.</option>
+                                    <option value="C.E.">C.E.</option>
+                                    <option value="PP">PP</option>
+                                </select>
+                            </div>
+                            <div class="pb-3">
+                                <input type="text" name="num_docu" id="numdocu" class="form-control"
+                                    value="{{num_docu}}" placeholder="Numero de Documento" required>
+                            </div>
+                            <div class="pb-3">
+                                <input type="text" name="nombre" id="nombre" class="form-control"
+                                    placeholder="Nombre Completo" required autofocus>
+                            </div>
+                            <div class="pb-3">
+                                <input type="text" name="sexo" id="sexo" class="form-control" placeholder="M ó F"
+                                    maxlength="1" required>
+                            </div>
+                            <div class="pb-3">
+                                <input type="text" name="direccion" class="form-control" placeholder="Direccoión"
+                                    required>
+                            </div>
+                            <div class="pb-3">
+                                <input type="tel" name="telefono" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
+                                    class="form-control" placeholder="telefono">
+                            </div>
+                            <div class="pb-3">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email"
+                                    required>
+                            </div>
+                            <div class="pb-3">
+                                <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
+                                    <input type="number" id="edad" onchange="fechaNacimiento('edad','fecNac')" size="5">
+                                    <input type="date" name="fecha_nacimiento" id="fecNac" min="1920-01-01"
+                                        max="2040-12-31">
+                                </p>
+                            </div>
+                            <textarea type="description" rows="2" class="form-control sr-only" name="description"
+                                placeholder="Descripción"></textarea>
+                            <button class="btn btn-success btn-block">
+                                Guardar
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -41,20 +60,12 @@
 </div>
 
 
+<script src="/js/ayuda.js"></script>
 <script>
-    function fechaNacimiento() {
-        var edad = document.getElementById("edad").value;
-        var year = new Date().getFullYear();
-        var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
-        var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
-        var fechaNacimiento = (year - edad) + "-" + mes + "-" + dia;
-        document.getElementById("fecNac").value = fechaNacimiento;
-    }
 
     var numdocu = document.getElementById('numdocu');
     numdocu.onkeyup = function () {
         this.value = this.value.toUpperCase();
-        alert(this.value)
     }
     var nombre = document.getElementById('nombre');
     nombre.onkeyup = function () {
@@ -66,7 +77,7 @@
     }
     var email = document.getElementById('email');
     email.onkeyup = function () {
-        this.value = this.value.toLowerCase();   
+        this.value = this.value.toLowerCase();
     }
 
 </script>

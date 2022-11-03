@@ -4,21 +4,25 @@
             <div class="card">
                 <div class="card-body">
                     <form action="/pacientes/check_paciente" method="POST">
-                        <div class="form-group"></div>
-                        <p>Tipo de Documento:
-                            <select name="t_docu">
-                                <option selected="true" value="C.C.">C.C.</option>
-                                <option value="T.I.">T.I.</option>
-                                <option value="R.C.">R.C.</option>
-                                <option value="C.E.">C.E.</option>
-                                <option value="PP">PP</option>
-                            </select>
-                        </p>
-                        <input type="text" name="num_docu" id="numdocu" class="form-control" placeholder="Numero de Documento"
-                            required>
-                        <button class="btn btn-success btn-block">
-                            Consultar
-                        </button>
+                        <div class="form-group">
+                            <div class="pb-3">Tipo de Documento:
+                                <select name="t_docu">
+                                    <option selected="true" value="C.C.">C.C.</option>
+                                    <option value="T.I.">T.I.</option>
+                                    <option value="R.C.">R.C.</option>
+                                    <option value="C.E.">C.E.</option>
+                                    <option value="PP">PP</option>
+                                </select>
+                            </div>
+                            <div class="pb-3">
+                                <input type="text" name="num_docu" id="numdocu" class="form-control"
+                                    placeholder="Numero de Documento" required>
+                            </div>
+
+                            <button class="btn btn-success btn-block">
+                                Consultar
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

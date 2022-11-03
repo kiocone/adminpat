@@ -161,6 +161,7 @@ CREATE TABLE informec (
 --ALTER TABLE informe ADD COLUMN informeCodNum INT(5) NOT NULL AFTER informeCodTipo;
 --ALTER TABLE informe CHANGE informeCodNum informe_cod_num varchar(5);
 --ALTER TABLE informe ADD COLUMN diagnostico TEXT NOT NULL AFTER micro;
+--ALTER TABLE informec ADD COLUMN tipo_cito varchar(12) NULL AFTER patologo;
 
 CREATE TABLE secuenciaInforme (
 	id INT(11) NOT NULL AUTO_INCREMENT,
