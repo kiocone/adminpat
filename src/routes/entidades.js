@@ -1,9 +1,7 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
-const { calcEdad } = require('../lib/helpers');
 
 router.get('/add', isLoggedIn, (req, res) => {
     res.render('entidades/add');

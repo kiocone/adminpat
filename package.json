@@ -4,31 +4,25 @@
   "description": "sistema para la administracion de informes de patologia",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src",
+    "dev": "nodemon --trace-warnings src",
     "start": "node src"
   },
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "chokidar": "^3.5.1",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.1",
     "express-mysql-session": "^2.1.5",
     "express-session": "^1.17.1",
-    "express-validator": "^6.10.1",
-    "moments": "^0.0.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "passport": "^0.4.1",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "pdf-lib": "^1.14.0",
-    "pretty-checkbox": "^3.0.3",
-    "readdirp": "^3.5.0",
-    "sweetalert2": "^10.10.4",
-    "timeago.js": "^4.0.2"
+    "pretty-checkbox": "^3.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

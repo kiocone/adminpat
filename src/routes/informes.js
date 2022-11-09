@@ -1,9 +1,7 @@
 const express = require('express');
-const { assertEachIs } = require('pdf-lib');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
-const { calcEdad } = require('../lib/helpers');
 
 router.get('/lista/:clase', isLoggedIn, async (req, res) => {
     var t_informe = req.params.clase;
