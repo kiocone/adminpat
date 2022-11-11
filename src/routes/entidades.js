@@ -16,7 +16,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
         telefono,
         email
     };
-    console.log(newEntidad);
     await pool.query('INSERT INTO entidad set ?', [newEntidad]);
     req.flash('success', 'Entidad Guardada!');
     res.redirect('/entidades');
@@ -50,7 +49,6 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         telefono, 
         email
     };
-    console.log(editEntidad);
     await pool.query('UPDATE entidad set ? WHERE id = ?', [editEntidad, id]);
     req.flash('success', 'Entidad actualizada!');
     res.redirect('/entidades');

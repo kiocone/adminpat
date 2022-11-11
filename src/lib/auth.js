@@ -12,7 +12,6 @@ module.exports = {
             return next();
         }
         return res.redirect('/panel');
-        console.log('prueba');
     }
 
 };

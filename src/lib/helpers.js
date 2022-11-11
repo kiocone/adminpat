@@ -12,7 +12,7 @@ helpers.matchPasword = async(password, savedPassword) => {
     try {
         return await bcrypt.compare(password, savedPassword);
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 }
 

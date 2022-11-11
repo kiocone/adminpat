@@ -20,7 +20,7 @@ pool.getConnection((err, connection) => {
     }
 
     if (connection) connection.release();
-    console.log('DB está conectada en:', database.host)
+   
     return;
 })
 
