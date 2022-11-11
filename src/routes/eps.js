@@ -1,4 +1,3 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
@@ -17,7 +16,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
         telefono,
         email
     };
-    console.log(newEps);
     await pool.query('INSERT INTO eps set ?', [newEps]);
     req.flash('success', 'EPS Guardada!');
     res.redirect('/eps');
@@ -52,7 +50,6 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         telefono, 
         email
     };
-    console.log(editEps);
     await pool.query('UPDATE eps set ? WHERE id = ?', [editEps, id]);
     req.flash('success', 'EPS actualizada!');
     res.redirect('/eps');

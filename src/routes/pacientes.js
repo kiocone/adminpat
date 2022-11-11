@@ -1,4 +1,3 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
@@ -12,9 +11,9 @@ router.get('/check_paciente', isLoggedIn, async (req, res) => {
 
 router.post('/check_paciente', isLoggedIn, async (req,res) => {
     const { num_docu, t_docu } = req.body
-    console.log(num_docu)
+    
     const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente WHERE num_docu = ?', num_docu);
-    console.log(paciente[0])
+   
     if (paciente[0]) {
         res.redirect('/pacientes/edit/' + paciente[0].id)
     }
@@ -43,7 +42,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
         description,
         user_id: req.user.id
     };
-    console.log(newPaciente);
+   
     await pool.query('INSERT INTO paciente set ?', [newPaciente]);
     req.flash('success', 'Paciente Guardado!');
     res.redirect('/pacientes');
@@ -85,7 +84,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         description,
         user_id: req.user.id
     };
-    console.log(editPaciente);
+   
     await pool.query('UPDATE paciente set ? WHERE id = ?', [editPaciente, id]);
     req.flash('success', 'Paciente actualizado!');
     res.redirect('/pacientes');

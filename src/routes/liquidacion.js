@@ -1,4 +1,3 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
@@ -20,7 +19,7 @@ router.get('/consulta/', isLoggedIn, async (req, res) => {
     const fechaFin = req.query.fechaFin;
     const yearmes = fechaInicio.slice(0,7) + '%';
 
-    console.log(entidad, yearmes);
+   
     var vista_liquidacion = await pool.query('(SELECT fec_ingreso, numdoc, paciente, entidad, eps, cups, valor FROM informe WHERE entidad = ? AND fec_ingreso like ?) UNION (SELECT fec_ingreso, numdoc, paciente, entidad, eps, cups, valor FROM informec WHERE entidad = ? AND fec_ingreso like ?) ORDER BY fec_ingreso ASC', [entidad, yearmes, entidad, yearmes]);
     //var vista_liquidacion = await pool.query('(SELECT informe.fec_ingreso as fecha, informe.numdoc as documento, informe.paciente as nombre, informe.entidad as entidad, informe.eps as eps, informe.cups as cups, cups.valor as valor FROM informe, cups where informe.cups = cups.cups and informe.entidad = ? and informe.fec_ingreso like ?) UNION (SELECT informec.fec_ingreso as fecha, informec.numdoc as documento, informec.paciente as nombre, informec.entidad as entidad, informec.eps as eps, informec.cups as cups, cups.valor as valor FROM informe, cups where informe.cups = cups.cups and informe.entidad = ? and informe.fec_ingreso like ?)', [entidad, yearmes, entidad, yearmes]);
     
@@ -33,7 +32,7 @@ router.get('/consulta/', isLoggedIn, async (req, res) => {
         }
         i = i+1;        
     });
-    console.log(vista_liquidacion);
+    
     res.render('liquidacion/consulta', { vista_liquidacion, entidad });
 });
 

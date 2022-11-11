@@ -4,7 +4,6 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const flash = require('connect-flash');
 const session = require('express-session');
-const MySqlStore = require('express-mysql-session');
 const passport = require('passport');
 
 const { database } = require('./keys');
@@ -12,7 +11,7 @@ const MySQLStore = require('express-mysql-session');
 
 //inicializacion
 const app = express();
-require('./lib/passport');
+//require('./lib/passport');
   
 //settingsdescription
 app.set('port', process.env.PORT || 4040);
@@ -21,9 +20,9 @@ app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs',
-    helpers: require('./lib/handlebars')
-}))
+    extname: '.hbs'
+    })
+)
 app.set('view engine', '.hbs');
 
 // Middlewares
@@ -64,5 +63,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Starting the server
 app.listen(app.get('port'), () => {
-    console.log('server on port', app.get('port'));
+    
 });

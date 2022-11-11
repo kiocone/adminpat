@@ -1,9 +1,7 @@
 const express = require('express');
-const { assertEachIs } = require('pdf-lib');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
-const { calcEdad } = require('../lib/helpers');
 
 router.get('/lista/:clase', isLoggedIn, async (req, res) => {
     var t_informe = req.params.clase;
@@ -78,7 +76,7 @@ router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
         default:
             ultInf = "Unknown";
     }
-    //console.log(ultQ, ultL, ultC);
+    
 
     const paciente = {
         t_informe,
@@ -126,7 +124,7 @@ router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         default:
             ultInf = "Unknown";
     }
-    //console.log(ultQ, ultL, ultC);
+    
 
     const paciente = {
         t_informe,
@@ -150,11 +148,11 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'cups: Vacio');
+        
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         var valor = valorcups[0].valor;
-        console.log(cups, valor, "lleno");
+       
     }
 
     nuevoInforme = {
@@ -180,7 +178,7 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    console.log(nuevoInforme);
+    
     await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
 
     switch (t_informe) {
@@ -260,17 +258,17 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         t_informe,
         ultInf
     } = req.body;
-    console.log('tipo_cito->', tipo_cito)
+    
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'Vacio');
+        
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         var valor = valorcups[0].valor;
-        //console.log(cups, valor, "lleno");
+        
     }
-    //console.log(cups, valor);
+    
     nuevoInformeC = {
         informe_cod,
         t_informe,
@@ -327,7 +325,7 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         cbox33,
         observaciones
     };
-    console.log(nuevoInformeC.tipo_cito);
+    
     await pool.query('INSERT INTO informec set ?', [nuevoInformeC]);
 
     switch (t_informe) {
@@ -344,7 +342,6 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     };
 
-    //console.log(t_informe, "-", ultInf);
 
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/lista/' + t_informe)
@@ -353,33 +350,31 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 router.get('/saveImprimir/:p:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const { p } = req.params;
-    console.log(p, 'Se envia imprimir desde editar');
+    
     res.redirect('/informes/imprimir/' + id)
 })
 
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
-    console.log(res_informe[0].numdoc);
+    
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc);
-    console.log(res_tipoDoc);
+    
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo);
 
     if (res_informe[0].observaciones) {
-        console.log('Observacion de informe');
+        
     } else {
-        console.log('Vacio');
+        
     }
 
     if (res_informe[0].inmuno) {
-        console.log('inmuno');
+        
     } else {
-        console.log('Inmuno Vacio');
+        
     }
 
-    //console.log(res_informe[0]);
-    //console.log(res_tipoDoc[0]);
-
+    
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
 
@@ -391,12 +386,12 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo);
 
     if (res_informe[0].observaciones) {
-        console.log('Observacion de informe');
+        
     } else {
-        console.log('Observacion de informe Vacio');
+        
     }
 
-    //console.log(res_informe[0]);
+    
 
     res.render('informes/imprimirC', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
 });
@@ -407,21 +402,21 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
     req.flash('success', 'Patologo removida!');
     res.redirect('/patologos'); */
     var var01 = "10"
-    console.log("10" - 1)
+    
     res.redirect('/panel')
 });
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
-    console.log(res_informe[0].cups);
+    
     if (res_informe[0].cups == null) {
         res_informe[0].cups = "cups";
     }
     if (res_informe[0].cups == "") {
         res_informe[0].cups = "cups";
     }
-    console.log(res_informe[0].cups, 'cups: Lleno');
+    
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     const epss = await pool.query('SELECT id, razon_social FROM eps');
@@ -433,14 +428,14 @@ router.get('/edit/:id', isLoggedIn, async (req, res) => {
 router.get('/editC/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, tipo_cito, cal_muestra, ins_motivo, cat_gen, cbox1, cbox2, cbox3, cbox4, cbox5, cbox6, cbox7, cbox8, cbox9, cbox10,  cbox11, cbox12, cbox13, cbox14, cbox15, cbox16, cbox17, cbox18, cbox19, cbox20, cbox21, cbox22, cbox23, cbox24, cbox25, cbox26, cbox27, cbox28, cbox29, cbox30, cbox31, cbox32, cbox33, observaciones FROM informec WHERE id = ?', [id]);
-    console.log(res_informe[0].cups);
+    
     if (res_informe[0].cups == null) {
         res_informe[0].cups = "cups";
     }
     if (res_informe[0].cups == "") {
         res_informe[0].cups = "cups";
     }
-    console.log(res_informe[0].cups, 'cups: Lleno');
+    
     const patologos = await pool.query('SELECT id, patologo FROM patologo');
     const entidades = await pool.query('SELECT id, razon_social FROM entidad');
     const epss = await pool.query('SELECT id, razon_social FROM eps');
@@ -451,23 +446,23 @@ router.get('/editC/:id', isLoggedIn, async (req, res) => {
 router.post('/edit/:id', isLoggedIn, async (req, res) => {
     var { informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, cups, valor, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones } = req.body;
     const { id } = req.params;
-    console.log(cups);
+    
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'Vacio');
+        
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         try {
             var valor = valorcups[0].valor;
-            console.log(cups, valor, "lleno");
+            
         } catch (error) {
             console.error(error);
             var valor = "";
-            console.log('Valor: 0');
+            
         }
     }
-    console.log(cups, 'cups: Vacio');
+    
     editInforme = {
         informe_cod,
         t_informe,
@@ -491,8 +486,8 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    //console.log(paciente);
-    console.log('Guardado!', informe_cod)
+    
+    
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/edit/' + id);
@@ -505,19 +500,19 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'Vacio');
+        
     } else {
         var valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         try {
             var valor = valorcups[0].valor;
-            console.log(cups, valor, "lleno");
+            
         } catch (error) {
             console.error(error);
             var valor = "";
-            console.log('Valor: 0');
+            
         }
     }
-    //console.log(cups, valor);
+    
     editInformeC = {
         informe_cod,
         t_informe,
@@ -574,7 +569,7 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         cbox33,
         observaciones
     };
-    console.log(editInformeC);
+    
     await pool.query('UPDATE informec set ? WHERE id = ?', [editInformeC, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/editC/' + id);
@@ -593,7 +588,7 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
         ultL,
         ultC
     };
-    console.log(updateConsecutivo);
+    
     await pool.query('UPDATE secuenciainforme set ? WHERE id = 1', updateConsecutivo);
     res.redirect('/panel');
 })
@@ -606,15 +601,15 @@ router.post('/buscar', isLoggedIn, async (req, res) => {
         switch (informes[i].t_informe) {
             case "C"://Append if report is Citologia
                 informes[i].t_informe = "C";
-                //console.log(i, informes[i].t_informe);
+                
                 break;
             default://Whether is Quirirgico or Liquido
                 informes[i].t_informe = "";
-            //console.log(i, informes[i].t_informe);
+            
         }
         i = i + 1;
     });
-    console.log('informes.lenght', informes[0] )
+    
     res.render('informes/ult_informes', { informes, encontrar });//Render reports results
 })
 
