@@ -77,7 +77,6 @@ router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     }
     
-
     const paciente = {
         t_informe,
         num_docu,
@@ -125,7 +124,6 @@ router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     }
     
-
     const paciente = {
         t_informe,
         num_docu,
@@ -374,7 +372,6 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
         
     }
 
-    
     res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
 });
 
@@ -390,8 +387,6 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
     } else {
         
     }
-
-    
 
     res.render('informes/imprimirC', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
 });
@@ -459,7 +454,6 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         } catch (error) {
             console.error(error);
             var valor = "";
-            
         }
     }
     
@@ -486,8 +480,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    
-    
+
     await pool.query('UPDATE informe set ? WHERE id = ?', [editInforme, id]);
     req.flash('success', 'Informe Guardado!');
     res.redirect('/informes/edit/' + id);
@@ -605,7 +598,6 @@ router.post('/buscar', isLoggedIn, async (req, res) => {
                 break;
             default://Whether is Quirirgico or Liquido
                 informes[i].t_informe = "";
-            
         }
         i = i + 1;
     });

@@ -20,5 +20,4 @@ helpers.calcEdad = (fechaNacimiento) => {
     return fechaNacimiento; //retornamos el resultado
 }
 
-
 module.exports = helpers;

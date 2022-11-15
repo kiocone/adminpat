@@ -22,7 +22,6 @@ router.post('/check_paciente', isLoggedIn, async (req,res) => {
     }
 })
 
-
 router.get('/add', isLoggedIn, async (req, res) => {
     const paciente = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as f_nac, description FROM  paciente ORDER BY num_docu ASC');
     res.render('pacientes/add', { paciente });
