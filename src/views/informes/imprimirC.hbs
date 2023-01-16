@@ -625,7 +625,12 @@
 
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
     var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").innerHTML = Edad;
+    if ({{informe.edad}} < 100) {
+        document.getElementById("edad").innerHTML = {{informe.edad}};
+    }
+    else {
+        document.getElementById("edad").innerHTML = Edad;
+    };
     document.getElementById("cat_gen{{informe.cat_gen}}").checked = true;
 
     if ("{{informe.cbox1}}" == "on") { document.getElementById("cbox1").checked = true; };

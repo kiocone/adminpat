@@ -396,9 +396,16 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
         console.log('Observacion de informe Vacio');
     }
 
-    //console.log(res_informe[0]);
+    let edad = 0;
+    if (!isNaN(Number(res_informe[0].edad))){
+        edad = Number(res_informe[0].edad)
+    } else {
+        edad = res_informe[0].edad
+    }
 
-    res.render('informes/imprimirC', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
+    const informe = { edad, ...res_informe[0]}
+
+    res.render('informes/imprimirC', { informe, medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, eps: res_informe[0].eps });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
