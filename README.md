@@ -1,3 +1,8 @@
+# PreRelease notes: 
+<p>Implemantar impresion por PDF </p>
+<p>Implemetar paginacion en listado de informes</p>
+<p>Implementar Firma digital desde usuario patologos o Admin</p>
+
 # Adminpat v0.2.1
 <p>Pendiente corregir dropdown menu</p>
 
