@@ -10,7 +10,7 @@ router.get('/lista/:clase', isLoggedIn, async (req, res) => {
     let informes;
     switch (t_informe) {
         case "C":
-            informes = await pool.query('select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, patologo FROM informec ORDER BY id DESC LIMIT 100');
+            informes = await pool.query('select id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, patologo FROM informec ORDER BY id DESC LIMIT 300');
             //console.log(informes);
             break;
         case "Q":
