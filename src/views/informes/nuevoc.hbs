@@ -45,7 +45,7 @@
                     <input name="sexo" type="hidden" value="{{informe.paciente.sexo}}">
                     <!--</td>-->
                     <td scope="col">Edad:<br>
-                        <input name="edad" type="text" value="{{informe.edad}}" style="width: 80px;">
+                        <input name="edad" type="text" value="{{informe.paciente.edad}}" style="width: 80px;">
                     </td>
                 </tr>
                 <tr>
@@ -267,8 +267,6 @@
     var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
     document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
-    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").innerHTML = Edad;
 
     document.getElementById('fechaInf').valueAsDate = new Date();
     document.getElementById('fechaIng').valueAsDate = new Date();

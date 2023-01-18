@@ -3,6 +3,7 @@ const { assertEachIs } = require('pdf-lib');
 const router = express.Router();
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
+const { calcularEdad } = require('../lib/helpers');
 
 router.get('/lista/:clase', isLoggedIn, async (req, res) => {
     var t_informe = req.params.clase;
@@ -40,7 +41,7 @@ router.get('/tipo_informe/', isLoggedIn, async (req, res) => {
 
 router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
+    const res_pacientes = await pool.query('SELECT id, num_docu, nombre, sexo, telefono, DATE_FORMAT(fecha_nacimiento, "%m/%d/%Y") as f_nac FROM paciente WHERE id = ?', [id]);
     const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
     const ultInformes = await pool.query('SELECT * FROM secuenciainforme WHERE id = 1');
     const { ultQ, ultC, ultL } = ultInformes[0];
@@ -65,13 +66,15 @@ router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     }
 
+    const edad = calcularEdad(f_nac)
+
     const paciente = {
         t_informe,
         num_docu,
         nombre,
         telefono,
         sexo,
-        f_nac,
+        edad,
         ultInf
     };
 
@@ -85,7 +88,7 @@ router.get('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
 //nuevo informe de citologia
 router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
-    const res_pacientes = await pool.query('SELECT id, t_docu, num_docu, nombre, sexo, direccion, telefono, email, DATE_FORMAT(fecha_nacimiento, "%Y/%m/%d") as f_nac, description FROM paciente WHERE id = ?', [id]);
+    const res_pacientes = await pool.query(`SELECT id, num_docu, nombre, sexo, telefono, DATE_FORMAT(fecha_nacimiento, "%m/%d/%Y") as f_nac FROM paciente WHERE id = ${id}`);
     const { num_docu, nombre, telefono, sexo, f_nac } = res_pacientes[0];
     const ultInformes = await pool.query('SELECT * FROM secuenciainforme WHERE id = 1');
     const { ultQ, ultC, ultL } = ultInformes[0];
@@ -110,20 +113,21 @@ router.get('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
             ultInf = "Unknown";
     }
 
+    const edad = calcularEdad(f_nac)
+
     const paciente = {
         t_informe,
         num_docu,
         nombre,
         telefono,
         sexo,
-        f_nac,
+        edad,
         ultInf
     };
 
     const informe = {
         paciente
     };
-
     res.render('informes/nuevoc', { informe, entidades, patologos, epss, cups });
 });
 

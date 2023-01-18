@@ -27,7 +27,7 @@
                         Telefono <input name="telefono" type="text" size="10" value="{{informe.paciente.telefono}}">
                     </td>
                     <td>
-                        Edad:<input name="edad" type="text" size="2" id="edad" value=""><br>
+                        Edad:<input name="edad" type="text" size="2" id="edad" value="{{informe.paciente.edad}}"><br>
                         Sexo:<input name="sexo" type="text" size="2" value="{{informe.paciente.sexo}}">
                     </td>
                     <td>
@@ -110,9 +110,5 @@
 
     document.getElementById('fechaInf').valueAsDate = new Date();
     document.getElementById('fechaIng').valueAsDate = new Date();
-
-    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.paciente.f_nac}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").value = Edad;
-
 
 </script>
