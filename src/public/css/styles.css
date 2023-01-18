@@ -91,3 +91,20 @@ div {
 .tab-auto {
     margin: auto;
 }
+
+a.panel-item {
+    text-decoration: none;
+    text-align: center;
+}
+
+a p.panel-item-text {
+    font-size: x-large;
+    font-weight: 700;
+    color: darkblue;
+    margin: auto;
+    padding: 0 0 0 0 !important;
+}
+
+#form-buscar-informe {
+    width: inherit;
+}

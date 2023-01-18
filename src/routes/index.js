@@ -8,7 +8,7 @@ router.get('/', isNotLoggedIn, (req, res) => {
 });
 
 router.get('/', isLoggedIn, (req, res) => {
-    res.render('panel');//Send user to main panel after authenticated
+    res.redirect('/panel');//Send user to main panel after authenticated
 });
 
 router.get('/panel', isLoggedIn, (req, res) => {

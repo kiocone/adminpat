@@ -20,12 +20,13 @@
                         </div>
 
                         <div class="row pt-3">
-                            <div class="col">
-                                <form action="/informes/buscar" method="post">
-                                    Buscar:
-                                    <input type="search" name="encontrar" id="buscar"
+                            <div class="col input-group">
+                                <form id="form-buscar-informe" action="/informes/buscar" method="post">
+                                    <div class="input-group-append">
+                                    <input type="search" class="form-control" name="encontrar" id="buscar"
                                         placeholder="Cod, Documento, Diag..." autofocus>
-                                    <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
+                                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-search"></i></button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

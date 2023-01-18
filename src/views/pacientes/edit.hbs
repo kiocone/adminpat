@@ -29,8 +29,8 @@
                         <input value="{{paciente.email}}" type="email" name="email" class="form-control"
                             placeholder="Email" required>
                         <p>Fecha de nacimiento (<i class="tenue">Año-Mes-Dia</i>):
-                            <input type="number" id="edad" onchange="fechaNacimiento()" size="5"><input
-                                value="{{paciente.f_nac}}" type="text" size="15" name="fecha_nacimiento"
+                            <input type="number" id="edad" value="{{edad}}" size="5">
+                            <input value="{{paciente.f_nac}}" type="text" size="15" name="fecha_nacimiento"
                                 class="form-control" id="fecNac" placeholder="Fecha de nacimiento" required>
                         </p>
                         <textarea rows="2" class="form-control sr-only" name="description">{{paciente.description}}</textarea>
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card">
                 <table class="table table-sm table-striped">
                     <tr>
