@@ -522,7 +522,7 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
 
 router.post('/buscar', isLoggedIn, async (req, res) => {
     const { encontrar } = req.body //Get find string
-    let informes = await pool.query('(select id, t_informe, informe_cod, paciente, numdoc, entidad, medRemitente, patologo, fec_inf from informe WHERE numdoc LIKE ? OR diagnostico LIKE ? OR informe_cod LIKE ? ORDER BY id DESC) UNION (select id, t_informe, informe_cod, paciente, numdoc, entidad, medRemitente, patologo, fec_inf from informec WHERE numdoc LIKE ? OR informe_cod LIKE ? ORDER BY id DESC)', ['%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%']); //Search in table by Diag or Patient's id
+    let informes = await pool.query('(select id, t_informe, informe_cod, paciente, numdoc, entidad, medRemitente, patologo, fec_inf from informe WHERE numdoc LIKE ? OR paciente LIKE ? OR diagnostico LIKE ? OR informe_cod LIKE ? ORDER BY id DESC) UNION (select id, t_informe, informe_cod, paciente, numdoc, entidad, medRemitente, patologo, fec_inf from informec WHERE numdoc LIKE ? OR paciente LIKE ? OR informe_cod LIKE ? ORDER BY id DESC)', ['%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%', '%' + encontrar + '%']); //Search in table by Diag or Patient's id
     var i = 0;
     informes.forEach(t_informe => {
         switch (informes[i].t_informe) {
