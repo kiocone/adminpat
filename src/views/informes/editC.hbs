@@ -222,7 +222,7 @@
                 <td>
                     <input type="checkbox" name="cbox14" id="cbox14"> <label for="cbox14">Celulas Escamosas Atipicas
                         (ASC)</label><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="cbox15" id="cbox15"> <label for="cbox15">De significado indeterminado
                         (ASC-US)</label><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -294,8 +294,8 @@
 <script>
 
     //document.getElementById("fecInforme").value = new Date().toDateInputValue();
-    var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
-    document.getElementById("edad").innerHTML = Edad;
+    //var Edad = Math.floor((new Date().getTime() - new Date('{{informe.edad}}').getTime()) / 3.154e+10);
+    //document.getElementById("edad").innerHTML = Edad;
 
     if ("{{informe.cbox1}}" == "on") { document.getElementById("cbox1").checked = true; };
     if ("{{informe.cbox2}}" == "on") { document.getElementById("cbox2").checked = true; };

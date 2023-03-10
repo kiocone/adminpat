@@ -482,12 +482,65 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
 
 //Editar informe de citologia
 router.post('/editC/:id', isLoggedIn, async (req, res) => {
-    var editInformeC = req.body;
+    let {
+        informe_cod,
+        t_informe,
+        patologo,
+        numdoc,
+        cups,
+        paciente,
+        telefono,
+        sexo,
+        edad,
+        entidad,
+        eps,
+        medRemitente,
+        fec_inf,
+        fec_muestra,
+        fec_ingreso,
+        tipo_cito,
+        cal_muestra,
+        ins_motivo,
+        cat_gen,
+        observaciones,
+        cbox1, 
+        cbox2,
+        cbox3,
+        cbox4,
+        cbox5,
+        cbox6,
+        cbox7,
+        cbox8,
+        cbox9,
+        cbox10,
+        cbox11,
+        cbox12,
+        cbox13,
+        cbox14,
+        cbox15,
+        cbox16,
+        cbox17,
+        cbox18,
+        cbox19,
+        cbox20,
+        cbox21,
+        cbox22,
+        cbox23,
+        cbox24,
+        cbox25,
+        cbox26,
+        cbox27,
+        cbox28,
+        cbox29,
+        cbox30,
+        cbox31,
+        cbox32,
+        cbox33} = req.body;
     const { id } = req.params;
-    if (editInformeC.cups == "cups") {
+    if (cups == "cups") {
         var valor = "";
     } else {
-        var valorcups = await pool.query('select valor from cups where cups.cups = ?', editInformeC.cups);
+        var valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         try {
             valor = valorcups[0].valor;
             console.log(editInformeC.cups, valor, "lleno");
@@ -496,6 +549,61 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
             valor = "";
             console.log('Valor: 0');
         }
+    }
+    editInformeC = {
+        informe_cod,
+        t_informe,
+        patologo,
+        numdoc,
+        cups,
+        paciente,
+        telefono,
+        sexo,
+        edad,
+        entidad,
+        eps,
+        medRemitente,
+        fec_inf,
+        fec_muestra,
+        fec_ingreso,
+        tipo_cito,
+        cal_muestra,
+        ins_motivo,
+        cat_gen,
+        observaciones,
+        cbox1, 
+        cbox2,
+        cbox3,
+        cbox4,
+        cbox5,
+        cbox6,
+        cbox7,
+        cbox8,
+        cbox9,
+        cbox10,
+        cbox11,
+        cbox12,
+        cbox13,
+        cbox14,
+        cbox15,
+        cbox16,
+        cbox17,
+        cbox18,
+        cbox19,
+        cbox20,
+        cbox21,
+        cbox22,
+        cbox23,
+        cbox24,
+        cbox25,
+        cbox26,
+        cbox27,
+        cbox28,
+        cbox29,
+        cbox30,
+        cbox31,
+        cbox32,
+        cbox33
     }
     await pool.query('UPDATE informec set ? WHERE id = ?', [editInformeC, id]);
     req.flash('success', 'Informe Guardado!');
