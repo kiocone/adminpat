@@ -1,42 +1,55 @@
-<div class="container">
-    <table class="table table-sm" border="5">
+<div class="container shadow-lg p-4  mb-5 bg-white rounded">
+    <table class="table table-sm" >
         <tbody>
             <form action="/informes/edit/{{informe.id}}" method="POST">
                 <tr>
-                    <td>Informe:{{id}}
-                        <input type="text" name="informe_cod" size="8" value="{{informe.informe_cod}}">
+                    <td>
+                        <label for="informe_cod">Informe</label>
+                        <input class="form-control mb-2" id="informe_cod" type="text" name="informe_cod" size="8" value="{{informe.informe_cod}}">
                         <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
-                        Doc. <input name="numdoc" type="text" size="8" value="{{informe.numdoc}}">
+                        <label for="numdoc">Documento</label>
+                        <input class="form-control" id="numdoc" name="numdoc" type="text" size="8" value="{{informe.numdoc}}">
                     </td>
                     <td>
-                        <select name="patologo">
-                            <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
-                            {{#each patologos}}
-                            <option value="{{patologo}}">{{patologo}}</option>
-                            {{/each}}
-                        </select>
+                        <div class="">
+                            <label for="patologo">Patólogo</label>
+                            <select name="patologo" id="patologo" class="custom-select">
+                                <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
+                                {{#each patologos}}
+                                <option value="{{patologo}}">{{patologo}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
                     </td>
                     <td>
-                        Medico remitente <input name="medRemitente" type="text" value="{{informe.medRemitente}}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Paciente <input name="paciente" type="text" value="{{informe.paciente}}"><br>
-                        Telefono <input name="telefono" type="text" size="10" value="{{informe.telefono}}" size="15">
-                    </td>
-                    <td>
-                        Edad:<input name="edad" type="text" id="edad" size="2" value="{{informe.edad}}"><br>
-                        Sexo:<input name="sexo" type="text" size="2" value="{{informe.sexo}}">
-                    </td>
-                    <td>
-                        Ingreso <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}" min="1920-01-01" max="2040-12-31"><br>
-                        Informe <input name="fec_inf" id="fechaInf" type="date" min="1970-01-01" max="2040-12-31">
+                        <label for="medRemitente">Medico remitente</label>
+                        <input class="form-control" id="medRemitente" name="informe.medRemitente" type="text" value="{{informe.medRemitente}}">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <select name="entidad">
+                        <label for="paciente">Paciente</label>
+                        <input class="form-control" id="paciente" name="paciente" type="text" value="{{informe.paciente}}"><br>
+                        <label for="telefono">Telefono</label>
+                        <input class="form-control" id="telefono" name="telefono" type="text" size="10" value="{{informe.telefono}}" size="15">
+                    </td>
+                    <td>
+                        <label for="edad">Edad</label>
+                        <input class="form-control" id="edad" name="edad" type="text" id="edad" size="2" value="{{informe.edad}}"><br>
+                        <label for="sexo">Sexo</label>
+                        <input class="form-control" id="sexo" name="sexo" type="text" size="2" value="{{informe.sexo}}">
+                    </td>
+                    <td>
+                        <label for="ingreso">Ingreso</label>
+                        <input class="form-control" id="ingreso" name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}" min="1920-01-01" max="2040-12-31"><br>
+                        Informe
+                        <label for="informe">Informe</label>
+                        <input class="form-control" id="informe" name="fec_inf" id="fechaInf" type="date" min="1970-01-01" max="2040-12-31">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="entidad" class="custom-select">
                             <option selected="true" value="{{informe.entidad}}">{{informe.entidad}}</option>
                             {{#each entidades}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
@@ -44,7 +57,7 @@
                         </select>
                     </td>
                     <td>
-                        <select name="eps">
+                        <select name="eps" class="custom-select">
                             <option selected="true" value="{{informe.eps}}">{{informe.eps}}</option>
                             {{#each epss}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
@@ -52,7 +65,7 @@
                         </select>
                     </td>
                     <td>
-                        <select name="cups">
+                        <select name="cups" class="custom-select">
                             <option value="{{informe.cups}}">{{informe.cups}}</option>
                             {{#each cups}}
                             <option value="{{cups}}">{{cups}}</option>

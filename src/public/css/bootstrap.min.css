@@ -175,7 +175,6 @@ a {
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline
 }
 
 a:not([href]):not([class]) {
@@ -2765,13 +2764,11 @@ fieldset:disabled a.btn {
 .btn-success {
     color: #fff;
     background-color: #4093dd;
-    border-color: #000
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #367ab6;
-    border-color: #000
+    background-color: #186cb6;
 }
 
 .btn-success.focus,
@@ -3119,13 +3116,12 @@ fieldset:disabled a.btn {
 .btn-outline-info {
     color: #fff;
     background-color: #4093dd;
-    border-color: #000
+
 }
 
 .btn-outline-info:hover {
     color: #fff;
-    background-color: #367ab6;
-    border-color: #000
+    background-color: #2d71ac;
 }
 
 .btn-outline-info.focus,

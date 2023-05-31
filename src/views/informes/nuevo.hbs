@@ -1,16 +1,16 @@
-<div class="container">
-    <table class="table table-sm" border="5">
+<div class="container container shadow-lg p-4  mb-5 bg-white rounded">
+    <table class="table" border="0">
         <tbody>
             <form action="" method="post">
                 <tr>
                     <td>Informe:
-                        <input type="text" id="infCod" name="informe_cod" value="" size="8">
+                        <input class="form-control" type="text" id="infCod" name="informe_cod" value="" size="8">
                         <input type="hidden" name="ultInf" value="{{informe.paciente.ultInf}}">
                         <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
-                        Doc. <input name="numdoc" type="text" size="8" value="{{informe.paciente.num_docu}}">
+                        Doc. <input class="form-control" id="numdoc"  name="numdoc" type="text" size="8" value="{{informe.paciente.num_docu}}">
                     </td>
-                    <td>
-                        <select name="patologo">
+                    <td>Patologo:
+                        <select class="custom-select " name="patologo">
                             <option selected="true" value="0">Patologo</option>
                             {{#each patologos}}
                             <option value="{{patologo}}">{{patologo}}</option>
@@ -18,26 +18,26 @@
                         </select>
                     </td>
                     <td>
-                        Medico remitente <br><input name="medRemitente" type="text">
+                        Medico remitente <br><input class="form-control" id="medRemitente" name="medRemitente" type="text">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Paciente <input name="paciente" type="text" value="{{informe.paciente.nombre}}"><br>
-                        Telefono <input name="telefono" type="text" size="10" value="{{informe.paciente.telefono}}">
+                        Paciente <input class="form-control" id="paciente" name="paciente" type="text" value="{{informe.paciente.nombre}}"><br>
+                        Telefono <input class="form-control" id="telefono" name="telefono" type="text" size="10" value="{{informe.paciente.telefono}}">
                     </td>
                     <td>
-                        Edad:<input name="edad" type="text" size="2" id="edad" value="{{informe.paciente.edad}}"><br>
-                        Sexo:<input name="sexo" type="text" size="2" value="{{informe.paciente.sexo}}">
+                        Edad:<input class="form-control" id="edad" name="edad" type="text" size="2" id="edad" value="{{informe.paciente.edad}}"><br>
+                        Sexo:<input class="form-control" id="sexo" name="sexo" type="text" size="2" value="{{informe.paciente.sexo}}">
                     </td>
                     <td>
-                        Ingreso <input name="fec_ingreso" type="date" id="fechaIng"><br>
-                        Informe <input name="fec_inf" type="date"  id="fechaInf">
+                        Ingreso <input class="form-control" id="fec_ingreso" name="fec_ingreso" type="date" id="fechaIng"><br>
+                        Informe <input class="form-control" id="fec_inf" name="fec_inf" type="date"  id="fechaInf">
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        <select name="entidad">
+                        <select class="custom-select" name="entidad">
                             <option selected="true" value="">Entidad</option>
                             {{#each entidades}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
@@ -45,7 +45,7 @@
                         </select>
                     </td>
                     <td>
-                        <select name="eps">
+                        <select class="custom-select" name="eps">
                             <option selected="true" value="">EPS</option>
                             {{#each epss}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
@@ -53,7 +53,7 @@
                         </select>
                     </td>
                     <td>
-                        <select name="cups" id="">
+                        <select class="custom-select" name="cups" id="">
                             <option value="cups">cups</option>
                             {{#each cups}}
                             <option value="{{cups}}">{{cups}}</option>
