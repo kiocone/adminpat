@@ -345,27 +345,22 @@ router.get('/saveImprimir/:p:id', isLoggedIn, async (req, res) => {
 router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const res_informe = await pool.query('SELECT id, informe_cod, t_informe, numdoc, paciente, telefono, sexo, edad, entidad, eps, medRemitente, fec_muestra, fec_inf, fec_ingreso, patologo, macro, micro, diagnostico, inmuno, observaciones FROM informe WHERE id = ?', [id]);
-    console.log(res_informe[0].numdoc);
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc);
-    console.log(res_tipoDoc);
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo);
-
-    if (res_informe[0].observaciones) {
-        console.log('Observacion de informe');
-    } else {
-        console.log('Vacio');
-    }
-
-    if (res_informe[0].inmuno) {
-        console.log('inmuno');
-    } else {
-        console.log('Inmuno Vacio');
-    }
-
-    //console.log(res_informe[0]);
-    //console.log(res_tipoDoc[0]);
-
-    res.render('informes/imprimir', { informe: res_informe[0], medico: res_medReg[0], paciente: res_tipoDoc[0], observacion: res_informe[0].observaciones, inmuno: res_informe[0].inmuno, eps: res_informe[0].eps });
+    
+    const regex = /\r?\n|\r/;
+    const camposMicro = res_informe[0].micro.split(regex);
+    
+    res.render('informes/imprimir', { 
+            informe: res_informe[0], 
+            medico: res_medReg[0], 
+            paciente: res_tipoDoc[0], 
+            observacion: res_informe[0].observaciones, 
+            inmuno: res_informe[0].inmuno, 
+            eps: res_informe[0].eps,
+            camposMicro
+        }
+    );
 });
 
 //Impresion de informe Citologia

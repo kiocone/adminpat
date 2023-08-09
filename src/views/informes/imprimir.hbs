@@ -1,3 +1,135 @@
+<style>
+    body {
+        background: white !important;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .header-space {
+        margin-top: 380px;
+    }
+
+    div.header {
+        position: fixed;
+        top: 0px;
+    }
+
+    div.footer {
+        font-size: 9px;
+        line-height: 19px;
+        width: 1000px;
+        color: rgb(54, 89, 163);
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .content-block: {
+        font-size: 10px;
+        position: fixed;
+        top: 380px;
+        margin-top: 20rem;
+        page-break-after: always;
+        page-break-inside: always;
+    }
+
+    @media print {
+        @page {
+            size: 216mm 279mm;
+            margin: 11mm 17mm 17mm 17mm;
+        }
+        
+        div.header {
+            position: fixed;
+            top: 0px;
+        }
+
+        div.footer {
+            font-size: 9px;
+            line-height: 19px;
+            width: 1000px;
+            color: rgb(54, 89, 163);
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .content-block: {
+            position: fixed;
+            top: 380px;
+            margin-top: 20rem;
+            page-break-after: always;
+            page-break-inside: always;
+        }
+
+        #AlertMessage {
+            display: none;
+        }
+    }
+
+    .right {
+        position: absolute;
+        right: 0px;
+        padding: 10px;
+    }
+
+    .left {
+        position: absolute;
+        left: 0px;
+        padding: 10px;
+    }
+
+    .borde {
+        border: 1px solid black;
+    }
+
+    .tamprint {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    .footer {
+        font-size: 9px;
+    }
+
+    pre {
+        width: 960px;
+        font-family: "worksans";
+        font-size: 22px;
+        text-align: justify;
+        text-justify: inter-word;
+        border: 0px;
+    }
+
+    .firma {
+        line-height: 25px;
+        font-size: 22px;
+        text-align: center;
+        color: black;
+    }
+
+    .tabla-firma {
+        margin-bottom: 3rem;
+        margin-left: auto;
+    }
+
+    .pie {
+        line-height: 14px;
+        font-size: 16px;
+        text-align: center;
+        color: rgb(54, 89, 163);
+    }
+
+    .textjusto-1 {
+        letter-spacing: -1px;
+    }
+</style>
+
 <div class="header">
     <img height="130" src="/img/logoPrint.png" alt="Logo">&nbsp;
     <table border="0">
@@ -70,179 +202,52 @@
     </table>
 </div>
 
-<div class="container">
-    <table border="0" class="content-block">
-        <thead>
-            <tr class="header-space">
-                <td colspan="3">
-                    <div>
-                        &nbsp;
-                    </div>
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td scope="row" colspan="4" style="padding-top: 20px;">
+<div class="content-block header-space">
                     <b>
-                        <p style="line-height: 15px; padding-top: 0px; padding-bottom: 0px">DESCRIPCIÓN MACROSCÓPICA</p>
+                        <p >DESCRIPCIÓN MACROSCÓPICA</p>
                     </b>
-                    <pre style="line-height: 22px; width:1000px;letter-spacing: -1px;">{{informe.macro}}</pre>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row" colspan="4" style="padding-top: 0px;">
+                    <pre>{{informe.macro}}</pre>
                     <b>
-                        <p style="line-height: 15px; padding-top: 0px; padding-bottom: 0px">DESCRIPCIÓN MICROSCÓPICA</p>
+                        <p>DESCRIPCIÓN MICROSCÓPICA</p>
                     </b>
-                    <pre style="line-height: 22px; width:1000px;letter-spacing: -1px;">{{informe.micro}}</pre>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row" colspan="4" style="padding-top: 0px;">
+                    {{#each camposMicro}}
+                        <p>
+                            {{this}}
+                        </p>
+                    {{/each}}
                     <b>
-                        <p style="line-height: 15px; padding-top: 0px; padding-bottom: 0px">DIAGNOSTICO:</p>
+                        <p>DIAGNOSTICO:</p>
                     </b>
-                    <pre style="line-height: 22px; width:1000px;letter-spacing: -1px;">{{informe.diagnostico}}</pre>
-                </td>
-            </tr>
+                    <pre>{{informe.diagnostico}}</pre>
             {{#if observacion}}
-            <tr>
-                <td scope="row" colspan="4" style="padding-top: 0px; padding-bottom: 0px">
                     <b>
-                        <p style="line-height: 15px; padding-top: 0px; padding-bottom: 0px">OBSERVACIONES:</p>
+                        <p>OBSERVACIONES:</p>
                     </b>
-                    <pre style="line-height: 22px; width:1000px;">{{informe.observaciones}}</pre>
-                </td>
-            </tr>
+                    <pre>{{informe.observaciones}}</pre>
             {{/if}}
             {{#if inmuno}}
-            <tr>
-                <td scope="row" colspan="4">
                     <b>
                         <p>INMUNOHISTOQUÍMICA:</p>
                     </b>
-                    <pre style="line-height: 22px; width:1000px;letter-spacing: -1px;">{{informe.inmuno}}</pre>
-                </td>
-            </tr>
+                    <pre>{{informe.inmuno}}</pre>
             {{/if}}
-            <tr>
-                <td style="vertical-align: bottom;width:550px;">&nbsp;</td>
-                <td style="text-align: center;" colspan="2">
-                    <p class="firma">&nbsp;<br>______________________________________<br>
-                        {{informe.patologo}}<br>
-                        Médico Patólogo - Registro: {{medico.reg_med}}
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-
-    </table>
 </div>
 
 
 <div class="footer">
+    <table class="tabla-firma">
+        <tr>
+            <td style="text-align: center;" colspan="2">
+                <p class="firma">&nbsp;<br>______________________________________<br>
+                    {{informe.patologo}}<br>
+                    Médico Patólogo - Registro: {{medico.reg_med}}
+                </p>
+            </td>
+        </tr>
+    </table>
+
     <p class="pie">
         Medicos Patólogos-MediPat S.A.S, Calle Velez Danies #4-11 Piso 2<br>
         Telefono: 6601351 &#9679; 3153220966 &#9679; Email: administracion@medipat.com.co
     </p>
 </div>
-
-<style>
-    @page {
-        size: Letter;
-        margin: 11mm 17mm 17mm 17mm;
-    }
-
-    .navbar {
-        display: none;
-    }
-
-    .header-space {
-        height: 360px;
-    }
-
-    @media print {
-        .header {
-            position: fixed;
-            top: 0;
-        }
-
-        .footer {
-            font-size: 9px;
-            line-height: 19px;
-            width: 1000px;
-            color: rgb(54, 89, 163);
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .content-block,
-        p {
-            page-break-inside: avoid;
-        }
-
-        html,
-        body {
-            width: 210mm;
-            height: 297mm;
-        }
-    }
-
-    .right {
-        position: absolute;
-        right: 0px;
-        padding: 10px;
-    }
-
-    .left {
-        position: absolute;
-        left: 0px;
-        padding: 10px;
-    }
-
-    .borde {
-        border: 1px solid black;
-    }
-
-    .tamprint {
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 22px;
-    }
-
-    .footer {
-        font-size: 9px;
-    }
-
-    pre {
-        width: 960px;
-        font-family: "worksans";
-        font-size: 22px;
-        text-align: justify;
-        text-justify: inter-word;
-        border: 0px;
-    }
-
-    .firma {
-        line-height: 25px;
-        font-size: 22px;
-        text-align: center;
-        color: black;
-    }
-
-    .pie {
-        line-height: 14px;
-        font-size: 16px;
-        text-align: center;
-        color: rgb(54, 89, 163);
-
-    }
-
-    .textjusto-1 {
-        letter-spacing: -1px;
-    }
-</style>
