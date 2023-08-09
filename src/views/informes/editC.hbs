@@ -1,5 +1,5 @@
-<div class="container">
-    <table class="table" border="0">
+<div class="container container shadow-lg p-4  mb-5 bg-white rounded">
+    <table class="table " border="0">
         <tbody>
             <form action="" method="post">
                 <!--Encabezado Inf Citologias -->
@@ -24,13 +24,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">Infome:
-                        <input type="text" name="informe_cod" value="{{informe.informe_cod}}" />
+                    <td >Informe  
+                        <label for="informe_cod"></label>
+                        <input class="form-control" id="infome_cod" type="text" name="informe_cod" value="{{informe.informe_cod}}" />
                         <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
                     </td>
-                    <td colspan="2">
+                    <td >
                         <i>Patologo</i>
-                        <select name="patologo">
+                        <select name="patologo" class="custom-select">
                             <option selected="false" value="{{informe.patologo}}">{{informe.patologo}}</option>
                             {{#each patologos}}
                             <option value="{{patologo}}">{{patologo}}</option>
@@ -38,50 +39,52 @@
                         </select>
 
                     </td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr>
                     <td>
-                        Id <input name="numdoc" type="number" value="{{informe.numdoc}}"><br>
-                        <select name="cups" id="cups">
+                        Id <input class="form-control" id="numdoc" name="numdoc" type="text" readonly value="{{informe.numdoc}}"><br>
+                        <select name="cups" id="cups" class="custom-select">
                             <option value="{{informe.cups}}">{{informe.cups}}</option>
                             {{#each cups}}
                             <option value="{{cups}}">{{cups}}</option>
                             {{/each}}
                         </select>
                     </td>
-                    <td id="nombre" scope="col">Paciente <input name="paciente" type="text"
+                    <td id="nombre" scope="col">Paciente <input class="form-control" id="paciente" name="paciente" type="text"
                             value="{{informe.paciente}}"></td>
-                    <td id="telefono" scope="col">Telefono <input name="telefono" type="text"
+                    <td id="telefono" scope="col">Telefono <input class="form-control" id="telefono" name="telefono" type="text"
                             value="{{informe.telefono}}"></td>
                     <!--<td id="sexo" scope="col">-->
                     <input name="sexo" type="hidden" value="{{informe.sexo}}">
                     <!--</td>-->
                     <td scope="col">Edad:
-                        <input name="edad" type="text" value="{{informe.edad}}" style="width: 80px;">
+                        <input class="form-control" id="edad" name="edad" type="text" value="{{informe.edad}}" style="width: 80px;">
                     </td>
                 </tr>
                 <tr>
-                    <td scope="col"> <br>
-                        <select name="entidad">
+                    <td scope="col">Entidad <br>
+                        <select name="entidad" class="custom-select">
                             <option selected value="{{informe.entidad}}">{{informe.entidad}}</option>
                             {{#each entidades}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
                         </select><br>
-                        <select name="eps">
+                        <span>EPS</span>
+                        <select name="eps" class="custom-select">
                             <option selected value="{{informe.eps}}">{{informe.eps}}</option>
                             {{#each epss}}
                             <option value="{{razon_social}}">{{razon_social}}</option>
                             {{/each}}
                         </select>
                     </td>
-                    <td scope="col">Medico remitente <input name="medRemitente" type="text"
+                    <td scope="col">Medico remitente <input class="form-control" id="medRemitente" name="medRemitente" type="text"
                             value="{{informe.medRemitente}}"></td>
-                    <td scope="col">Informe <br> <input name="fec_inf" type="date" value="{{informe.fec_inf}}"
+                    <td scope="col">Informe <br> <input class="form-control" id="fec_inf" name="fec_inf" type="date" value="{{informe.fec_inf}}"
                             min="1920-01-01" max="2040-12-31"></td>
                     <!--<td scope="col">Muestra <br>--><input name="fec_muestra" type="hidden" value="2021-01-01"
                         min="1920-01-01" max="2040-12-31"><!-- </td>-->
-                    <td scope="col">Ingreso <br> <input name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
+                    <td scope="col">Ingreso <br> <input class="form-control" id="fec_ingreso" name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
                             min="1920-01-01" max="2040-12-31"></td>
                 </tr>
         </tbody>
@@ -131,7 +134,7 @@
                             <input widht="20" class="form-check-input" type="radio" name="cal_muestra" id="cal_muestra2"
                                 value="2">
                             <div>Insatisfactoria por:
-                                <input type="text" name="ins_motivo" value="{{informe.ins_motivo}}"
+                                <input class="form-control" id="ins_motivo" type="text" name="ins_motivo" value="{{informe.ins_motivo}}"
                                     placeholder="Motivo">
                             </div>
                         </td>

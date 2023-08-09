@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col-md-4 mx-auto">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body shadow-lg bg-white rounded">
                     <form action="/pacientes/add" method="POST">
                         <div class="form-group">
                             <div class="pb-3">Tipo de Documento:
-                                <select name="t_docu">
+                                <select class="custom-select" name="t_docu">
                                     <option selected="true" value={{t_docu}}>{{t_docu}}</option>
                                     <option value="C.C.">C.C.</option>
                                     <option value="T.I.">T.I.</option>
@@ -41,8 +41,8 @@
                             </div>
                             <div class="pb-3">
                                 <p>Fecha de nacimiento (<i class="tenue">Mes-dia-Año</i>):
-                                    <input type="number" id="edad" onchange="fechaNacimiento('edad','fecNac')" size="5">
-                                    <input type="date" name="fecha_nacimiento" id="fecNac" min="1920-01-01"
+                                    <input class="form-control" type="number" id="edad" onchange="fechaNacimiento('edad','fecNac')" size="5">
+                                    <input class="form-control" type="date" name="fecha_nacimiento" id="fecNac" min="1920-01-01"
                                         max="2040-12-31">
                                 </p>
                             </div>
