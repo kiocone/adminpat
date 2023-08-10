@@ -3,3 +3,5 @@ adminpat.code-workspace
 HeidiSQL.lnk
 Visual Studio Code.lnk
 7z.exe
+database
+database/Basic_DB_init.sql

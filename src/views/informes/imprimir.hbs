@@ -7,8 +7,12 @@
         display: none;
     }
 
+    @page {
+        margin: 11mm 17mm 17mm 17mm;
+    }
+
     .header-space {
-        margin-top: 380px;
+        height: 380px;
     }
 
     div.header {
@@ -16,7 +20,7 @@
         top: 0px;
     }
 
-    div.footer {
+    .footer {
         font-size: 9px;
         line-height: 19px;
         width: 1000px;
@@ -26,8 +30,11 @@
         bottom: 0;
     }
 
+    .footer-space { 
+        height: 250px !important;
+    }
+
     .content-block: {
-        font-size: 10px;
         position: fixed;
         top: 380px;
         margin-top: 20rem;
@@ -35,38 +42,8 @@
         page-break-inside: always;
     }
 
-    @media print {
-        @page {
-            size: 216mm 279mm;
-            margin: 11mm 17mm 17mm 17mm;
-        }
-        
-        div.header {
-            position: fixed;
-            top: 0px;
-        }
-
-        div.footer {
-            font-size: 9px;
-            line-height: 19px;
-            width: 1000px;
-            color: rgb(54, 89, 163);
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .content-block: {
-            position: fixed;
-            top: 380px;
-            margin-top: 20rem;
-            page-break-after: always;
-            page-break-inside: always;
-        }
-
-        #AlertMessage {
-            display: none;
-        }
+    #AlertMessage {
+        display: none;
     }
 
     .right {
@@ -106,6 +83,12 @@
         border: 0px;
     }
 
+    .macro {
+        min-height: 100px;
+        height: 25px;
+        max-height: 200px;
+    }
+
     .firma {
         line-height: 25px;
         font-size: 22px;
@@ -129,6 +112,66 @@
         letter-spacing: -1px;
     }
 </style>
+<table>
+    <thead>
+        <tr>
+            <td>
+                <div class="header-space">&nbsp;</div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="content content-block header-space">
+                    <b>
+                        <p >DESCRIPCIÓN MACROSCÓPICA</p>
+                    </b>
+                    <pre class="macro">{{informe.macro}}</pre>
+                    <div>
+                        <b>
+                            <p>DESCRIPCIÓN MICROSCÓPICA</p>
+                        </b>
+                        {{#each camposMicro}}
+                            <p>
+                                {{this}}
+                            </p>
+                        {{/each}}
+                    </div>
+                    <div>
+                        <b>
+                            <p>DIAGNOSTICO:</p>
+                        </b>
+                        <pre>{{informe.diagnostico}}</pre>
+                    </div>
+                    <div>
+                        {{#if observacion}}
+                                <b>
+                                    <p>OBSERVACIONES:</p>
+                                </b>
+                                <pre>{{informe.observaciones}}</pre>
+                        {{/if}}
+                    </div>
+                    <div>
+                        {{#if inmuno}}
+                                <b>
+                                    <p>INMUNOHISTOQUÍMICA:</p>
+                                </b>
+                                <pre>{{informe.inmuno}}</pre>
+                        {{/if}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <div class="footer-space">&nbsp;</div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
 
 <div class="header">
     <img height="130" src="/img/logoPrint.png" alt="Logo">&nbsp;
@@ -202,36 +245,7 @@
     </table>
 </div>
 
-<div class="content-block header-space">
-                    <b>
-                        <p >DESCRIPCIÓN MACROSCÓPICA</p>
-                    </b>
-                    <pre>{{informe.macro}}</pre>
-                    <b>
-                        <p>DESCRIPCIÓN MICROSCÓPICA</p>
-                    </b>
-                    {{#each camposMicro}}
-                        <p>
-                            {{this}}
-                        </p>
-                    {{/each}}
-                    <b>
-                        <p>DIAGNOSTICO:</p>
-                    </b>
-                    <pre>{{informe.diagnostico}}</pre>
-            {{#if observacion}}
-                    <b>
-                        <p>OBSERVACIONES:</p>
-                    </b>
-                    <pre>{{informe.observaciones}}</pre>
-            {{/if}}
-            {{#if inmuno}}
-                    <b>
-                        <p>INMUNOHISTOQUÍMICA:</p>
-                    </b>
-                    <pre>{{informe.inmuno}}</pre>
-            {{/if}}
-</div>
+
 
 
 <div class="footer">
