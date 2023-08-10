@@ -75,18 +75,23 @@
     }
 
     pre {
-        width: 960px;
         font-family: "worksans";
         font-size: 22px;
         text-align: justify;
         text-justify: inter-word;
         border: 0px;
+        line-height: 22px;
+        width:1000px;
+        letter-spacing: -1px;
     }
 
     .macro {
         min-height: 100px;
-        height: 25px;
-        max-height: 200px;
+    }
+
+    .micro {
+        margin-bottom: 7px !important;
+        line-height: 22px;
     }
 
     .firma {
@@ -133,7 +138,7 @@
                             <p>DESCRIPCIÓN MICROSCÓPICA</p>
                         </b>
                         {{#each camposMicro}}
-                            <p>
+                            <p class="micro">
                                 {{this}}
                             </p>
                         {{/each}}
