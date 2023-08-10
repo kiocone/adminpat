@@ -66,17 +66,37 @@
         font-size: 16px;
     }
 
-    p {
-        font-size: 22px;
-    }
+    @media print {
+        p {
+            font-size: 22px;
+        }
 
-    .footer {
-        font-size: 9px;
+        pre {
+            font-family: "worksans";
+            font-size: 22px;
+            text-align: justify;
+            text-justify: inter-word;
+            border: 0px;
+            line-height: 22px;
+            width:1000px;
+            letter-spacing: -1px;
+        }
+
+        .footer {
+            font-size: 9px;
+        }
+
+        .firma {
+            line-height: 25px;
+            font-size: 22px !important;
+            text-align: center;
+            color: black;
+        }
+
     }
 
     pre {
         font-family: "worksans";
-        font-size: 22px;
         text-align: justify;
         text-justify: inter-word;
         border: 0px;
@@ -96,9 +116,9 @@
 
     .firma {
         line-height: 25px;
-        font-size: 22px;
         text-align: center;
         color: black;
+        font-size: 15px;
     }
 
     .tabla-firma {
@@ -115,6 +135,11 @@
 
     .textjusto-1 {
         letter-spacing: -1px;
+    }
+
+    .header-separator {
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
     }
 </style>
 <table>
@@ -236,8 +261,8 @@
         <!--Linea Horizontal-->
         <tr>
             <td colspan="4"
-                style="border: 2px solid rgba(0, 0, 0, .7)">
-                <hr style="margin-bottom: 0rem !important; margin-top: 10px !important;">
+                class="header-separator">
+                <hr style="margin-bottom: 0rem !important; margin-top: 3px !important;">
             </td>
         </tr>
         <tr>
