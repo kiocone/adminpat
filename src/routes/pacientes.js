@@ -35,7 +35,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
       description,
       user_id: req.user.id
   };
-  console.log(newPaciente);
   await pool.query('INSERT INTO paciente set ?', [newPaciente]);
   req.flash('success', 'Paciente Guardado!');
   res.redirect('/pacientes');

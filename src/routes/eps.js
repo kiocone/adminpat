@@ -17,7 +17,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
         telefono,
         email
     };
-    console.log(newEps);
     await pool.query('INSERT INTO eps set ?', [newEps]);
     req.flash('success', 'EPS Guardada!');
     res.redirect('/eps');
@@ -25,7 +24,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
 
 router.get('/', isLoggedIn, async (req , res) => {
     const epss = await pool.query('SELECT * FROM eps');
-    console.log(epss);
     res.render('eps/list', { epss });
 });
 
@@ -52,7 +50,6 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         telefono, 
         email
     };
-    console.log(editEps);
     await pool.query('UPDATE eps set ? WHERE id = ?', [editEps, id]);
     req.flash('success', 'EPS actualizada!');
     res.redirect('/eps');

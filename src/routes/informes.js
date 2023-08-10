@@ -136,11 +136,9 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'cups: Vacio');
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         var valor = valorcups[0].valor;
-        console.log(cups, valor, "lleno");
     }
 
     nuevoInforme = {
@@ -166,7 +164,6 @@ router.post('/nuevo/:t_informe:id', isLoggedIn, async (req, res) => {
         inmuno,
         observaciones
     };
-    console.log(nuevoInforme);
     await pool.query('INSERT INTO informe set ?', [nuevoInforme]);
 
     switch (t_informe) {
@@ -246,11 +243,9 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
         t_informe,
         ultInf
     } = req.body;
-    console.log('tipo_cito->', tipo_cito)
     if (cups == "cups") {
         var cups = "";
         var valor = "";
-        console.log(cups, 'Vacio');
     } else {
         const valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         var valor = valorcups[0].valor;
@@ -338,7 +333,6 @@ router.post('/nuevoc/:t_informe:id', isLoggedIn, async (req, res) => {
 router.get('/saveImprimir/:p:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const { p } = req.params;
-    console.log(p, 'Se envia imprimir desde editar');
     res.redirect('/informes/imprimir/' + id)
 })
 
@@ -376,12 +370,6 @@ router.get('/imprimirC/:id', isLoggedIn, async (req, res) => {
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc);
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo);
 
-    if (res_informe[0].observaciones) {
-        console.log('Observacion de informe');
-    } else {
-        console.log('Observacion de informe Vacio');
-    }
-
     let edad = 0;
     if (!isNaN(Number(res_informe[0].edad))){
         edad = Number(res_informe[0].edad)
@@ -399,8 +387,6 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
     await pool.query('DELETE FROM entidad WHERE ID = ?', [id]);
     req.flash('success', 'Patologo removida!');
     res.redirect('/patologos'); */
-    var var01 = "10"
-    console.log("10" - 1)
     res.redirect('/panel')
 });
 
@@ -544,11 +530,9 @@ router.post('/editC/:id', isLoggedIn, async (req, res) => {
         var valorcups = await pool.query('select valor from cups where cups.cups = ?', cups);
         try {
             valor = valorcups[0].valor;
-            console.log(editInformeC.cups, valor, "lleno");
         } catch (error) {
             console.error(error);
             valor = "";
-            console.log('Valor: 0');
         }
     }
     editInformeC = {
@@ -624,7 +608,6 @@ router.post('/consecutivo', isLoggedIn, async (req, res) => {
         ultL,
         ultC
     };
-    console.log(updateConsecutivo);
     await pool.query('UPDATE secuenciainforme set ? WHERE id = 1', updateConsecutivo);
     res.redirect('/panel');
 })
@@ -644,7 +627,6 @@ router.post('/buscar', isLoggedIn, async (req, res) => {
             //console.log(i, informes[i].t_informe);
         }
         i = i + 1;
-        console.log(informes[i])
     });
     res.render('informes/ult_informes', { informes, encontrar });//Render reports results
 })
