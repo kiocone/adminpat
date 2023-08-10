@@ -348,8 +348,14 @@ router.get('/imprimir/:id', isLoggedIn, async (req, res) => {
     const res_tipoDoc = await pool.query('SELECT t_docu FROM paciente WHERE num_docu = ?', res_informe[0].numdoc);
     const res_medReg = await pool.query('SELECT reg_med FROM patologo WHERE patologo = ?', res_informe[0].patologo);
     
-    const regex = /\r?\n|\r/;
-    const camposMicro = res_informe[0].micro.split(regex);
+    const regex = /\r?\n|\r/; // Carateres de salto de linea
+    const camposMicro = res_informe[0].micro.split(regex).map((campo) => {
+        if (String(campo).length > 0) {
+            return campo
+        } else {
+            return "\xA0" // caracter de espacio raro
+        }
+    });
     
     res.render('informes/imprimir', { 
             informe: res_informe[0], 
