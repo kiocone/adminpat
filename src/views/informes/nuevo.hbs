@@ -1,114 +1,126 @@
 <div class="container container shadow-lg p-4  mb-5 bg-white rounded">
-    <table class="table" border="0">
-        <tbody>
-            <form action="" method="post">
-                <tr>
-                    <td>Informe:
-                        <input class="form-control" type="text" id="infCod" name="informe_cod" value="" size="8">
-                        <input type="hidden" name="ultInf" value="{{informe.paciente.ultInf}}">
-                        <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
-                        Doc. <input class="form-control" id="numdoc"  name="numdoc" type="text" size="8" value="{{informe.paciente.num_docu}}">
-                    </td>
-                    <td>Patologo:
-                        <select class="custom-select " name="patologo">
-                            <option selected="true" value="0">Patologo</option>
-                            {{#each patologos}}
-                            <option value="{{patologo}}">{{patologo}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                    <td>
-                        Medico remitente <br><input class="form-control" id="medRemitente" name="medRemitente" type="text">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Paciente <input class="form-control" id="paciente" name="paciente" type="text" value="{{informe.paciente.nombre}}"><br>
-                        Telefono <input class="form-control" id="telefono" name="telefono" type="text" size="10" value="{{informe.paciente.telefono}}">
-                    </td>
-                    <td>
-                        Edad:<input class="form-control" id="edad" name="edad" type="text" size="2" id="edad" value="{{informe.paciente.edad}}"><br>
-                        Sexo:<input class="form-control" id="sexo" name="sexo" type="text" size="2" value="{{informe.paciente.sexo}}">
-                    </td>
-                    <td>
-                        Ingreso <input class="form-control" id="fec_ingreso" name="fec_ingreso" type="date" id="fechaIng"><br>
-                        Informe <input class="form-control" name="fec_inf" type="date"  id="fechaInf">
-                    </td> 
-                </tr>
-                <tr>
-                    <td>
-                        <select class="custom-select" name="entidad">
-                            <option selected="true" value="">Entidad</option>
-                            {{#each entidades}}
-                            <option value="{{razon_social}}">{{razon_social}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                    <td>
-                        <select class="custom-select" name="eps">
-                            <option selected="true" value="">EPS</option>
-                            {{#each epss}}
-                            <option value="{{razon_social}}">{{razon_social}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                    <td>
-                        <select class="custom-select" name="cups" id="">
-                            <option value="cups">cups</option>
-                            {{#each cups}}
-                            <option value="{{cups}}">{{cups}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>MACRO</p>
-                        <textarea name="macro" rows="5" cols="100"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>MICRO</p>
-                        <textarea name="micro" rows="5" cols="100"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>DIAGNOSTICO</p>
-                        <textarea name="diagnostico" rows="5" cols="100"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>OBSERVACIONES</p>
-                        <textarea name="observaciones" rows="5" cols="100"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>INMUNOHISTOQUÍMICA</p>
-                        <textarea name="inmuno" rows="5" cols="100"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <button class="btn btn-success mx-auto">
-                            Guardar Informe
-                        </button>
-                    </td>
-                </tr>
-            </form>
-        </tbody>
-    </table>
+  <table class="table" border="0">
+    <tbody>
+      <form action="" method="post">
+        <tr>
+          <td>
+            <label for="infCod" class="mb-0">Informe</label>
+            <input class="form-control mb-2" type="text" id="infCod" name="informe_cod" value="" size="8">
+            <input type="hidden" name="ultInf" value="{{informe.paciente.ultInf}}">
+            <input type="hidden" name="t_informe" value="{{informe.paciente.t_informe}}">
+            <label for="numdoc" class="mb-0">Numero de documento</label>
+            <input class="form-control" id="numdoc" name="numdoc" type="text" size="8"
+              value="{{informe.paciente.num_docu}}">
+          </td>
+          <td>
+            <label for="patologo" class="mb-0">Patólogo</label>
+            <select class="custom-select " name="patologo" id="patologo">
+              <option selected="true" value="0">Patologo</option>
+              {{#each patologos}}
+              <option value="{{patologo}}">{{patologo}}</option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <label for="medRemitente" class="mb-0">Medico remitente</label>
+            <input class="form-control" id="medRemitente" name="medRemitente" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="paciente" class="mb-0">Paciente</label>
+            <input class="form-control mb-2" id="paciente" name="paciente" type="text"
+              value="{{informe.paciente.nombre}}">
+            <label for="telefono" class="mb-0">Telefono</label>
+            <input class="form-control" id="telefono" name="telefono" type="text" size="10"
+              value="{{informe.paciente.telefono}}">
+          </td>
+          <td>
+            <label for="edad" class="mb-0">Edad</label>
+            <input class="form-control mb-2" id="edad" name="edad" type="text" size="2" id="edad"
+              value="{{informe.paciente.edad}}">
+            <label for="sexo" class="mb-0">Sexo</label>
+            <input class="form-control" id="sexo" name="sexo" type="text" size="2"
+              value="{{informe.paciente.sexo}}">
+          </td>
+          <td>
+            <label for="fechaIng" class="mb-0">Ingreso</label>
+            <input class="form-control mb-2" id="fechaIng" name="fec_ingreso" type="date" id="fechaIng">
+            <label for="fechaInf" class="mb-0">Informe</label>
+            <input class="form-control" id="fechaInf" name="fec_inf" type="date">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="custom-select" name="entidad">
+              <option selected="true" value="">Entidad</option>
+              {{#each entidades}}
+              <option value="{{razon_social}}">{{razon_social}}</option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <select class="custom-select" name="eps">
+              <option selected="true" value="">EPS</option>
+              {{#each epss}}
+              <option value="{{razon_social}}">{{razon_social}}</option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <select class="custom-select" name="cups" id="">
+              <option value="cups">cups</option>
+              {{#each cups}}
+              <option value="{{cups}}">{{cups}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="macro" class="mb-0">Descripción MACRO</label>
+            <textarea name="macro" id="macro" rows="5" cols="100"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="micro" class="mb-0">Descripción MICRO</label>
+            <textarea name="micro" id="micro" rows="5" cols="100"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="diag" class="mb-0">DIAGNOSTICO</label>
+            <textarea name="diagnostico" id="diag" rows="5" cols="100"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="obser" class="mb-0">OBSERVACIONES</label>
+            <textarea name="observaciones" id="obser" rows="5" cols="100"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="inmuno" class="mb-0">INMUNOHISTOQUÍMICA</label>
+            <textarea name="inmuno" id="inmuno" rows="5" cols="100"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <button class="btn btn-success mx-auto">
+              Guardar Informe
+            </button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>
 </div>
 <script>
-    var year = new Date().getFullYear().toString().substr(-2);
-    var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
-    var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
-    document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
-
-    document.getElementById('fechaInf').valueAsDate = new Date();
-    document.getElementById('fechaIng').valueAsDate = new Date();
-
+  var year = new Date().getFullYear().toString().substr(-2);
+  var mes = ("0" + (new Date().getMonth() + 1)).slice(-2);
+  var dia = ("0" + (new Date().getDay() + 1)).slice(-2);
+  document.getElementById("infCod").value = "{{informe.paciente.t_informe}}" + year + mes + "-{{informe.paciente.ultInf}}";
+  document.getElementById('fechaIng').valueAsDate = new Date();
 </script>

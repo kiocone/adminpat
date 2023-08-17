@@ -1,122 +1,127 @@
 <div class="container shadow-lg p-4  mb-5 bg-white rounded">
-    <table class="table table-sm" >
-        <tbody>
-            <form action="/informes/edit/{{informe.id}}" method="POST">
-                <tr>
-                    <td>
-                        <label for="informe_cod">Informe</label>
-                        <input class="form-control mb-2" id="informe_cod" type="text" name="informe_cod" size="8" value="{{informe.informe_cod}}">
-                        <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
-                        <label for="numdoc">Documento</label>
-                        <input class="form-control" id="numdoc" name="numdoc" type="text" size="8" value="{{informe.numdoc}}">
-                    </td>
-                    <td>
-                        <div class="">
-                            <label for="patologo">Patólogo</label>
-                            <select name="patologo" id="patologo" class="custom-select">
-                                <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
-                                {{#each patologos}}
-                                <option value="{{patologo}}">{{patologo}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <label for="medRemitente">Medico remitente</label>
-                        <input class="form-control" id="medRemitente" name="medRemitente" type="text" value="{{informe.medRemitente}}">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="paciente">Paciente</label>
-                        <input class="form-control" id="paciente" name="paciente" type="text" value="{{informe.paciente}}"><br>
-                        <label for="telefono">Telefono</label>
-                        <input class="form-control" id="telefono" name="telefono" type="text" size="10" value="{{informe.telefono}}" size="15">
-                    </td>
-                    <td>
-                        <label for="edad">Edad</label>
-                        <input class="form-control" id="edad" name="edad" type="text" id="edad" size="2" value="{{informe.edad}}"><br>
-                        <label for="sexo">Sexo</label>
-                        <input class="form-control" id="sexo" name="sexo" type="text" size="2" value="{{informe.sexo}}">
-                    </td>
-                    <td>
-                        <label for="fechaIng">Ingreso</label>
-                        <input class="form-control" id="fechaIng" name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}" min="1920-01-01" max="2040-12-31"><br>
-                        Informe
-                        <label for="fechaInf">Informe</label>
-                        <input class="form-control" id="fechaInf" name="fec_inf" type="date" value="{{informe.fec_inf}}" min="1970-01-01" max="2040-12-31">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="entidad" class="custom-select">
-                            <option selected="true" value="{{informe.entidad}}">{{informe.entidad}}</option>
-                            {{#each entidades}}
-                            <option value="{{razon_social}}">{{razon_social}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                    <td>
-                        <select name="eps" class="custom-select">
-                            <option selected="true" value="{{informe.eps}}">{{informe.eps}}</option>
-                            {{#each epss}}
-                            <option value="{{razon_social}}">{{razon_social}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                    <td>
-                        <select name="cups" class="custom-select">
-                            <option value="{{informe.cups}}">{{informe.cups}}</option>
-                            {{#each cups}}
-                            <option value="{{cups}}">{{cups}}</option>
-                            {{/each}}
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>MACRO</p>
-                        <textarea name="macro" rows="5" cols="100">{{informe.macro}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>MICRO</p>
-                        <textarea name="micro" rows="5" cols="100">{{informe.micro}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>DIAGNOSTICO</p>
-                        <textarea name="diagnostico" rows="5" cols="100">{{informe.diagnostico}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>OBSERVACIONES</p>
-                        <textarea name="observaciones" rows="5" cols="100">{{informe.observaciones}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row" colspan="3">
-                        <p>INMUNOHISTOQUÍMICA</p>
-                        <textarea name="inmuno" rows="5" cols="100">{{informe.inmuno}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <a href="/informes/lista/{{informe.t_informe}}" class="btn btn-secondary">
-                            <i class="fas fa-long-arrow-alt-left"></i>
-                        </a>
-                        <button class="btn btn-success mx-auto">
-                            <i class="far fa-save"></i>
-                        </button>
-                        <a href="/informes/imprimir/{{informe.id}}" class="btn btn-secondary">
-                            <i class="fas fa-print"></i>
-                        </a>
-                    </td>
-                </tr>
-            </form>
-        </tbody>
-    </table>
+  <table class="table table-sm">
+    <tbody>
+      <form action="/informes/edit/{{informe.id}}" method="POST">
+        <tr>
+          <td>
+            <label for="informe_cod">Informe</label>
+            <input class="form-control mb-2" id="informe_cod" type="text" name="informe_cod" size="8"
+              value="{{informe.informe_cod}}">
+            <input type="hidden" name="t_informe" value="{{informe.t_informe}}">
+            <label for="numdoc">Numero de documento</label>
+            <input class="form-control" id="numdoc" name="numdoc" type="text" size="8" value="{{informe.numdoc}}">
+          </td>
+          <td>
+            <div class="">
+              <label for="patologo">Patólogo</label>
+              <select name="patologo" id="patologo" class="custom-select">
+                <option selected="true" value="{{informe.patologo}}">{{informe.patologo}}</option>
+                {{#each patologos}}
+                <option value="{{patologo}}">{{patologo}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </td>
+          <td>
+            <label for="medRemitente">Medico remitente</label>
+            <input class="form-control" id="medRemitente" name="medRemitente" type="text"
+              value="{{informe.medRemitente}}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="paciente" class="mb-0">Paciente</label>
+            <input class="form-control mb-2" id="paciente" name="paciente" type="text" value="{{informe.paciente}}">
+            <label for="telefono" class="mb-0">Telefono</label>
+            <input class="form-control" id="telefono" name="telefono" type="text" size="10" value="{{informe.telefono}}"
+              size="15">
+          </td>
+          <td>
+            <label for="edad" class="mb-0">Edad</label>
+            <input class="form-control mb-2" id="edad" name="edad" type="text" id="edad" size="2"
+              value="{{informe.edad}}">
+            <label for="sexo" class="mb-0">Sexo</label>
+            <input class="form-control" id="sexo" name="sexo" type="text" size="2" value="{{informe.sexo}}">
+          </td>
+          <td>
+            <label for="fechaIng" class="mb-0">Ingreso</label>
+            <input class="form-control" id="fechaIng" name="fec_ingreso" type="date" value="{{informe.fec_ingreso}}"
+              min="1920-01-01" max="2040-12-31">
+            <label for="fechaInf" class="mb-0">Informe</label>
+            <input class="form-control" id="fechaInf" name="fec_inf" type="date" value="{{informe.fec_inf}}"
+              min="1970-01-01" max="2040-12-31">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select name="entidad" class="custom-select">
+              <option selected="true" value="{{informe.entidad}}">{{informe.entidad}}</option>
+              {{#each entidades}}
+              <option value="{{razon_social}}">{{razon_social}}</option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <select name="eps" class="custom-select">
+              <option selected="true" value="{{informe.eps}}">{{informe.eps}}</option>
+              {{#each epss}}
+              <option value="{{razon_social}}">{{razon_social}}</option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <select name="cups" class="custom-select">
+              <option value="{{informe.cups}}">{{informe.cups}}</option>
+              {{#each cups}}
+              <option value="{{cups}}">{{cups}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="macro" class="mb-0">Descripción MACRO</label>
+            <textarea name="macro" id="macro" rows="5" cols="100">{{informe.macro}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="micro" class="mb-0">Descripción MICRO</label>
+            <textarea name="micro" id="micro" rows="5" cols="100">{{informe.micro}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="diag" class="mb-0">DIAGNOSTICO</label>
+            <textarea name="diagnostico" id="diag" rows="5" cols="100">{{informe.diagnostico}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="obser" class="mb-0">OBSERVACIONES</label>
+            <textarea name="observaciones" id="obser" rows="5" cols="100">{{informe.observaciones}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <label for="inmuno" class="mb-0">INMUNOHISTOQUÍMICA</label>
+            <textarea name="inmuno" id="inmuno" rows="5" cols="100">{{informe.inmuno}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <a href="/informes/lista/{{informe.t_informe}}" class="btn btn-secondary">
+              <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+            <button class="btn btn-success mx-auto">
+              <i class="far fa-save"></i>
+            </button>
+            <a href="/informes/imprimir/{{informe.id}}" class="btn btn-secondary">
+              <i class="fas fa-print"></i>
+            </a>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>
 </div>
