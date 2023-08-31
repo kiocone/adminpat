@@ -32,7 +32,7 @@ router.get('/consulta/', isLoggedIn, async (req, res) => {
         }
         i = i+1;        
     });
-    res.render('liquidacion/consulta', { vista_liquidacion, entidad });
+    res.render('liquidacion/consulta', { vista_liquidacion, entidad, periodo:  fechaInicio.slice(0,7)});
 });
 
 module.exports = router;

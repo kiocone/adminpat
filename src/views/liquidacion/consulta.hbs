@@ -6,14 +6,15 @@
             <hr>
             <div class="form-group">
                 <table class="tab-auto table-striped" id="tblData">
-                    <tr>
+                    <thead>
                         <th>Fecha</th>
                         <th>ID</th>
                         <th>Paciente</th>
                         <th>Convenio</th>
                         <th>CUPS</th>
                         <th>Valor</th>
-                    </tr>
+                    </thead>
+                    <tbody>
                     {{#each vista_liquidacion}}
                         <tr>
                             <td>{{fec_ingreso}}</td>
@@ -24,6 +25,7 @@
                             <td>{{valor}}</td>
                         </tr>
                     {{/each}}
+                    </tbody>
                 </table>
             </div>
             <div class="form-group text-center">
@@ -42,7 +44,7 @@
         var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
         // Specify file name
-        filename = filename ? filename + '.xls' : 'liquidacion.xlsx';
+        filename = filename ? filename + '.xls' : `liquidacion {{entidad}} - {{periodo}}.xls`;
 
         // Create download link element
         downloadLink = document.createElement("a");
