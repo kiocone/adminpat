@@ -2,7 +2,7 @@
 
  set dbUser=root
  set dbPassword=121601001
- set backupDir="C:\adminpat\database\"
+ set backupDir="C:\adminpat\db_backup"
  set mysqldump="C:\Program Files\MariaDB 10.5\bin\mysqldump.exe"
  set mysqlDataDir="C:\Program Files\MariaDB 10.5\data"
  set zip="C:\Program Files\7-Zip\7z.exe"
@@ -15,8 +15,11 @@
  )
 
  :: get time
- for /F "tokens=5-8 delims=:. " %%i in ('echo.^| time ^| find "current" ') do (
+ for /F "tokens=5-8 delims=:. " %%i in ('echo.^| time ^| find "actual" ') do (
       set hh=%%i
+      if %%i LSS 10 (
+          set hh=0%%i
+      )
       set min=%%j
  )
 
@@ -38,5 +41,8 @@
  %zip% a -tgzip %backupDir%\%dirName%\%%f.sql.gz %backupDir%\%dirName%\%%f.sql
 
  del %backupDir%\%dirName%\%%f.sql
+ @echo on
+ echo DB %%f Respaldada correctamente.
+ @echo off
  )
  popd
