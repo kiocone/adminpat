@@ -30,19 +30,21 @@
  pushd %mysqlDataDir%
 
  :: iterate over the folder structure in the "data" folder to get the databases
- for /d %%f in (*) do (
 
  if not exist %backupDir%\%dirName%\ (
       mkdir %backupDir%\%dirName%
  )
 
- %mysqldump% --host="localhost" --user=%dbUser% --password=%dbPassword% --single-transaction --add-drop-table --databases %%f > %backupDir%\%dirName%\%%f.sql
+ %mysqldump% --host="localhost" --user=%dbUser% --password=%dbPassword% --single-transaction --add-drop-table --databases adminpatdb > %backupDir%\%dirName%\adminpatdb.sql
 
- %zip% a -tgzip %backupDir%\%dirName%\%%f.sql.gz %backupDir%\%dirName%\%%f.sql
+ %zip% a -tgzip %backupDir%\%dirName%\adminpatdb.sql.gz %backupDir%\%dirName%\adminpatdb.sql
 
- del %backupDir%\%dirName%\%%f.sql
+ del %backupDir%\%dirName%\adminpatdb.sql
+
+ :: switch back to the "backup" folder
+ cd %backupDir%
+
  @echo on
- echo DB %%f Respaldada correctamente.
+ echo DB adminpatdb Respaldada correctamente.
  @echo off
- )
  popd
